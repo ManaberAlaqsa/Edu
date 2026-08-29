@@ -197,6 +197,7 @@
   }
   .sub-image-file:hover{ background:var(--surface-alt); border-color:var(--blue); }
   .sub-image-file .file-ic{ font-size:17px; }
+  .sub-image-thumb{ width:32px; height:32px; border-radius:6px; object-fit:cover; flex-shrink:0; }
 
   /* ===== الإعلانات (لوحة المعلم) ===== */
   .ann-block{ background:var(--surface-alt); border-radius:14px; padding:16px 18px; border:1px solid var(--border); margin-bottom:14px; border-right:4px solid var(--gold); }
@@ -671,6 +672,13 @@
     return [];
   }
 
+  // إضافة تحويل Cloudinary على الرابط (لتصغير الصورة أو تحسين جودتها تلقائياً، لتقليل استهلاك bandwidth)
+  // لا يؤثر على روابط base64 القديمة أو أي رابط غير Cloudinary — تُرجع كما هي
+  function cloudinaryUrl(url, transform){
+    if(!url || typeof url !== 'string' || !url.includes('/upload/')) return url;
+    return url.replace('/upload/', `/upload/${transform}/`);
+  }
+
   function escapeHtml(str){
     const d = document.createElement('div');
     d.textContent = str || '';
@@ -1005,7 +1013,7 @@
                 <div class="submission-link">
                   ${studentTag} — 🖼️ ${imgs.length} صورة إجابة
                   <div class="sub-image-preview">
-                    ${imgs.map((src,i) => `<a class="sub-image-file" href="${src}" target="_blank" rel="noopener" download="صورة-إجابة-${i+1}.jpg"><span class="file-ic">📄</span> صورة ${i+1}</a>`).join('')}
+                    ${imgs.map((src,i) => `<a class="sub-image-file" href="${cloudinaryUrl(src,'f_auto,q_auto')}" target="_blank" rel="noopener" download="صورة-إجابة-${i+1}.jpg"><img class="sub-image-thumb" src="${cloudinaryUrl(src,'w_60,h_60,c_fill,f_auto,q_auto')}" alt="معاينة صورة ${i+1}" loading="lazy"> صورة ${i+1}</a>`).join('')}
                   </div>
                 </div>`;
               }

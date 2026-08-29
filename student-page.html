@@ -824,6 +824,13 @@
     });
   }
 
+  // إضافة تحويل Cloudinary على الرابط (لتصغير الصورة أو تحسين جودتها تلقائياً، لتقليل استهلاك bandwidth)
+  // لا يؤثر على روابط base64 القديمة أو أي رابط غير Cloudinary — تُرجع كما هي
+  function cloudinaryUrl(url, transform){
+    if(!url || typeof url !== 'string' || !url.includes('/upload/')) return url;
+    return url.replace('/upload/', `/upload/${transform}/`);
+  }
+
   // ==== رفع الصور إلى Cloudinary بدل تخزينها كنص base64 داخل Firestore ====
   const CLOUDINARY_CLOUD_NAME = 'twjah7d6';
   const CLOUDINARY_UPLOAD_PRESET = 'tkckaegm';
@@ -1595,7 +1602,7 @@
     const submittedPreview = !hasSubmission ? '' : (subType === 'text'
       ? `<div class="submitted-badge">✅ تم الإرسال (نص)<div class="sub-text-preview">${escapeHtml(mySubmission.submissionText)}</div></div>`
       : subType === 'image'
-      ? `<div class="submitted-badge">✅ تم الإرسال (${existingImages.length} صورة)<div class="sub-image-preview">${existingImages.map((src,i)=>`<img src="${src}" alt="صورة إجابة الطالب ${i+1}" class="submitted-image-thumb" onclick="window.open(this.src,'_blank')">`).join('')}</div></div>`
+      ? `<div class="submitted-badge">✅ تم الإرسال (${existingImages.length} صورة)<div class="sub-image-preview">${existingImages.map((src,i)=>`<img src="${cloudinaryUrl(src,'w_150,h_150,c_fill,f_auto,q_auto')}" alt="صورة إجابة الطالب ${i+1}" class="submitted-image-thumb" onclick="window.open('${cloudinaryUrl(src,'f_auto,q_auto')}','_blank')">`).join('')}</div></div>`
       : `<div class="submitted-badge">✅ تم الإرسال — <a href="${escapeHtml(mySubmission.submissionLink)}" target="_blank" rel="noopener">${escapeHtml(mySubmission.submissionLink)}</a></div>`);
 
     const btnLabel = hasSubmission ? 'تحديث' : 'إرسال';
@@ -1667,7 +1674,7 @@
       if(!imgPreviewBox) return;
       imgPreviewBox.innerHTML = compressedImagesData.map((src,i) => `
         <div class="img-preview-item" data-idx="${i}">
-          <img class="img-preview-thumb" src="${src}" alt="معاينة الصورة ${i+1}" onclick="window.open(this.src,'_blank')">
+          <img class="img-preview-thumb" src="${cloudinaryUrl(src,'w_150,h_150,c_fill,f_auto,q_auto')}" alt="معاينة الصورة ${i+1}" onclick="window.open(this.src,'_blank')">
           <button type="button" class="img-remove-btn" data-idx="${i}" title="إزالة الصورة">×</button>
         </div>`).join('');
       imgPreviewBox.querySelectorAll('.img-remove-btn').forEach(rb => {
