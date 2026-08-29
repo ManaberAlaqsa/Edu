@@ -50,7 +50,7 @@
   html[data-theme="dark"] body{ transition:background .3s ease, color .3s ease; }
   *{margin:0;padding:0;box-sizing:border-box;}
   input,button,textarea,select{ font-family:inherit; font-weight:inherit; }
-  html,body{ min-height:100%; font-family:'Cairo','Segoe UI',sans-serif; font-weight:600; background:var(--paper); color:var(--ink); }
+  html,body{ min-height:100%; font-family:'Cairo','Segoe UI',sans-serif; font-weight:700; background:var(--paper); color:var(--ink); }
   body{
     background:
       radial-gradient(circle at 10% 0%, rgba(201,151,63,0.08), transparent 40%),
@@ -60,7 +60,7 @@
   }
   .topbar{ background:var(--navy-deep); color:#fff; padding:18px 26px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 4px 20px -8px rgba(15,23,42,0.35); }
   .topbar .brand{ font-size:16px; font-weight:800; display:flex; align-items:center; gap:8px; }
-  .logout-btn{ background:rgba(255,255,255,0.14); border:none; color:#fff; font-size:13.5px; font-weight:700; padding:10px 18px; border-radius:12px; cursor:pointer; transition:background .2s; }
+  .logout-btn{ background:rgba(255,255,255,0.14); border:none; color:#fff; font-size:16px; font-weight:700; padding:10px 18px; border-radius:12px; cursor:pointer; transition:background .2s; }
   .logout-btn:hover{ background:rgba(255,255,255,0.22); }
   .wrap{ max-width:820px; margin:0 auto; padding:0 20px; }
   .page-title{ margin:30px 0 6px; font-size:23px; font-weight:800; color:var(--heading); }
@@ -78,16 +78,16 @@
     gap:12px;
   }
   .admin-notice .an-icon{ font-size:20px; flex-shrink:0; }
-  .admin-notice .an-body .an-title{ font-size:12.5px; font-weight:700; color:#a06a10; margin-bottom:4px; }
-  .admin-notice .an-body .an-text{ font-size:13.5px; color:var(--ink); line-height:1.8; white-space:pre-wrap; }
-  .grade-pill{ padding:9px 18px; border-radius:20px; border:1.5px solid var(--gold-soft); background:var(--surface); font-size:13px; color:var(--blue); cursor:pointer; transition:all .2s; font-weight:600; }
+  .admin-notice .an-body .an-title{ font-size:15px; font-weight:700; color:#a06a10; margin-bottom:4px; }
+  .admin-notice .an-body .an-text{ font-size:16px; color:var(--ink); line-height:1.8; white-space:pre-wrap; }
+  .grade-pill{ padding:9px 18px; border-radius:20px; border:1.5px solid var(--gold-soft); background:var(--surface); font-size:15.5px; color:var(--blue); cursor:pointer; transition:all .2s; font-weight:700; }
   .grade-pill.active{ background:var(--navy-deep); color:var(--paper); border-color:var(--navy-deep); }
   .grade-pill:hover:not(.active){ border-color:var(--blue); }
   .card{ background:var(--surface); border-radius:20px; padding:26px; box-shadow:0 14px 32px -16px rgba(15,23,42,0.18); margin-bottom:24px; border:1px solid var(--border); }
   .card h2{ font-size:17px; font-weight:800; color:var(--blue); margin-bottom:18px; display:flex; align-items:center; gap:8px; }
   .card h2::before{ content:''; width:4px; height:15px; background:var(--gold); border-radius:3px; }
   .field{ margin-bottom:14px; }
-  .field label{ display:block; font-size:12.5px; font-weight:600; color:var(--blue); margin-bottom:6px; }
+  .field label{ display:block; font-size:15px; font-weight:700; color:var(--blue); margin-bottom:6px; }
   .field input, .field textarea{
     width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--border-soft);
     background:var(--surface-alt); font-size:14.5px; outline:none; font-family:inherit; resize:vertical;
@@ -97,7 +97,7 @@
   .add-btn{ padding:12px 22px; border:none; border-radius:11px; background:var(--navy-deep); color:var(--paper); font-size:14px; font-weight:700; cursor:pointer; transition:background .2s; }
   .add-btn:hover{ background:var(--blue); }
   .add-btn:disabled{ background:var(--muted); cursor:not-allowed; }
-  .msg{ font-size:13px; font-weight:600; margin-top:10px; min-height:16px; opacity:0; transition:opacity .2s; }
+  .msg{ font-size:15.5px; font-weight:700; margin-top:10px; min-height:16px; opacity:0; transition:opacity .2s; }
   .msg.show{ opacity:1; }
   .msg.error{ color:var(--error); }
   .msg.success{ color:var(--success); }
@@ -105,19 +105,19 @@
   /* ===== مجموعة اختيار المواد (متعدد) ===== */
   .checkbox-group{ display:flex; flex-wrap:wrap; gap:8px; padding:12px 14px; border-radius:10px; border:1.5px solid var(--border-soft); background:var(--surface-alt); }
   .checkbox-group.invalid{ border-color:var(--error); }
-  .checkbox-pill{ display:flex; align-items:center; gap:6px; padding:8px 14px; border-radius:20px; border:1.5px solid var(--border-soft); background:var(--surface); font-size:12.5px; font-weight:600; color:var(--ink); cursor:pointer; user-select:none; transition:all .15s; }
+  .checkbox-pill{ display:flex; align-items:center; gap:6px; padding:8px 14px; border-radius:20px; border:1.5px solid var(--border-soft); background:var(--surface); font-size:15px; font-weight:700; color:var(--ink); cursor:pointer; user-select:none; transition:all .15s; }
   .checkbox-pill input{ display:none; }
   .checkbox-pill:hover{ border-color:var(--blue); }
   .checkbox-pill.checked{ background:var(--navy-deep); border-color:var(--navy-deep); color:#fff; }
-  .checkbox-group-empty{ font-size:12.5px; color:#b0a98e; }
+  .checkbox-group-empty{ font-size:15px; color:#b0a98e; }
 
   /* ===== Subject blocks ===== */
   .subject-list{ display:flex; flex-direction:column; gap:16px; }
   .subject-block{ background:var(--surface-alt); border-radius:14px; padding:18px; border:1px solid var(--border); }
   .subject-block-head{ display:flex; align-items:flex-start; justify-content:space-between; margin-bottom:12px; }
   .subject-block-head .name{ font-size:15px; font-weight:700; color:var(--heading); }
-  .subject-block-head .desc{ font-size:12px; color:var(--muted); margin-top:3px; line-height:1.5; }
-  .delete-subject-btn{ background:none; border:1.5px solid var(--error); color:var(--error); font-size:12px; padding:6px 12px; border-radius:8px; cursor:pointer; flex-shrink:0; transition:background .2s; }
+  .subject-block-head .desc{ font-size:14.5px; color:var(--muted); margin-top:3px; line-height:1.5; }
+  .delete-subject-btn{ background:none; border:1.5px solid var(--error); color:var(--error); font-size:14.5px; padding:6px 12px; border-radius:8px; cursor:pointer; flex-shrink:0; transition:background .2s; }
   .delete-subject-btn:hover{ background:rgba(168,69,58,0.08); }
 
   /* ===== روابط موجودة ===== */
@@ -127,18 +127,18 @@
     padding:12px 14px; display:flex; align-items:flex-start; justify-content:space-between; gap:10px;
   }
   .link-card-body{ flex:1; min-width:0; }
-  .link-card-title{ font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:3px; }
-  .link-card-desc{ font-size:12.5px; color:#6b6450; line-height:1.6; margin-bottom:6px; }
-  .link-card-url a{ font-size:12.5px; color:var(--blue); font-weight:600; text-decoration:none; word-break:break-all; }
+  .link-card-title{ font-size:16px; font-weight:700; color:var(--heading); margin-bottom:3px; }
+  .link-card-desc{ font-size:15px; color:#6b6450; line-height:1.6; margin-bottom:6px; }
+  .link-card-url a{ font-size:15px; color:var(--blue); font-weight:700; text-decoration:none; word-break:break-all; }
   .link-card-url a:hover{ text-decoration:underline; }
   .link-icon{ font-size:18px; margin-left:4px; flex-shrink:0; margin-top:1px; }
-  .remove-link-btn{ background:none; border:none; color:var(--error); cursor:pointer; font-size:13px; padding:2px 6px; flex-shrink:0; }
+  .remove-link-btn{ background:none; border:none; color:var(--error); cursor:pointer; font-size:15.5px; padding:2px 6px; flex-shrink:0; }
   .link-stats{ display:flex; gap:10px; margin-top:8px; flex-wrap:wrap; align-items:center; }
-  .link-stat-badge{ font-size:11.5px; font-weight:700; padding:4px 10px; border-radius:14px; background:var(--surface-alt); border:1px solid var(--border); color:var(--blue); }
-  .link-students-toggle{ font-size:11.5px; font-weight:700; color:var(--blue-soft); background:none; border:none; cursor:pointer; text-decoration:underline dashed; padding:0; }
+  .link-stat-badge{ font-size:14.5px; font-weight:700; padding:4px 10px; border-radius:14px; background:var(--surface-alt); border:1px solid var(--border); color:var(--blue); }
+  .link-students-toggle{ font-size:14.5px; font-weight:700; color:var(--blue-soft); background:none; border:none; cursor:pointer; text-decoration:underline dashed; padding:0; }
   .link-students-list{ margin-top:8px; display:none; flex-direction:column; gap:5px; background:var(--surface-alt); border:1px solid var(--border); border-radius:10px; padding:10px 12px; }
   .link-students-list.show{ display:flex; }
-  .link-student-row{ display:flex; align-items:center; justify-content:space-between; font-size:12px; }
+  .link-student-row{ display:flex; align-items:center; justify-content:space-between; font-size:14.5px; }
   .link-student-row .lname{ color:var(--ink); }
   .link-student-row .lstatus{ font-weight:700; }
   .link-student-row .lstatus.done{ color:#3f7a52; }
@@ -149,55 +149,65 @@
     background:rgba(201,151,63,0.05); border:1.5px dashed var(--gold-soft);
     border-radius:12px; padding:14px; margin-top:4px;
   }
-  .add-link-panel .panel-title{ font-size:12.5px; font-weight:700; color:var(--blue-soft); margin-bottom:10px; }
+  .add-link-panel .panel-title{ font-size:15px; font-weight:700; color:var(--blue-soft); margin-bottom:10px; }
   .add-link-panel .field-wrap{ margin-bottom:8px; }
-  .add-link-panel .field-wrap label{ display:block; font-size:11.5px; font-weight:700; color:var(--blue-soft); margin-bottom:4px; }
+  .add-link-panel .field-wrap label{ display:block; font-size:14.5px; font-weight:700; color:var(--blue-soft); margin-bottom:4px; }
   .add-link-panel .field-wrap input,
   .add-link-panel .field-wrap textarea{
     width:100%; padding:10px 12px; border-radius:9px; border:1.5px solid var(--border-soft);
-    background:var(--surface); font-size:13.5px; font-family:inherit; outline:none; resize:none;
+    background:var(--surface); font-size:16px; font-family:inherit; outline:none; resize:none;
   }
   .add-link-panel .field-wrap input:focus,
   .add-link-panel .field-wrap textarea:focus{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,99,235,0.08); }
   .add-link-panel .addlink-btn{
     padding:9px 20px; border:none; border-radius:9px; background:var(--blue);
-    color:#fff; font-size:13px; font-weight:700; cursor:pointer; transition:background .2s; margin-top:4px;
+    color:#fff; font-size:15.5px; font-weight:700; cursor:pointer; transition:background .2s; margin-top:4px;
   }
   .add-link-panel .addlink-btn:hover{ background:var(--navy-deep); }
 
   /* ===== Homework ===== */
-  .empty-note{ text-align:center; color:#b0a98e; font-size:13px; padding:20px 0; }
-  .loading-note{ text-align:center; color:#b0a98e; font-size:13px; padding:20px 0; }
+  .empty-note{ text-align:center; color:#b0a98e; font-size:15.5px; padding:20px 0; }
+  .loading-note{ text-align:center; color:#b0a98e; font-size:15.5px; padding:20px 0; }
   .hw-block{ background:var(--surface-alt); border-radius:14px; padding:16px 18px; border:1px solid var(--border); margin-bottom:14px; }
   .hw-block-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
   .hw-block .hw-title{ font-size:14.5px; font-weight:700; color:var(--heading); }
-  .hw-block .hw-meta{ font-size:12px; color:var(--muted); margin-top:4px; display:flex; flex-wrap:wrap; gap:8px; }
+  .hw-block .hw-meta{ font-size:14.5px; color:var(--muted); margin-top:4px; display:flex; flex-wrap:wrap; gap:8px; }
   .hw-block .hw-meta span{ background:var(--surface); padding:3px 9px; border-radius:7px; border:1px solid var(--border); }
-  .hw-block .hw-desc{ font-size:13px; color:#5a5442; margin-top:8px; line-height:1.6; }
-  .due-badge{ font-size:11.5px; font-weight:700; padding:4px 10px; border-radius:8px; background:#fff4e0; color:#a06a10; border:1px solid #e8d4a8; white-space:nowrap; flex-shrink:0; }
-  .delete-btn{ background:none; border:1.5px solid var(--error); color:var(--error); font-size:12px; padding:6px 12px; border-radius:8px; cursor:pointer; transition:background .2s; }
-  .edit-hw-btn{ background:none; border:1.5px solid var(--blue); color:var(--blue); font-size:12px; padding:6px 12px; border-radius:8px; cursor:pointer; transition:background .2s; font-weight:600; }
+  .hw-block .hw-desc{ font-size:15.5px; color:#5a5442; margin-top:8px; line-height:1.6; }
+  .due-badge{ font-size:14.5px; font-weight:700; padding:4px 10px; border-radius:8px; background:#fff4e0; color:#a06a10; border:1px solid #e8d4a8; white-space:nowrap; flex-shrink:0; }
+  .delete-btn{ background:none; border:1.5px solid var(--error); color:var(--error); font-size:14.5px; padding:6px 12px; border-radius:8px; cursor:pointer; transition:background .2s; }
+  .edit-hw-btn{ background:none; border:1.5px solid var(--blue); color:var(--blue); font-size:14.5px; padding:6px 12px; border-radius:8px; cursor:pointer; transition:background .2s; font-weight:700; }
   .edit-hw-btn:hover{ background:rgba(37,99,235,0.08); }
   .delete-btn:hover{ background:rgba(168,69,58,0.08); }
 
   /* رابط إجابة الطالب في لوحة المعلم */
   .submission-link{
     margin-top:8px; padding:8px 12px; background:#f0f7f0; border:1px solid #c5ddc5;
-    border-radius:8px; font-size:12.5px; display:flex; align-items:center; gap:6px;
+    border-radius:8px; font-size:15px; display:flex; flex-wrap:wrap; align-items:center; gap:6px;
   }
-  .submission-link a{ color:var(--blue); font-weight:600; text-decoration:none; word-break:break-all; }
+  .submission-link a{ color:var(--blue); font-weight:700; text-decoration:none; word-break:break-all; }
   .submission-link a:hover{ text-decoration:underline; }
+  .sub-student-tag{ font-weight:700; color:#4a5a4a; }
+  .sub-student-id{ color:var(--muted); font-weight:700; }
+  .sub-image-preview{ flex-basis:100%; margin-top:6px; display:flex; flex-wrap:wrap; gap:8px; }
+  .sub-image-file{
+    display:flex; align-items:center; gap:8px; background:var(--surface); border:1.5px solid var(--border);
+    border-radius:9px; padding:9px 14px; color:var(--blue); font-weight:700; font-size:15px;
+    text-decoration:none; cursor:pointer; transition:background .15s ease, border-color .15s ease;
+  }
+  .sub-image-file:hover{ background:var(--surface-alt); border-color:var(--blue); }
+  .sub-image-file .file-ic{ font-size:17px; }
 
   /* ===== الإعلانات (لوحة المعلم) ===== */
   .ann-block{ background:var(--surface-alt); border-radius:14px; padding:16px 18px; border:1px solid var(--border); margin-bottom:14px; border-right:4px solid var(--gold); }
   .ann-block-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
   .ann-block .ann-title-t{ font-size:14.5px; font-weight:700; color:var(--heading); }
-  .ann-block .ann-type-t{ font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px; background:var(--gold-soft); color:var(--heading); }
+  .ann-block .ann-type-t{ font-size:14.5px; font-weight:700; padding:3px 9px; border-radius:20px; background:var(--gold-soft); color:var(--heading); }
   .ann-block .ann-type-t.exam{ background:#fce8e8; color:#a8453a; }
   .ann-block .ann-type-t.activity{ background:#e8f0fe; color:#2d5fa6; }
-  .ann-block .ann-body-t{ font-size:13px; color:#5a5442; margin-top:8px; line-height:1.7; white-space:pre-wrap; }
-  .ann-block .ann-date-t{ font-size:11.5px; font-weight:700; padding:4px 10px; border-radius:8px; background:#fff4e0; color:#a06a10; border:1px solid #e8d4a8; white-space:nowrap; flex-shrink:0; }
-  .ann-block .ann-meta-t{ font-size:11.5px; color:#b0a98e; margin-top:6px; }
+  .ann-block .ann-body-t{ font-size:15.5px; color:#5a5442; margin-top:8px; line-height:1.7; white-space:pre-wrap; }
+  .ann-block .ann-date-t{ font-size:14.5px; font-weight:700; padding:4px 10px; border-radius:8px; background:#fff4e0; color:#a06a10; border:1px solid #e8d4a8; white-space:nowrap; flex-shrink:0; }
+  .ann-block .ann-meta-t{ font-size:14.5px; color:#b0a98e; margin-top:6px; }
 
   /* ===== شريط التنقل (أيقونات الوحدات) ===== */
   .module-nav{
@@ -215,7 +225,7 @@
     display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px;
     padding:12px 14px; border-radius:12px; border:1.5px solid var(--border);
     background:var(--surface-alt); cursor:pointer; transition:all .2s; font-family:inherit;
-    color:var(--blue-soft); font-size:11.5px; font-weight:600; text-align:center; line-height:1.3;
+    color:var(--blue-soft); font-size:14.5px; font-weight:700; text-align:center; line-height:1.3;
     flex:0 0 auto; width:98px; scroll-snap-align:start;
   }
   .mod-btn .mod-icon{ font-size:21px; }
@@ -238,27 +248,27 @@
     display:flex; align-items:center; gap:14px; margin-bottom:20px;
   }
   .students-count-banner .count-num{ font-size:32px; font-weight:700; color:var(--gold-soft); }
-  .students-count-banner .count-label{ font-size:13px; opacity:.85; }
+  .students-count-banner .count-label{ font-size:15.5px; opacity:.85; }
   .student-row{
     background:var(--surface-alt); border:1px solid var(--border); border-radius:12px;
     padding:14px 16px; margin-bottom:10px; display:flex; align-items:flex-start;
     justify-content:space-between; gap:10px; flex-wrap:wrap;
   }
   .student-row .st-info .st-name{ font-size:14.5px; font-weight:700; color:var(--heading); }
-  .student-row .st-info .st-meta{ font-size:12px; color:var(--blue-soft); margin-top:4px; display:flex; gap:12px; flex-wrap:wrap; }
+  .student-row .st-info .st-meta{ font-size:14.5px; color:var(--blue-soft); margin-top:4px; display:flex; gap:12px; flex-wrap:wrap; }
   .student-row .st-actions{ display:flex; gap:7px; flex-shrink:0; }
-  .st-edit-btn{ background:none; border:1.5px solid var(--blue); color:var(--blue); font-size:12px; padding:6px 12px; border-radius:8px; cursor:pointer; font-weight:600; transition:background .2s; }
+  .st-edit-btn{ background:none; border:1.5px solid var(--blue); color:var(--blue); font-size:14.5px; padding:6px 12px; border-radius:8px; cursor:pointer; font-weight:700; transition:background .2s; }
   .st-edit-btn:hover{ background:rgba(37,99,235,0.08); }
-  .st-del-btn{ background:none; border:1.5px solid var(--error); color:var(--error); font-size:12px; padding:6px 12px; border-radius:8px; cursor:pointer; transition:background .2s; }
+  .st-del-btn{ background:none; border:1.5px solid var(--error); color:var(--error); font-size:14.5px; padding:6px 12px; border-radius:8px; cursor:pointer; transition:background .2s; }
   .st-del-btn:hover{ background:rgba(168,69,58,0.08); }
-  .st-note-btn{ background:none; border:1.5px solid var(--gold); color:#a06a10; font-size:12px; padding:6px 10px; border-radius:8px; cursor:pointer; font-weight:600; transition:background .2s; }
+  .st-note-btn{ background:none; border:1.5px solid var(--gold); color:#a06a10; font-size:14.5px; padding:6px 10px; border-radius:8px; cursor:pointer; font-weight:700; transition:background .2s; }
   .st-note-btn:hover{ background:rgba(201,151,63,0.1); }
-  .st-note-preview{ font-size:12.5px; color:#7a6a3a; background:#fffaed; border:1px solid #e8d4a8; border-radius:8px; padding:8px 12px; margin-top:8px; line-height:1.6; white-space:pre-wrap; }
+  .st-note-preview{ font-size:15px; color:#7a6a3a; background:#fffaed; border:1px solid #e8d4a8; border-radius:8px; padding:8px 12px; margin-top:8px; line-height:1.6; white-space:pre-wrap; }
 
   /* ===== طلبات تعديل بيانات الطلاب ===== */
   .mod-badge{
     position:absolute; top:5px; left:8px;
-    background:var(--error); color:#fff; font-size:10px; font-weight:700;
+    background:var(--error); color:#fff; font-size:14.5px; font-weight:700;
     min-width:16px; height:16px; border-radius:8px; display:none;
     align-items:center; justify-content:center; padding:0 4px;
   }
@@ -272,25 +282,25 @@
   .cmp-t-row.replied{ border-right-color:var(--success); }
   .cmp-t-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:8px; flex-wrap:wrap; }
   .cmp-t-name{ font-size:14.5px; font-weight:700; color:var(--heading); }
-  .cmp-t-meta{ font-size:12px; color:var(--blue-soft); display:flex; gap:10px; flex-wrap:wrap; margin-top:3px; }
-  .cmp-t-status{ font-size:10.5px; font-weight:700; padding:3px 10px; border-radius:20px; background:var(--gold-soft); color:#a06a10; white-space:nowrap; }
+  .cmp-t-meta{ font-size:14.5px; color:var(--blue-soft); display:flex; gap:10px; flex-wrap:wrap; margin-top:3px; }
+  .cmp-t-status{ font-size:14.5px; font-weight:700; padding:3px 10px; border-radius:20px; background:var(--gold-soft); color:#a06a10; white-space:nowrap; }
   .cmp-t-status.replied{ background:#e6f4e6; color:var(--success); }
-  .cmp-t-msg{ font-size:13.5px; color:var(--ink); line-height:1.8; white-space:pre-wrap; background:var(--surface); border:1px solid var(--border); border-radius:9px; padding:10px 14px; margin:8px 0 10px; }
-  .cmp-t-reply-existing{ font-size:13px; color:#2e4a34; line-height:1.8; background:#f0f7f0; border:1px solid #c5ddc5; border-radius:9px; padding:10px 14px; margin-bottom:8px; white-space:pre-wrap; }
+  .cmp-t-msg{ font-size:16px; color:var(--ink); line-height:1.8; white-space:pre-wrap; background:var(--surface); border:1px solid var(--border); border-radius:9px; padding:10px 14px; margin:8px 0 10px; }
+  .cmp-t-reply-existing{ font-size:15.5px; color:#2e4a34; line-height:1.8; background:#f0f7f0; border:1px solid #c5ddc5; border-radius:9px; padding:10px 14px; margin-bottom:8px; white-space:pre-wrap; }
   .cmp-t-reply-box textarea{
     width:100%; padding:11px 13px; border-radius:9px; border:1.5px solid var(--border-soft);
-    background:var(--surface); font-size:13.5px; font-family:inherit; outline:none; resize:vertical; min-height:70px;
+    background:var(--surface); font-size:16px; font-family:inherit; outline:none; resize:vertical; min-height:70px;
   }
   .cmp-t-reply-box textarea:focus{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,99,235,0.1); }
-  .cmp-t-reply-btn{ margin-top:8px; padding:9px 18px; border:none; border-radius:9px; background:var(--navy-deep); color:var(--paper); font-size:12.5px; font-weight:700; cursor:pointer; transition:background .2s; }
+  .cmp-t-reply-btn{ margin-top:8px; padding:9px 18px; border:none; border-radius:9px; background:var(--navy-deep); color:var(--paper); font-size:15px; font-weight:700; cursor:pointer; transition:background .2s; }
   .cmp-t-reply-btn:hover{ background:var(--blue); }
   .cmp-t-reply-btn:disabled{ background:var(--muted); cursor:not-allowed; }
-  .cmp-t-msgline{ font-size:12px; font-weight:600; margin-top:6px; min-height:14px; }
+  .cmp-t-msgline{ font-size:14.5px; font-weight:700; margin-top:6px; min-height:14px; }
   .cmp-t-msgline.err{ color:var(--error); } .cmp-t-msgline.ok{ color:var(--success); }
   .cmp-t-actions{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
   .cmp-t-danger-btn{
     background:none; border:1.5px solid var(--error); color:var(--error);
-    font-size:11.5px; font-weight:700; padding:7px 14px; border-radius:8px; cursor:pointer; transition:background .2s;
+    font-size:14.5px; font-weight:700; padding:7px 14px; border-radius:8px; cursor:pointer; transition:background .2s;
   }
   .cmp-t-danger-btn:hover{ background:rgba(168,69,58,0.08); }
   .cmp-t-danger-btn:disabled{ opacity:.6; cursor:not-allowed; }
@@ -302,19 +312,19 @@
     justify-content:space-between; gap:10px; flex-wrap:wrap;
   }
   .grade-row .gr-name{ font-size:14px; font-weight:700; color:var(--heading); min-width:140px; }
-  .grade-row .gr-id{ font-size:12px; color:var(--blue-soft); direction:ltr; }
+  .grade-row .gr-id{ font-size:14.5px; color:var(--blue-soft); direction:ltr; }
   .grade-row .gr-scores{ display:flex; gap:10px; align-items:center; flex-wrap:wrap; }
   .score-field{ display:flex; flex-direction:column; align-items:center; gap:4px; }
-  .score-field label{ font-size:10.5px; font-weight:600; color:var(--blue-soft); white-space:nowrap; }
+  .score-field label{ font-size:14.5px; font-weight:700; color:var(--blue-soft); white-space:nowrap; }
   .score-field input{
     width:70px; padding:8px 10px; text-align:center; border-radius:8px;
     border:1.5px solid var(--border-soft); background:var(--surface); font-size:14px; font-family:inherit; outline:none;
   }
   .score-field input:focus{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,99,235,0.1); }
   .score-field input.invalid{ border-color:var(--error); }
-  .save-score-btn{ padding:8px 14px; border:none; border-radius:8px; background:var(--blue); color:#fff; font-size:12.5px; font-weight:700; cursor:pointer; transition:background .2s; }
+  .save-score-btn{ padding:8px 14px; border:none; border-radius:8px; background:var(--blue); color:#fff; font-size:15px; font-weight:700; cursor:pointer; transition:background .2s; }
   .save-score-btn:hover{ background:var(--navy-deep); }
-  .score-saved{ font-size:11px; color:var(--success); font-weight:700; display:none; }
+  .score-saved{ font-size:14.5px; color:var(--success); font-weight:700; display:none; }
 
   /* Modal تعديل طالب */
   .modal-ov{ position:fixed; inset:0; background:rgba(35,41,31,0.5); z-index:200; display:none; align-items:center; justify-content:center; padding:20px; }
@@ -322,30 +332,30 @@
   .modal-bx{ background:var(--surface); border-radius:18px; padding:28px 24px; width:100%; max-width:400px; box-shadow:0 20px 50px -16px rgba(15,23,42,0.35); animation:rise .3s ease; }
   .modal-bx h3{ font-size:17px; color:var(--heading); margin-bottom:18px; }
   .modal-bx .mf{ margin-bottom:14px; }
-  .modal-bx .mf label{ display:block; font-size:12.5px; font-weight:600; color:var(--blue); margin-bottom:5px; }
+  .modal-bx .mf label{ display:block; font-size:15px; font-weight:700; color:var(--blue); margin-bottom:5px; }
   .modal-bx .mf input{ width:100%; padding:11px 13px; border-radius:9px; border:1.5px solid var(--border-soft); background:var(--surface-alt); font-size:14px; font-family:inherit; outline:none; }
   .modal-bx .mf input:focus{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,99,235,0.1); }
   .modal-btns{ display:flex; gap:10px; margin-top:18px; }
   .m-save{ flex:1; padding:12px; border:none; border-radius:10px; background:var(--navy-deep); color:var(--paper); font-size:14px; font-weight:700; cursor:pointer; }
   .m-cancel{ padding:12px 18px; border:1.5px solid #ddd; border-radius:10px; background:transparent; color:var(--blue-soft); font-size:14px; cursor:pointer; }
-  .m-msg{ font-size:13px; font-weight:600; margin-top:10px; min-height:16px; text-align:center; }
+  .m-msg{ font-size:15.5px; font-weight:700; margin-top:10px; min-height:16px; text-align:center; }
   .m-msg.err{ color:var(--error); } .m-msg.ok{ color:var(--success); }
 
   /* ===== الاختبارات الإلكترونية ===== */
   .qz-block{ background:var(--surface-alt); border:1.5px solid var(--border); border-radius:12px; padding:14px 16px; }
-  .qz-qtitle{ font-size:13.5px; font-weight:700; color:var(--heading); margin-bottom:10px; }
+  .qz-qtitle{ font-size:16px; font-weight:700; color:var(--heading); margin-bottom:10px; }
   .qz-opts{ display:flex; flex-direction:column; gap:8px; margin-top:8px; }
   .qz-opt-row{ display:flex; align-items:center; gap:8px; }
   .qz-opt-row input[type="radio"]{ width:17px; height:17px; flex-shrink:0; accent-color:var(--blue); }
   .qz-opt-row input[type="text"]{
     flex:1; padding:9px 12px; border-radius:8px; border:1.5px solid var(--border-soft);
-    background:var(--surface); font-size:13.5px; font-family:inherit; outline:none;
+    background:var(--surface); font-size:16px; font-family:inherit; outline:none;
   }
   .qz-opt-row input[type="text"]:focus{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,99,235,0.08); }
-  .qz-hint{ font-size:11px; color:var(--muted); margin-top:6px; }
+  .qz-hint{ font-size:14.5px; color:var(--muted); margin-top:6px; }
   .qz-mark-field{ display:flex; align-items:center; gap:10px; margin-top:10px; }
-  .qz-mark-field label{ font-size:12px; font-weight:600; color:var(--blue); white-space:nowrap; }
-  .qz-mark-field input{ width:90px; padding:8px 10px; border-radius:8px; border:1.5px solid var(--border-soft); background:var(--surface); font-size:13.5px; font-family:inherit; outline:none; }
+  .qz-mark-field label{ font-size:14.5px; font-weight:700; color:var(--blue); white-space:nowrap; }
+  .qz-mark-field input{ width:90px; padding:8px 10px; border-radius:8px; border:1.5px solid var(--border-soft); background:var(--surface); font-size:16px; font-family:inherit; outline:none; }
   .qz-mark-field input:focus{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,99,235,0.08); }
 
   .exam-total-box{
@@ -356,19 +366,19 @@
   .exam-total-box span.tot-num{ font-size:19px; color:var(--blue); }
 
   .er-notify-btn{
-    font-size:11.5px; font-weight:700; padding:6px 12px; border-radius:20px; border:1.5px solid var(--blue);
+    font-size:14.5px; font-weight:700; padding:6px 12px; border-radius:20px; border:1.5px solid var(--blue);
     background:var(--surface); color:var(--blue); cursor:pointer; white-space:nowrap;
   }
   .er-notify-btn:hover{ background:var(--blue); color:var(--paper); }
   .er-notify-btn.done{ background:var(--navy-deep); color:var(--paper); border-color:var(--navy-deep); }
-  .er-attempts{ font-size:11px; color:var(--muted); margin-top:2px; }
+  .er-attempts{ font-size:14.5px; color:var(--muted); margin-top:2px; }
 
   .exam-card{ background:var(--surface-alt); border:1px solid var(--border); border-radius:14px; padding:16px 18px; margin-bottom:14px; }
   .exam-card-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; flex-wrap:wrap; }
   .exam-title{ font-size:14.5px; font-weight:700; color:var(--heading); }
-  .exam-meta{ font-size:12px; color:var(--muted); margin-top:5px; display:flex; gap:8px; flex-wrap:wrap; }
+  .exam-meta{ font-size:14.5px; color:var(--muted); margin-top:5px; display:flex; gap:8px; flex-wrap:wrap; }
   .exam-meta span{ background:var(--surface); padding:3px 9px; border-radius:7px; border:1px solid var(--border); }
-  .exam-status{ font-size:11px; font-weight:700; padding:4px 11px; border-radius:20px; white-space:nowrap; }
+  .exam-status{ font-size:14.5px; font-weight:700; padding:4px 11px; border-radius:20px; white-space:nowrap; }
   .exam-status.upcoming{ background:#e8f0fe; color:#2d5fa6; }
   .exam-status.active{ background:#e6f4e6; color:var(--success); }
   .exam-status.ended{ background:#f1ede0; color:var(--muted); }
@@ -378,7 +388,7 @@
   .exam-result-row{
     display:flex; align-items:center; justify-content:space-between; gap:10px;
     background:var(--surface); border:1px solid var(--border-soft); border-radius:9px;
-    padding:9px 13px; margin-bottom:7px; font-size:13px;
+    padding:9px 13px; margin-bottom:7px; font-size:15.5px;
   }
   .exam-result-row .er-name{ font-weight:700; color:var(--heading); }
   .exam-result-row .er-score{ font-weight:700; color:var(--blue); white-space:nowrap; }
@@ -391,7 +401,7 @@
   .exam-timer{ position:sticky; top:0; background:var(--navy-deep); color:var(--paper); font-weight:700; font-size:14px; padding:10px 16px; border-radius:10px; text-align:center; margin-bottom:16px; }
   .exam-q{ background:var(--surface-alt); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom:12px; }
   .exam-q .eq-text{ font-size:14px; font-weight:700; color:var(--heading); margin-bottom:10px; }
-  .exam-q .eq-opt{ display:flex; align-items:center; gap:8px; padding:8px 4px; font-size:13.5px; cursor:pointer; }
+  .exam-q .eq-opt{ display:flex; align-items:center; gap:8px; padding:8px 4px; font-size:16px; cursor:pointer; }
   .exam-q .eq-opt input{ width:17px; height:17px; accent-color:var(--blue); }
   .exam-submit-btn{ width:100%; padding:13px; border:none; border-radius:11px; background:var(--navy-deep); color:var(--paper); font-size:14.5px; font-weight:700; cursor:pointer; margin-top:8px; }
   .exam-submit-btn:hover{ background:var(--blue); }
@@ -443,7 +453,7 @@
   <div class="mod-panel active" id="panel-subjects">
     <div class="card">
       <h2>موادك المخصصة لهذا الصف</h2>
-      <p style="font-size:12.5px;color:var(--blue-soft);margin-bottom:16px;line-height:1.7;">
+      <p style="font-size:15px;color:var(--blue-soft);margin-bottom:16px;line-height:1.7;">
         هذه المواد حددها لك المسؤول ولا يمكنك إضافة مادة جديدة أو حذفها من هنا. دورك هو إضافة الروابط والمحتوى داخل كل مادة.
       </p>
       <div class="subject-list" id="subjectList"><p class="loading-note">جاري التحميل...</p></div>
@@ -507,7 +517,7 @@
         <div class="count-num" id="studentsCount">0</div>
         <div><div style="font-size:15px;font-weight:700;">عدد الطلاب المسجلين</div><div class="count-label">ممن دخلوا فعلياً لهذا الصف</div></div>
       </div>
-      <p style="font-size:12.5px;color:var(--blue-soft);line-height:1.8;">
+      <p style="font-size:15px;color:var(--blue-soft);line-height:1.8;">
         تظهر هنا تلقائياً بيانات كل طالب (اسمه ورقم هويته وجواله) بمجرد أن يقوم بتسجيل الدخول لأول مرة على صفحته الخاصة ويشاهد صفّه ومواده — دون الحاجة لإضافته يدوياً. يمكنك فقط إضافة ملاحظة له أو تعديل المواد المرتبطة بدرجاته.
       </p>
     </div>
@@ -540,7 +550,7 @@
   <div class="mod-panel" id="panel-complaints">
     <div class="card">
       <h2>📢 شكاوى وتنبيهات الطلاب</h2>
-      <p style="font-size:12.5px;color:var(--blue-soft);margin-bottom:16px;line-height:1.7;">
+      <p style="font-size:15px;color:var(--blue-soft);margin-bottom:16px;line-height:1.7;">
         الشكاوى والتنبيهات المرسلة من طلاب هذا الصف، مع اسم الطالب ورقم هويته وجواله. يمكنك الرد مباشرة وسيظهر ردك على صفحة الطالب.
       </p>
       <div id="complaintsTList"><p class="loading-note">جاري التحميل...</p></div>
@@ -562,7 +572,7 @@
       <div class="field"><label>مدة الاختبار (بالدقائق)</label><input type="number" id="exDuration" min="1" placeholder="مثال: 30"></div>
       <div class="field"><label>عدد الأسئلة</label><input type="number" id="exQCount" min="1" max="50" placeholder="مثال: 10"></div>
       <button class="add-btn" id="genExamQsBtn">إنشاء خانات الأسئلة</button>
-      <p style="font-size:11.5px;color:var(--muted);margin-top:6px;">بعد إدخال عدد الأسئلة اضغط الزر أعلاه لإنشاء خانات كتابة كل سؤال وخياراته وعلامة كل سؤال.</p>
+      <p style="font-size:14.5px;color:var(--muted);margin-top:6px;">بعد إدخال عدد الأسئلة اضغط الزر أعلاه لإنشاء خانات كتابة كل سؤال وخياراته وعلامة كل سؤال.</p>
       <div id="exQuestionsArea" style="margin-top:16px;display:flex;flex-direction:column;gap:14px;"></div>
       <div class="exam-total-box" id="examTotalBox" style="display:none;">
         <span>🎯 العلامة الكلية للاختبار</span>
@@ -571,7 +581,7 @@
       <div class="field" id="exMaxAttemptsField" style="display:none; margin-top:14px;">
         <label>عدد المحاولات المسموح بها لكل طالب</label>
         <input type="number" id="exMaxAttempts" min="1" value="1" placeholder="مثال: 2">
-        <p style="font-size:11.5px;color:var(--muted);margin-top:6px;">في حال سمحت بأكثر من محاولة، سيتم اعتماد أعلى علامة يحققها الطالب بين كل محاولاته.</p>
+        <p style="font-size:14.5px;color:var(--muted);margin-top:6px;">في حال سمحت بأكثر من محاولة، سيتم اعتماد أعلى علامة يحققها الطالب بين كل محاولاته.</p>
       </div>
       <div style="display:flex; gap:10px; flex-wrap:wrap; margin-top:16px;">
         <button class="add-btn" id="prepareExamBtn" style="flex:1 1 auto; display:none;">✅ تجهيز الاختبار</button>
@@ -593,19 +603,19 @@
     <h3>✏️ بيانات الطالب</h3>
     <div class="mf" style="background:var(--surface-alt);border:1px solid var(--border);border-radius:10px;padding:12px 14px;">
       <div style="font-size:14.5px;font-weight:700;color:var(--heading);" id="editStNameLabel"></div>
-      <div style="font-size:12.5px;color:#6b6450;margin-top:4px;display:flex;gap:12px;flex-wrap:wrap;">
+      <div style="font-size:15px;color:#6b6450;margin-top:4px;display:flex;gap:12px;flex-wrap:wrap;">
         <span id="editStIdLabel"></span>
         <span id="editStPhoneLabel"></span>
       </div>
-      <div style="font-size:11px;color:var(--muted);margin-top:6px;">هذه البيانات مأخوذة تلقائياً من تسجيل الطالب ولا يمكن تعديلها هنا</div>
+      <div style="font-size:14.5px;color:var(--muted);margin-top:6px;">هذه البيانات مأخوذة تلقائياً من تسجيل الطالب ولا يمكن تعديلها هنا</div>
     </div>
     <div class="mf">
-      <label>المواد المرتبطة بدرجاته <span style="font-weight:400;color:var(--muted);font-size:11px;">(يمكن اختيار أكثر من مادة)</span></label>
+      <label>المواد المرتبطة بدرجاته <span style="font-weight:700;color:var(--muted);font-size:14.5px;">(يمكن اختيار أكثر من مادة)</span></label>
       <div class="checkbox-group" id="editStSubjectGroup"><span class="checkbox-group-empty">جاري التحميل...</span></div>
     </div>
     <div class="mf">
-      <label>📌 ملاحظة خاصة للطالب <span style="font-weight:400;color:var(--muted);font-size:11px;">(تظهر فقط على صفحة هذا الطالب)</span></label>
-      <textarea id="editStNote" rows="3" style="width:100%;padding:11px 13px;border-radius:9px;border:1.5px solid var(--border-soft);background:var(--surface-alt);font-size:13.5px;font-family:inherit;outline:none;resize:vertical;" placeholder="مثال: يحتاج مراجعة الفصل الثاني، أو غاب عن الاختبار..."></textarea>
+      <label>📌 ملاحظة خاصة للطالب <span style="font-weight:700;color:var(--muted);font-size:14.5px;">(تظهر فقط على صفحة هذا الطالب)</span></label>
+      <textarea id="editStNote" rows="3" style="width:100%;padding:11px 13px;border-radius:9px;border:1.5px solid var(--border-soft);background:var(--surface-alt);font-size:16px;font-family:inherit;outline:none;resize:vertical;" placeholder="مثال: يحتاج مراجعة الفصل الثاني، أو غاب عن الاختبار..."></textarea>
     </div>
     <div class="modal-btns">
       <button class="m-save" id="saveStEdit">حفظ</button>
@@ -652,6 +662,14 @@
   let activeGrade  = '1';
   let allowedGrades = [];
   let teacherSubjects = []; // المواد المخصصة لهذا المعلم من قبل المسؤول (لا يمكن للمعلم تعديلها)
+
+  // إرجاع مصفوفة صور التسليم، مع التوافق مع البيانات القديمة (صورة واحدة فقط)
+  function getSubmissionImages(sub){
+    if(!sub) return [];
+    if(Array.isArray(sub.submissionImages) && sub.submissionImages.length) return sub.submissionImages;
+    if(sub.submissionImage) return [sub.submissionImage];
+    return [];
+  }
 
   function escapeHtml(str){
     const d = document.createElement('div');
@@ -704,7 +722,7 @@
 
       if(allowedGrades.length === 1){
         document.getElementById('pageSub').textContent =
-          `أنت مخصص لـ ${GRADE_NAMES[activeGrade]} — يمكنك إضافة المواد والروابط الخاصة به`;
+          `أنت مخصص لـ ${GRADE_NAMES[activeGrade] || activeGrade} — يمكنك إضافة المواد والروابط الخاصة به`;
       }
       renderGradeSelector();
       await refreshAll();
@@ -716,7 +734,7 @@
   function renderGradeSelector(){
     const c = document.getElementById('gradeSelector');
     c.innerHTML = allowedGrades.map(k => `
-      <button class="grade-pill ${k===activeGrade?'active':''}" data-grade="${k}">${GRADE_NAMES[k]}</button>
+      <button class="grade-pill ${k===activeGrade?'active':''}" data-grade="${k}">${escapeHtml(GRADE_NAMES[k] || k)}</button>
     `).join('');
     if(allowedGrades.length === 1) c.querySelector('.grade-pill').style.cursor = 'default';
     c.querySelectorAll('.grade-pill').forEach(btn => btn.addEventListener('click', async () => {
@@ -810,13 +828,13 @@
     // ── روابط موجودة ──
     const links = sub.links || [];
     const linksHtml = links.length === 0
-      ? '<p style="font-size:12.5px;color:#b0a98e;padding:4px 0 8px;">لا توجد روابط مضافة بعد</p>'
+      ? '<p style="font-size:15px;color:#b0a98e;padding:4px 0 8px;">لا توجد روابط مضافة بعد</p>'
       : links.map(lnk => {
           const progress = progressMap[lnk.linkId] || [];
           const viewedCount = progress.length;
           const completedCount = progress.filter(p => p.completed).length;
           const studentsListHtml = progress.length === 0
-            ? '<p style="font-size:11.5px;color:var(--muted);">لا يوجد طلاب شاهدوا هذا الرابط بعد</p>'
+            ? '<p style="font-size:14.5px;color:var(--muted);">لا يوجد طلاب شاهدوا هذا الرابط بعد</p>'
             : progress.map(p => `
                 <div class="link-student-row">
                   <span class="lname">👤 ${escapeHtml(p.studentName||p.studentNatId)}</span>
@@ -972,16 +990,28 @@
         const subs = (submissionsByHw[hw.id] || []).slice().sort((a,b) => (b.submittedAt||'').localeCompare(a.submittedAt||''));
         const submissionsHtml = subs.length
           ? subs.map(s => {
+              const studentTag = `📎 <span class="sub-student-tag">${escapeHtml(s.submitterName || '')}</span>` +
+                (s.studentId ? ` <span class="sub-student-id">(${escapeHtml(s.studentId)})</span>` : '');
               if(s.submissionType === 'text'){
                 return `
                 <div class="submission-link">
-                  📎 <span style="color:#6b6450;font-weight:600;">${escapeHtml(s.submitterName || s.studentId || '')}</span> —
+                  ${studentTag} —
                   <span style="display:block; margin-top:4px; white-space:pre-wrap; word-break:break-word;">📝 ${escapeHtml(s.submissionText || '')}</span>
+                </div>`;
+              }
+              if(s.submissionType === 'image'){
+                const imgs = getSubmissionImages(s);
+                return `
+                <div class="submission-link">
+                  ${studentTag} — 🖼️ ${imgs.length} صورة إجابة
+                  <div class="sub-image-preview">
+                    ${imgs.map((src,i) => `<a class="sub-image-file" href="${src}" target="_blank" rel="noopener" download="صورة-إجابة-${i+1}.jpg"><span class="file-ic">📄</span> صورة ${i+1}</a>`).join('')}
+                  </div>
                 </div>`;
               }
               return `
               <div class="submission-link">
-                📎 <span style="color:#6b6450;font-weight:600;">${escapeHtml(s.submitterName || s.studentId || '')}</span> —
+                ${studentTag} —
                 <a href="${escapeHtml(s.submissionLink)}" target="_blank" rel="noopener">${escapeHtml(s.submissionLink)}</a>
               </div>`;
             }).join('')
@@ -993,11 +1023,11 @@
               <div class="hw-title">📝 ${escapeHtml(hw.title)}</div>
               <div class="hw-meta">
                 <span>📚 ${escapeHtml(hw.subjectName||'—')}</span>
-                <span>${GRADE_NAMES[hw.grade]||''}</span>
+                <span>${escapeHtml(GRADE_NAMES[hw.grade] || hw.grade || '')}</span>
               </div>
               ${hw.description ? `<div class="hw-desc">${escapeHtml(hw.description)}</div>` : ''}
               <div style="margin-top:8px;">
-                <div style="font-size:12px;font-weight:700;color:var(--blue-soft);margin-bottom:4px;">📥 التسليمات (${subs.length})</div>
+                <div style="font-size:14.5px;font-weight:700;color:var(--blue-soft);margin-bottom:4px;">📥 التسليمات (${subs.length})</div>
                 ${submissionsHtml}
               </div>
             </div>
@@ -1419,7 +1449,7 @@
         </div>
         <span class="cmp-t-status ${cm.status === 'replied' ? 'replied' : ''}">${cm.status === 'replied' ? 'تم الرد' : 'بانتظار الرد'}</span>
       </div>
-      ${cm.subject ? `<div style="font-size:12px;color:var(--blue-soft);font-weight:700;margin-bottom:6px;">📚 ${cm.subject === 'all' ? 'شكوى عامة — جميع المعلمين' : escapeHtml(cm.subject)}</div>` : ''}
+      ${cm.subject ? `<div style="font-size:14.5px;color:var(--blue-soft);font-weight:700;margin-bottom:6px;">📚 ${cm.subject === 'all' ? 'شكوى عامة — جميع المعلمين' : escapeHtml(cm.subject)}</div>` : ''}
       <div class="cmp-t-msg">${escapeHtml(cm.message)}</div>
       ${cm.status === 'replied' && cm.reply ? `<div class="cmp-t-reply-existing">💬 ردك: ${escapeHtml(cm.reply)}</div>` : ''}
       <div class="cmp-t-reply-box">
@@ -1873,7 +1903,7 @@
         <div class="exam-result-row">
           <div>
             <div class="er-name">${escapeHtml(s.studentName||s.studentNatId)}</div>
-            <div style="font-size:11px;color:var(--muted);">🪪 ${escapeHtml(s.studentNatId||'')}</div>
+            <div style="font-size:14.5px;color:var(--muted);">🪪 ${escapeHtml(s.studentNatId||'')}</div>
             <div class="er-attempts">🔁 ${s.attemptsUsed||0} من ${exam.maxAttempts||1} محاولة/محاولات</div>
           </div>
           <div style="display:flex; align-items:center; gap:10px;">

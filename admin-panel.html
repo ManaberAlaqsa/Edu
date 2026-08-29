@@ -8,6 +8,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>لوحة المسؤول - مركز منابر الأقصى</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
 <script>
   // تطبيق الوضع الليلي/النهاري فوراً قبل ظهور الصفحة لمنع أي "ومضة" غير مرغوبة
   (function(){
@@ -52,7 +53,7 @@
   input,button,textarea,select{ font-family:inherit; font-weight:inherit; }
   html,body{
     min-height:100%;
-    font-family:'Cairo','Segoe UI',sans-serif; font-weight:600;
+    font-family:'Cairo','Segoe UI',sans-serif; font-weight:700;
     background:var(--paper);
     color:var(--ink);
   }
@@ -79,7 +80,7 @@
     background:rgba(255,255,255,0.14);
     border:none;
     color:#fff;
-    font-size:13.5px;
+    font-size:16px;
     font-weight:700;
     padding:10px 18px;
     border-radius:12px;
@@ -109,7 +110,7 @@
     display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px;
     padding:12px 8px; border-radius:12px; border:1.5px solid var(--border);
     background:var(--surface-alt); cursor:pointer; transition:all .2s; font-family:inherit;
-    color:var(--blue-soft); font-size:11.5px; font-weight:600; text-align:center; line-height:1.3;
+    color:var(--blue-soft); font-size:14.5px; font-weight:700; text-align:center; line-height:1.3;
     flex:0 0 auto; width:100px; scroll-snap-align:start;
   }
   .mod-btn .mod-icon{ font-size:21px; }
@@ -121,7 +122,7 @@
   }
   .mod-badge{
     position:absolute; top:5px; left:8px;
-    background:var(--error); color:#fff; font-size:10px; font-weight:700;
+    background:var(--error); color:#fff; font-size:14.5px; font-weight:700;
     min-width:16px; height:16px; border-radius:8px; display:none;
     align-items:center; justify-content:center; padding:0 4px;
   }
@@ -140,7 +141,7 @@
   .teach-subtab-btn{
     flex:1; padding:12px 8px; border-radius:10px; border:none;
     background:transparent; cursor:pointer; font-family:inherit;
-    color:var(--blue-soft); font-size:13.5px; font-weight:700; text-align:center;
+    color:var(--blue-soft); font-size:16px; font-weight:700; text-align:center;
     transition:all .2s;
   }
   .teach-subtab-btn:hover{ color:var(--heading); background:var(--surface-alt); }
@@ -154,20 +155,20 @@
   .hw-block{ background:var(--surface-alt); border-radius:14px; padding:16px 18px; border:1px solid var(--border); margin-bottom:14px; }
   .hw-block-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
   .hw-block .hw-title{ font-size:14.5px; font-weight:700; color:var(--heading); }
-  .hw-block .hw-meta{ font-size:12px; color:var(--muted); margin-top:4px; display:flex; flex-wrap:wrap; gap:8px; }
+  .hw-block .hw-meta{ font-size:14.5px; color:var(--muted); margin-top:4px; display:flex; flex-wrap:wrap; gap:8px; }
   .hw-block .hw-meta span{ background:var(--surface); padding:3px 9px; border-radius:7px; border:1px solid var(--border); }
-  .hw-block .hw-desc{ font-size:13px; color:#5a5442; margin-top:8px; line-height:1.6; }
-  .due-badge{ font-size:11.5px; font-weight:700; padding:4px 10px; border-radius:8px; background:#fff4e0; color:#a06a10; border:1px solid #e8d4a8; white-space:nowrap; flex-shrink:0; }
-  .content-delete-btn{ background:none; border:1.5px solid var(--error); color:var(--error); font-size:12px; padding:6px 12px; border-radius:8px; cursor:pointer; transition:background .2s; }
+  .hw-block .hw-desc{ font-size:15.5px; color:#5a5442; margin-top:8px; line-height:1.6; }
+  .due-badge{ font-size:14.5px; font-weight:700; padding:4px 10px; border-radius:8px; background:#fff4e0; color:#a06a10; border:1px solid #e8d4a8; white-space:nowrap; flex-shrink:0; }
+  .content-delete-btn{ background:none; border:1.5px solid var(--error); color:var(--error); font-size:14.5px; padding:6px 12px; border-radius:8px; cursor:pointer; transition:background .2s; }
   .content-delete-btn:hover{ background:rgba(168,69,58,0.08); }
   .ann-block{ background:var(--surface-alt); border-radius:14px; padding:16px 18px; border:1px solid var(--border); margin-bottom:14px; border-right:4px solid var(--gold); }
   .ann-block-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
   .ann-block .ann-title-t{ font-size:14.5px; font-weight:700; color:var(--heading); }
-  .ann-block .ann-type-t{ font-size:11px; font-weight:700; padding:3px 9px; border-radius:20px; background:var(--gold-soft); color:var(--heading); }
+  .ann-block .ann-type-t{ font-size:14.5px; font-weight:700; padding:3px 9px; border-radius:20px; background:var(--gold-soft); color:var(--heading); }
   .ann-block .ann-type-t.activity{ background:#e8f0fe; color:#2d5fa6; }
-  .ann-block .ann-body-t{ font-size:13px; color:#5a5442; margin-top:8px; line-height:1.7; white-space:pre-wrap; }
-  .ann-block .ann-date-t{ font-size:11.5px; font-weight:700; padding:4px 10px; border-radius:8px; background:#fff4e0; color:#a06a10; border:1px solid #e8d4a8; white-space:nowrap; flex-shrink:0; }
-  .ann-block .ann-meta-t{ font-size:11.5px; color:#b0a98e; margin-top:6px; }
+  .ann-block .ann-body-t{ font-size:15.5px; color:#5a5442; margin-top:8px; line-height:1.7; white-space:pre-wrap; }
+  .ann-block .ann-date-t{ font-size:14.5px; font-weight:700; padding:4px 10px; border-radius:8px; background:#fff4e0; color:#a06a10; border:1px solid #e8d4a8; white-space:nowrap; flex-shrink:0; }
+  .ann-block .ann-meta-t{ font-size:14.5px; color:#b0a98e; margin-top:6px; }
 
   .card{
     background:var(--surface);
@@ -204,8 +205,8 @@
 
   .field label{
     display:block;
-    font-size:12.5px;
-    font-weight:600;
+    font-size:15px;
+    font-weight:700;
     color:var(--blue);
     margin-bottom:6px;
   }
@@ -241,7 +242,7 @@
     box-shadow:0 0 0 3px rgba(37,99,235,0.1);
     background:var(--surface);
   }
-  .notice-saved-note{ font-size:11.5px; color:var(--blue-soft); margin-top:8px; line-height:1.6; }
+  .notice-saved-note{ font-size:14.5px; color:var(--blue-soft); margin-top:8px; line-height:1.6; }
   .notice-btn-row{ display:flex; gap:10px; flex-wrap:wrap; }
   .notice-btn-row .add-btn{ flex:1 1 auto; }
   .delete-notice-btn{
@@ -264,17 +265,17 @@
     border-radius:12px; padding:16px 18px; margin-bottom:12px;
   }
   .req-row .req-name{ font-size:14.5px; font-weight:700; color:var(--heading); margin-bottom:4px; }
-  .req-row .req-id{ font-size:12px; color:var(--blue-soft); margin-bottom:10px; direction:ltr; text-align:right; }
-  .req-row .req-grade-tag{ display:inline-block; font-size:11px; font-weight:700; color:#3a4a7a; background:#eef2fb; padding:2px 9px; border-radius:20px; margin-bottom:10px; }
-  .req-row .req-diff{ font-size:13px; color:#3d4a5e; line-height:1.9; background:#eef4ff; border:1px solid #c7d9f7; border-radius:9px; padding:10px 14px; margin-bottom:12px; }
+  .req-row .req-id{ font-size:14.5px; color:var(--blue-soft); margin-bottom:10px; direction:ltr; text-align:right; }
+  .req-row .req-grade-tag{ display:inline-block; font-size:14.5px; font-weight:700; color:#3a4a7a; background:#eef2fb; padding:2px 9px; border-radius:20px; margin-bottom:10px; }
+  .req-row .req-diff{ font-size:15.5px; color:#3d4a5e; line-height:1.9; background:#eef4ff; border:1px solid #c7d9f7; border-radius:9px; padding:10px 14px; margin-bottom:12px; }
   .req-row .req-diff b{ color:#1a3d6e; }
   .req-row .req-actions{ display:flex; gap:8px; }
-  .req-approve-btn{ flex:1; padding:10px; border:none; border-radius:9px; background:var(--success); color:#fff; font-size:13px; font-weight:700; cursor:pointer; transition:background .2s; }
+  .req-approve-btn{ flex:1; padding:10px; border:none; border-radius:9px; background:var(--success); color:#fff; font-size:15.5px; font-weight:700; cursor:pointer; transition:background .2s; }
   .req-approve-btn:hover{ background:#2e6b40; }
   .req-approve-btn:disabled{ background:var(--muted); cursor:not-allowed; }
-  .req-reject-btn{ flex:1; padding:10px; border:1.5px solid var(--error); background:none; color:var(--error); border-radius:9px; font-size:13px; font-weight:700; cursor:pointer; transition:background .2s; }
+  .req-reject-btn{ flex:1; padding:10px; border:1.5px solid var(--error); background:none; color:var(--error); border-radius:9px; font-size:15.5px; font-weight:700; cursor:pointer; transition:background .2s; }
   .req-reject-btn:hover{ background:rgba(168,69,58,0.08); }
-  .req-row .req-msg{ font-size:12.5px; font-weight:600; margin-top:8px; text-align:center; min-height:14px; }
+  .req-row .req-msg{ font-size:15px; font-weight:700; margin-top:8px; text-align:center; min-height:14px; }
   .req-row .req-msg.err{ color:var(--error); } .req-row .req-msg.ok{ color:var(--success); }
   .field.full{ grid-column:1 / -1; }
 
@@ -284,12 +285,12 @@
     border-radius:12px; padding:16px 18px; margin-bottom:12px;
   }
   .fee-instr-card .fi-grades{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:10px; }
-  .fee-instr-card .fi-grade-tag{ font-size:11px; font-weight:700; color:#8a5a10; background:#fff4e0; padding:2px 10px; border-radius:20px; border:1px solid #e8d4a8; }
-  .fee-instr-card .fi-text{ font-size:13.5px; color:var(--ink); line-height:1.8; white-space:pre-wrap; margin-bottom:12px; }
+  .fee-instr-card .fi-grade-tag{ font-size:14.5px; font-weight:700; color:#8a5a10; background:#fff4e0; padding:2px 10px; border-radius:20px; border:1px solid #e8d4a8; }
+  .fee-instr-card .fi-text{ font-size:16px; color:var(--ink); line-height:1.8; white-space:pre-wrap; margin-bottom:12px; }
   .fee-instr-card .fi-actions{ display:flex; gap:8px; flex-wrap:wrap; }
-  .fi-status-btn{ padding:9px 14px; border:1.5px solid #2d5fa6; background:none; color:#2d5fa6; border-radius:9px; font-size:12.5px; font-weight:700; cursor:pointer; transition:background .2s; }
+  .fi-status-btn{ padding:9px 14px; border:1.5px solid #2d5fa6; background:none; color:#2d5fa6; border-radius:9px; font-size:15px; font-weight:700; cursor:pointer; transition:background .2s; }
   .fi-status-btn:hover{ background:rgba(45,95,166,0.08); }
-  .fi-delete-btn{ padding:9px 14px; border:1.5px solid var(--error); background:none; color:var(--error); border-radius:9px; font-size:12.5px; font-weight:700; cursor:pointer; transition:background .2s; }
+  .fi-delete-btn{ padding:9px 14px; border:1.5px solid var(--error); background:none; color:var(--error); border-radius:9px; font-size:15px; font-weight:700; cursor:pointer; transition:background .2s; }
   .fi-delete-btn:hover{ background:rgba(168,69,58,0.08); }
 
   .fee-pay-row{
@@ -298,11 +299,11 @@
   }
   .fee-pay-row.responded{ border-right-color:var(--muted); opacity:.75; }
   .fee-pay-row .fp-name{ font-size:14.5px; font-weight:700; color:var(--heading); margin-bottom:8px; }
-  .fee-pay-row .fp-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:6px 14px; font-size:12.5px; color:#4a4a3a; margin-bottom:10px; }
+  .fee-pay-row .fp-grid{ display:grid; grid-template-columns:repeat(2,1fr); gap:6px 14px; font-size:15px; color:#4a4a3a; margin-bottom:10px; }
   .fee-pay-row .fp-grid b{ color:var(--heading); }
-  .fee-pay-row .fp-details{ font-size:12.5px; color:#5a5442; background:var(--surface); border:1px dashed var(--border-soft); border-radius:8px; padding:8px 10px; margin-bottom:10px; line-height:1.7; }
-  .fee-pay-row .fp-reply-box{ width:100%; padding:10px 12px; border-radius:9px; border:1.5px solid var(--border-soft); background:var(--surface); font-size:13px; font-family:inherit; resize:vertical; min-height:60px; margin-bottom:10px; outline:none; }
-  .fee-pay-row .fp-status-badge{ display:inline-block; font-size:11.5px; font-weight:700; padding:4px 12px; border-radius:20px; margin-bottom:8px; }
+  .fee-pay-row .fp-details{ font-size:15px; color:#5a5442; background:var(--surface); border:1px dashed var(--border-soft); border-radius:8px; padding:8px 10px; margin-bottom:10px; line-height:1.7; }
+  .fee-pay-row .fp-reply-box{ width:100%; padding:10px 12px; border-radius:9px; border:1.5px solid var(--border-soft); background:var(--surface); font-size:15.5px; font-family:inherit; resize:vertical; min-height:60px; margin-bottom:10px; outline:none; }
+  .fee-pay-row .fp-status-badge{ display:inline-block; font-size:14.5px; font-weight:700; padding:4px 12px; border-radius:20px; margin-bottom:8px; }
   .fee-pay-row .fp-status-badge.confirmed{ background:#e8f5e9; color:#2e7d32; }
   .fee-pay-row .fp-status-badge.rejected{ background:#fce8e8; color:#a8453a; }
 
@@ -313,16 +314,16 @@
     padding:10px 14px; margin-bottom:8px;
   }
   .fee-status-item .fsi-info{ min-width:0; }
-  .fee-status-item .fsi-name{ font-size:13.5px; font-weight:700; color:var(--heading); }
-  .fee-status-item .fsi-id{ font-size:11.5px; color:var(--blue-soft); direction:ltr; text-align:right; }
-  .fee-status-item .fsi-tag{ font-size:11px; font-weight:700; padding:3px 10px; border-radius:20px; flex-shrink:0; }
+  .fee-status-item .fsi-name{ font-size:16px; font-weight:700; color:var(--heading); }
+  .fee-status-item .fsi-id{ font-size:14.5px; color:var(--blue-soft); direction:ltr; text-align:right; }
+  .fee-status-item .fsi-tag{ font-size:14.5px; font-weight:700; padding:3px 10px; border-radius:20px; flex-shrink:0; }
   .fee-status-item .fsi-tag.paid{ background:#e8f5e9; color:#2e7d32; }
   .fee-status-item .fsi-tag.unpaid{ background:#fce8e8; color:#a8453a; }
-  .fsi-freeze-btn{ flex-shrink:0; padding:7px 12px; border:1.5px solid #a8453a; background:none; color:#a8453a; border-radius:8px; font-size:11.5px; font-weight:700; cursor:pointer; white-space:nowrap; }
+  .fsi-freeze-btn{ flex-shrink:0; padding:7px 12px; border:1.5px solid #a8453a; background:none; color:#a8453a; border-radius:8px; font-size:14.5px; font-weight:700; cursor:pointer; white-space:nowrap; }
   .fsi-freeze-btn:hover{ background:rgba(168,69,58,0.08); }
   .fsi-freeze-btn.frozen{ border-color:#2e7d32; color:#2e7d32; }
   .fsi-freeze-btn.frozen:hover{ background:rgba(46,125,50,0.08); }
-  .fee-status-summary{ display:flex; gap:14px; margin-bottom:10px; font-size:12.5px; font-weight:700; }
+  .fee-status-summary{ display:flex; gap:14px; margin-bottom:10px; font-size:15px; font-weight:700; }
   .fee-status-summary .paid-count{ color:#2e7d32; }
   .fee-status-summary .unpaid-count{ color:#a8453a; }
 
@@ -352,7 +353,7 @@
 
   .grade-badge{
     display:inline-block;
-    font-size:11.5px;
+    font-size:14.5px;
     font-weight:700;
     padding:3px 10px;
     border-radius:20px;
@@ -389,8 +390,8 @@
     border-radius:20px;
     border:1.5px solid var(--border-soft);
     background:var(--surface);
-    font-size:12.5px;
-    font-weight:600;
+    font-size:15px;
+    font-weight:700;
     color:var(--ink);
     cursor:pointer;
     user-select:none;
@@ -408,7 +409,24 @@
     border-color:#8fae86;
     color:var(--heading);
   }
-  .field-hint{ font-size:11.5px; color:var(--blue-soft); margin-top:6px; }
+  .field-hint{ font-size:14.5px; color:var(--blue-soft); margin-top:6px; }
+  .checkbox-pill.custom-pill{ border-style:dashed; }
+  .checkbox-pill .pill-remove{
+    border:none;
+    background:rgba(0,0,0,0.12);
+    color:inherit;
+    width:16px; height:16px;
+    border-radius:50%;
+    font-size:14.5px;
+    line-height:1;
+    cursor:pointer;
+    display:flex; align-items:center; justify-content:center;
+    padding:0;
+    margin-inline-start:2px;
+  }
+  .checkbox-pill.checked .pill-remove{ background:rgba(255,255,255,0.25); }
+  .checkbox-pill .pill-remove:hover{ background:rgba(0,0,0,0.22); }
+  .checkbox-pill.checked .pill-remove:hover{ background:rgba(255,255,255,0.4); }
 
   .tags-input{
     padding:12px 14px;
@@ -427,7 +445,7 @@
     border-radius:9px;
     border:1.5px solid var(--border-soft);
     background:var(--surface);
-    font-size:13.5px;
+    font-size:16px;
     outline:none;
     font-family:inherit;
   }
@@ -441,7 +459,7 @@
     border-radius:9px;
     background:var(--navy-deep);
     color:#fff;
-    font-size:13px;
+    font-size:15.5px;
     font-weight:700;
     cursor:pointer;
     white-space:nowrap;
@@ -463,8 +481,8 @@
     border-radius:20px;
     background:var(--navy-deep);
     color:#fff;
-    font-size:12.5px;
-    font-weight:600;
+    font-size:15px;
+    font-weight:700;
   }
   .tag-chip .tag-remove{
     border:none;
@@ -472,7 +490,7 @@
     color:#fff;
     width:18px; height:18px;
     border-radius:50%;
-    font-size:13px;
+    font-size:15.5px;
     line-height:1;
     cursor:pointer;
     display:flex; align-items:center; justify-content:center;
@@ -495,8 +513,8 @@
   .add-btn:disabled{ background:var(--muted); cursor:not-allowed; }
 
   .msg{
-    font-size:13px;
-    font-weight:600;
+    font-size:15.5px;
+    font-weight:700;
     margin-top:10px;
     min-height:16px;
     opacity:0;
@@ -517,14 +535,14 @@
     border:1px solid var(--border);
   }
   .teacher-item .info .name{ font-size:14.5px; font-weight:700; color:var(--heading); }
-  .teacher-item .info .user{ font-size:12.5px; color:var(--blue-soft); direction:ltr; display:inline-block; }
+  .teacher-item .info .user{ font-size:15px; color:var(--blue-soft); direction:ltr; display:inline-block; }
   .teacher-item .info .grade-badge{ margin-top:5px; }
 
   .delete-btn{
     background:none;
     border:1.5px solid var(--error);
     color:var(--error);
-    font-size:12.5px;
+    font-size:15px;
     padding:7px 14px;
     border-radius:8px;
     cursor:pointer;
@@ -532,8 +550,8 @@
   }
   .delete-btn:hover{ background:rgba(168,69,58,0.08); }
 
-  .empty-note{ text-align:center; color:#b0a98e; font-size:13px; padding:20px 0; }
-  .loading-note{ text-align:center; color:#b0a98e; font-size:13px; padding:20px 0; }
+  .empty-note{ text-align:center; color:#b0a98e; font-size:15.5px; padding:20px 0; }
+  .loading-note{ text-align:center; color:#b0a98e; font-size:15.5px; padding:20px 0; }
 
   /* ===== عرض طلاب المدرسة ===== */
   .as-search-wrap{ position:relative; margin-bottom:18px; }
@@ -542,16 +560,16 @@
     background:var(--surface-alt); font-size:14.5px; outline:none; font-family:inherit;
   }
   .as-search-wrap input:focus{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,99,235,0.1); background:var(--surface); }
-  .as-count{ font-size:12.5px; color:var(--blue-soft); margin-bottom:16px; }
+  .as-count{ font-size:15px; color:var(--blue-soft); margin-bottom:16px; }
   .grade-group{ margin-bottom:22px; }
   .grade-group:last-child{ margin-bottom:0; }
   .grade-group-title{
-    font-size:13.5px; font-weight:700; color:var(--heading);
+    font-size:16px; font-weight:700; color:var(--heading);
     display:flex; align-items:center; gap:8px; margin-bottom:10px;
     padding-bottom:8px; border-bottom:1.5px dashed var(--border-soft);
   }
   .grade-group-title .cnt{
-    font-size:11px; font-weight:700; color:var(--blue-soft);
+    font-size:14.5px; font-weight:700; color:var(--blue-soft);
     background:#eef2e8; padding:2px 9px; border-radius:20px;
   }
   .student-item{
@@ -560,15 +578,15 @@
     border:1px solid var(--border); margin-bottom:8px;
   }
   .student-item .info .name{ font-size:14px; font-weight:700; color:var(--heading); }
-  .student-item .info .meta{ font-size:12px; color:var(--blue-soft); margin-top:3px; display:flex; gap:12px; flex-wrap:wrap; }
+  .student-item .info .meta{ font-size:14.5px; color:var(--blue-soft); margin-top:3px; display:flex; gap:12px; flex-wrap:wrap; }
   .student-item .info .meta span{ direction:ltr; display:inline-block; }
   .pending-tag{
-    display:inline-block; font-size:10.5px; font-weight:700; color:#a06a10;
+    display:inline-block; font-size:14.5px; font-weight:700; color:#a06a10;
     background:#fff4e0; border:1px solid #e8d4a8; padding:2px 8px; border-radius:20px;
     margin-inline-start:6px;
   }
   .specialneeds-tag{
-    display:inline-block; font-size:10.5px; font-weight:700; color:#8a3ba0;
+    display:inline-block; font-size:14.5px; font-weight:700; color:#8a3ba0;
     background:#f3e8fb; border:1px solid #dcc3ee; padding:2px 8px; border-radius:20px;
     margin-inline-start:6px; cursor:pointer;
   }
@@ -580,12 +598,12 @@
     background:none;
     border:1.5px solid var(--blue);
     color:var(--blue);
-    font-size:12.5px;
+    font-size:15px;
     padding:7px 14px;
     border-radius:8px;
     cursor:pointer;
     transition:background .2s ease;
-    font-weight:600;
+    font-weight:700;
   }
   .edit-btn:hover{ background:rgba(37,99,235,0.08); }
 
@@ -593,7 +611,7 @@
   .trash-group{ margin-bottom:22px; }
   .trash-group:last-child{ margin-bottom:0; }
   .trash-group-title{
-    font-size:13.5px; font-weight:700; color:var(--heading);
+    font-size:16px; font-weight:700; color:var(--heading);
     display:flex; align-items:center; gap:8px; margin-bottom:10px;
     padding-bottom:8px; border-bottom:1.5px dashed var(--border-soft);
   }
@@ -603,19 +621,19 @@
     border:1px solid var(--border); margin-bottom:8px; gap:10px; flex-wrap:wrap;
   }
   .trash-item .info .name{ font-size:14px; font-weight:700; color:var(--heading); }
-  .trash-item .info .meta{ font-size:12px; color:var(--blue-soft); margin-top:3px; display:flex; gap:12px; flex-wrap:wrap; }
+  .trash-item .info .meta{ font-size:14.5px; color:var(--blue-soft); margin-top:3px; display:flex; gap:12px; flex-wrap:wrap; }
   .trash-item .info .meta span{ direction:ltr; display:inline-block; }
-  .trash-item .info .deleted-at{ font-size:11px; color:#b0a98e; margin-top:4px; }
+  .trash-item .info .deleted-at{ font-size:14.5px; color:#b0a98e; margin-top:4px; }
   .restore-btn{
     background:none;
     border:1.5px solid var(--blue);
     color:var(--blue);
-    font-size:12.5px;
+    font-size:15px;
     padding:7px 14px;
     border-radius:8px;
     cursor:pointer;
     transition:background .2s ease;
-    font-weight:600;
+    font-weight:700;
     white-space:nowrap;
   }
   .restore-btn:hover{ background:rgba(37,99,235,0.08); }
@@ -623,12 +641,12 @@
     background:var(--error);
     border:1.5px solid var(--error);
     color:#fff;
-    font-size:12.5px;
+    font-size:15px;
     padding:7px 14px;
     border-radius:8px;
     cursor:pointer;
     transition:opacity .2s ease;
-    font-weight:600;
+    font-weight:700;
     white-space:nowrap;
   }
   .perm-delete-btn:hover{ opacity:.85; }
@@ -670,7 +688,7 @@
     gap:8px;
   }
   .modal-box .modal-sub{
-    font-size:12.5px;
+    font-size:15px;
     color:var(--blue-soft);
     margin-bottom:22px;
     line-height:1.6;
@@ -678,8 +696,8 @@
   .modal-field{ margin-bottom:16px; }
   .modal-field label{
     display:block;
-    font-size:12.5px;
-    font-weight:600;
+    font-size:15px;
+    font-weight:700;
     color:var(--blue);
     margin-bottom:6px;
   }
@@ -702,7 +720,7 @@
     background:var(--surface);
   }
   .modal-field input.invalid{ border-color:var(--error); }
-  .modal-hint{ font-size:11.5px; color:var(--muted); margin-top:4px; }
+  .modal-hint{ font-size:14.5px; color:var(--muted); margin-top:4px; }
   .modal-actions{ display:flex; gap:10px; margin-top:22px; }
   .modal-save-btn{
     flex:1;
@@ -725,14 +743,14 @@
     background:transparent;
     color:var(--blue-soft);
     font-size:14px;
-    font-weight:600;
+    font-weight:700;
     cursor:pointer;
     transition:background .2s ease;
   }
   .modal-cancel-btn:hover{ background:#f5f0e8; }
   .modal-msg{
-    font-size:13px;
-    font-weight:600;
+    font-size:15.5px;
+    font-weight:700;
     margin-top:12px;
     min-height:16px;
     opacity:0;
@@ -745,11 +763,11 @@
 
   /* مؤشر قوة كلمة المرور */
   .pw-strength{
-    font-size:11.5px;
+    font-size:14.5px;
     margin-top:5px;
     padding:5px 10px;
     border-radius:6px;
-    font-weight:600;
+    font-weight:700;
     display:none;
     text-align:center;
   }
@@ -765,25 +783,25 @@
   .cmp-t-row.replied{ border-right-color:var(--success); }
   .cmp-t-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:8px; flex-wrap:wrap; }
   .cmp-t-name{ font-size:14.5px; font-weight:700; color:var(--heading); }
-  .cmp-t-meta{ font-size:12px; color:var(--blue-soft); display:flex; gap:10px; flex-wrap:wrap; margin-top:3px; }
-  .cmp-t-status{ font-size:10.5px; font-weight:700; padding:3px 10px; border-radius:20px; background:var(--gold-soft); color:#a06a10; white-space:nowrap; }
+  .cmp-t-meta{ font-size:14.5px; color:var(--blue-soft); display:flex; gap:10px; flex-wrap:wrap; margin-top:3px; }
+  .cmp-t-status{ font-size:14.5px; font-weight:700; padding:3px 10px; border-radius:20px; background:var(--gold-soft); color:#a06a10; white-space:nowrap; }
   .cmp-t-status.replied{ background:#e6f4e6; color:var(--success); }
-  .cmp-t-msg{ font-size:13.5px; color:var(--ink); line-height:1.8; white-space:pre-wrap; background:var(--surface); border:1px solid var(--border); border-radius:9px; padding:10px 14px; margin:8px 0 10px; }
-  .cmp-t-reply-existing{ font-size:13px; color:#2e4a34; line-height:1.8; background:#f0f7f0; border:1px solid #c5ddc5; border-radius:9px; padding:10px 14px; margin-bottom:8px; white-space:pre-wrap; }
+  .cmp-t-msg{ font-size:16px; color:var(--ink); line-height:1.8; white-space:pre-wrap; background:var(--surface); border:1px solid var(--border); border-radius:9px; padding:10px 14px; margin:8px 0 10px; }
+  .cmp-t-reply-existing{ font-size:15.5px; color:#2e4a34; line-height:1.8; background:#f0f7f0; border:1px solid #c5ddc5; border-radius:9px; padding:10px 14px; margin-bottom:8px; white-space:pre-wrap; }
   .cmp-t-reply-box textarea{
     width:100%; padding:11px 13px; border-radius:9px; border:1.5px solid var(--border-soft);
-    background:var(--surface); font-size:13.5px; font-family:inherit; outline:none; resize:vertical; min-height:70px;
+    background:var(--surface); font-size:16px; font-family:inherit; outline:none; resize:vertical; min-height:70px;
   }
   .cmp-t-reply-box textarea:focus{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,99,235,0.1); }
-  .cmp-t-reply-btn{ margin-top:8px; padding:9px 18px; border:none; border-radius:9px; background:var(--navy-deep); color:var(--paper); font-size:12.5px; font-weight:700; cursor:pointer; transition:background .2s; }
+  .cmp-t-reply-btn{ margin-top:8px; padding:9px 18px; border:none; border-radius:9px; background:var(--navy-deep); color:var(--paper); font-size:15px; font-weight:700; cursor:pointer; transition:background .2s; }
   .cmp-t-reply-btn:hover{ background:var(--blue); }
   .cmp-t-reply-btn:disabled{ background:var(--muted); cursor:not-allowed; }
-  .cmp-t-msgline{ font-size:12px; font-weight:600; margin-top:6px; min-height:14px; }
+  .cmp-t-msgline{ font-size:14.5px; font-weight:700; margin-top:6px; min-height:14px; }
   .cmp-t-msgline.err{ color:var(--error); } .cmp-t-msgline.ok{ color:var(--success); }
   .cmp-t-actions{ display:flex; gap:8px; flex-wrap:wrap; margin-top:10px; }
   .cmp-t-danger-btn{
     background:none; border:1.5px solid var(--error); color:var(--error);
-    font-size:11.5px; font-weight:700; padding:7px 14px; border-radius:8px; cursor:pointer; transition:background .2s;
+    font-size:14.5px; font-weight:700; padding:7px 14px; border-radius:8px; cursor:pointer; transition:background .2s;
   }
   .cmp-t-danger-btn:hover{ background:rgba(168,69,58,0.08); }
   .cmp-t-danger-btn:disabled{ opacity:.6; cursor:not-allowed; }
@@ -835,6 +853,9 @@
         <span class="mod-badge" id="trashBadge">0</span>
         <span class="mod-icon">🗑️</span>سلة المحذوفات
       </button>
+      <button class="mod-btn" data-mod="otherservices">
+        <span class="mod-icon">🗃️</span>خدمات أخرى
+      </button>
     </div>
 
     <!-- ══ لوحة: المعلمون ══ -->
@@ -851,7 +872,7 @@
         <form id="addTeacherForm" onsubmit="return false;">
           <div class="form-grid">
             <div class="field">
-              <label>اسم المعلم الكامل <span style="font-size:11px;color:#999;font-weight:400;">(بالعربية فقط)</span></label>
+              <label>اسم المعلم الكامل <span style="font-size:14.5px;color:#999;font-weight:700;">(بالعربية فقط)</span></label>
               <input type="text" id="teacherName" placeholder="مثال: أ. سارة أحمد">
             </div>
             <div class="field">
@@ -859,7 +880,7 @@
               <input type="text" id="teacherUsername" placeholder="مثال: sara.ahmad" style="direction:ltr; text-align:left;">
             </div>
             <div class="field">
-              <label>رقم الهوية <span style="font-size:11px;color:#999;font-weight:400;">(9 أرقام إنجليزية)</span></label>
+              <label>رقم الهوية <span style="font-size:14.5px;color:#999;font-weight:700;">(9 أرقام إنجليزية)</span></label>
               <input type="text" id="teacherIdNumber" placeholder="مثال: 123456789" maxlength="9" inputmode="numeric" style="direction:ltr; text-align:left;">
               <p class="field-hint">9 أرقام إنجليزية فقط، ولا يمكن أن يتكرر مع طالب أو معلم آخر</p>
             </div>
@@ -889,7 +910,11 @@
                 <label class="checkbox-pill" data-value="12"><input type="checkbox" value="12"> الصف الثاني عشر</label>
                 <label class="checkbox-pill all-pill" data-value="all"><input type="checkbox" value="all"> جميع المراحل (معلم خاص)</label>
               </div>
-              <p class="field-hint">يمكن اختيار أكثر من مرحلة في نفس الوقت</p>
+              <div class="tags-input-row" style="margin-top:10px;">
+                <input type="text" id="teacherCustomGradeInput" placeholder="اكتب اسم مرحلة خاصة غير موجودة في القائمة (مثال: دورة تقوية صيفية)">
+                <button type="button" class="tags-add-btn" id="teacherCustomGradeAddBtn">+ إضافة مرحلة خاصة</button>
+              </div>
+              <p class="field-hint">يمكن اختيار أكثر من مرحلة في نفس الوقت، ويمكنك أيضاً كتابة اسم مرحلة خاصة حرة غير موجودة في القائمة وإضافتها لتخصيص المعلم لها</p>
             </div>
             <div class="field full">
               <label>المواد الدراسية المخصصة للمعلم</label>
@@ -954,7 +979,7 @@
         <form id="addStudentForm" onsubmit="return false;">
           <div class="form-grid">
             <div class="field">
-              <label>اسم الطالب الكامل <span style="font-size:11px;color:#999;font-weight:400;">(بالعربية فقط)</span></label>
+              <label>اسم الطالب الكامل <span style="font-size:14.5px;color:#999;font-weight:700;">(بالعربية فقط)</span></label>
               <input type="text" id="regStudentName" placeholder="مثال: أحمد محمد خليل العلي">
             </div>
             <div class="field">
@@ -976,12 +1001,12 @@
               </select>
             </div>
             <div class="field">
-              <label>رقم الهوية <span style="font-size:11px;color:#999;font-weight:400;">(9 أرقام إنجليزية)</span></label>
+              <label>رقم الهوية <span style="font-size:14.5px;color:#999;font-weight:700;">(9 أرقام إنجليزية)</span></label>
               <input type="text" id="regStudentId" placeholder="مثال: 123456789" maxlength="9" inputmode="numeric" style="direction:ltr; text-align:left;">
               <p class="field-hint">9 أرقام إنجليزية فقط، ولا يمكن أن يتكرر مع طالب أو معلم آخر</p>
             </div>
             <div class="field">
-              <label>اسم المستخدم <span style="font-size:11px;color:#999;font-weight:400;">(اختياري)</span></label>
+              <label>اسم المستخدم <span style="font-size:14.5px;color:#999;font-weight:700;">(اختياري)</span></label>
               <input type="text" id="regStudentUsername" placeholder="مثال: ahmad2015" style="direction:ltr; text-align:left;">
               <p class="field-hint">إن أُدخل، يستطيع الطالب استخدامه بدلاً من رقم الهوية عند تسجيل الدخول</p>
             </div>
@@ -1204,7 +1229,7 @@
             <input type="text" id="adminCurrentUsername" disabled style="direction:ltr; text-align:left; background:#f0ede0;">
           </div>
           <div class="field full">
-            <label>كلمة المرور الحالية <span style="font-size:11px;color:#999;font-weight:400;">(مطلوبة للتأكيد)</span></label>
+            <label>كلمة المرور الحالية <span style="font-size:14.5px;color:#999;font-weight:700;">(مطلوبة للتأكيد)</span></label>
             <input type="password" id="adminCurrentPassword" placeholder="أدخل كلمة المرور الحالية" style="direction:ltr; text-align:left;">
           </div>
           <div class="field">
@@ -1212,7 +1237,7 @@
             <input type="text" id="adminNewUsername" style="direction:ltr; text-align:left;">
           </div>
           <div class="field">
-            <label>كلمة المرور الجديدة <span style="font-size:11px;color:#999;font-weight:400;">(اتركها فارغة للإبقاء على الحالية)</span></label>
+            <label>كلمة المرور الجديدة <span style="font-size:14.5px;color:#999;font-weight:700;">(اتركها فارغة للإبقاء على الحالية)</span></label>
             <input type="password" id="adminNewPassword" placeholder="كلمة مرور جديدة (اختياري)" style="direction:ltr; text-align:left;">
           </div>
         </div>
@@ -1227,6 +1252,51 @@
         <h2>🗑️ سلة المحذوفات</h2>
         <p class="field-hint" style="margin-bottom:14px;">عند حذف أي معلم أو طالب، تنتقل بياناته إلى هنا بدلاً من حذفها مباشرة. يمكنك استعادته، أو حذفه نهائياً بشكل لا رجعة فيه.</p>
         <div id="trashList"><p class="loading-note">جاري التحميل...</p></div>
+      </div>
+    </div>
+
+    <!-- ══ لوحة: خدمات أخرى ══ -->
+    <div class="mod-panel" id="panel-otherservices">
+      <div class="card">
+        <h2>🗃️ خدمات أخرى</h2>
+        <p class="field-hint" style="margin-bottom:14px;">من هنا يمكنك طباعة كشوفات رسمية بصيغة إكسل (Excel) لبيانات المعلمين أو الطلاب المسجّلين فعلياً في النظام.</p>
+
+        <div class="teach-subtab-nav">
+          <button type="button" class="os-subtab-btn active" data-ossub="osSubTeachers">🧑‍🏫 المعلمون</button>
+          <button type="button" class="os-subtab-btn" data-ossub="osSubStudents">👥 الطلاب</button>
+        </div>
+
+        <!-- خدمات: المعلمون -->
+        <div class="os-subview active" id="osSubTeachers">
+          <p class="field-hint" style="margin-bottom:16px;">سيتم إنشاء كشف إكسل يضم: الاسم الكامل، رقم الهوية، رقم الجوال، والمرحلة الدراسية التي يدرّسها لكل معلم مسجّل حالياً.</p>
+          <button type="button" class="add-btn" id="printAllTeachersBtn" style="width:fit-content; padding:13px 26px;">🖨️ طباعة كشف جميع المعلمين</button>
+          <p class="msg" id="osTeachersMsg"></p>
+        </div>
+
+        <!-- خدمات: الطلاب -->
+        <div class="os-subview" id="osSubStudents" style="display:none;">
+          <p class="field-hint" style="margin-bottom:16px;">اختر المرحلة الدراسية المطلوبة، أو اختر "جميع المراحل" لتصدير كشف بجميع طلاب المدرسة دفعة واحدة.</p>
+          <div class="field" style="max-width:340px; margin-bottom:16px;">
+            <label>المرحلة الدراسية</label>
+            <select id="osGradeSelect" style="width:100%; padding:12px 14px;border-radius:10px;border:1.5px solid var(--border-soft);background:var(--surface-alt);font-size:14.5px;font-family:inherit;outline:none;">
+              <option value="all">جميع المراحل (جميع طلاب المدرسة)</option>
+              <option value="1">الصف الأول الابتدائي</option>
+              <option value="2">الصف الثاني الابتدائي</option>
+              <option value="3">الصف الثالث الابتدائي</option>
+              <option value="4">الصف الرابع الابتدائي</option>
+              <option value="5">الصف الخامس الابتدائي</option>
+              <option value="6">الصف السادس الابتدائي</option>
+              <option value="7">الصف السابع</option>
+              <option value="8">الصف الثامن</option>
+              <option value="9">الصف التاسع</option>
+              <option value="10">الصف العاشر</option>
+              <option value="11">الصف الحادي عشر</option>
+              <option value="12">الصف الثاني عشر</option>
+            </select>
+          </div>
+          <button type="button" class="add-btn" id="printStudentsBtn" style="width:fit-content; padding:13px 26px;">🖨️ طباعة كشف جميع طلاب المدرسة</button>
+          <p class="msg" id="osStudentsMsg"></p>
+        </div>
       </div>
     </div>
   </div>
@@ -1291,6 +1361,18 @@
       if(mod === 'content') refreshContentPanel();
       if(mod === 'trash') renderTrash();
       if(mod === 'admincomplaints') renderAdminComplaints();
+    });
+  });
+
+  // ── التبديل بين "المعلمون" و"الطلاب" داخل قسم "خدمات أخرى" ──
+  document.querySelectorAll('.os-subtab-btn').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.os-subtab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.os-subview').forEach(v => { v.classList.remove('active'); v.style.display = 'none'; });
+      btn.classList.add('active');
+      const target = document.getElementById(btn.dataset.ossub);
+      target.classList.add('active');
+      target.style.display = 'block';
     });
   });
 
@@ -1367,6 +1449,90 @@
   }
   wireCheckboxGroup(gradeGroup, { exclusiveValue: 'all' });
   initTagsInput(subjectGroup);
+
+  // ── مرحلة خاصة حرة: يكتب المسؤول اسمها بنفسه ويضيفها كخيار إضافي بجانب المراحل الثابتة ──
+  function isStandardGradeValue(v){
+    return v === 'all' || /^([1-9]|1[0-2])$/.test(v);
+  }
+
+  function addCustomGradePill(groupEl, rawText){
+    const text = (rawText || '').trim();
+    if(!text) return { ok:false, msg:'يرجى كتابة اسم المرحلة الخاصة' };
+    const already = Array.from(groupEl.querySelectorAll('.checkbox-pill input[type="checkbox"]'))
+      .some(cb => cb.value.toLowerCase() === text.toLowerCase());
+    if(already) return { ok:false, msg:'هذه المرحلة موجودة بالفعل في القائمة' };
+
+    const pill = document.createElement('label');
+    pill.className = 'checkbox-pill custom-pill checked';
+    pill.dataset.value = text;
+
+    const cb = document.createElement('input');
+    cb.type = 'checkbox';
+    cb.value = text;
+    cb.checked = true;
+
+    const textSpan = document.createElement('span');
+    textSpan.textContent = text;
+
+    const removeBtn = document.createElement('button');
+    removeBtn.type = 'button';
+    removeBtn.className = 'pill-remove';
+    removeBtn.setAttribute('aria-label', 'حذف المرحلة الخاصة');
+    removeBtn.textContent = '×';
+    removeBtn.addEventListener('click', e => {
+      e.stopPropagation();
+      pill.remove();
+    });
+
+    cb.addEventListener('change', () => {
+      pill.classList.toggle('checked', cb.checked);
+      if(cb.checked){
+        const allCb = groupEl.querySelector('input[value="all"]');
+        if(allCb && allCb.checked){
+          allCb.checked = false;
+          allCb.closest('.checkbox-pill').classList.remove('checked');
+        }
+      }
+      groupEl.classList.remove('invalid');
+    });
+
+    pill.appendChild(cb);
+    pill.appendChild(textSpan);
+    pill.appendChild(removeBtn);
+    groupEl.appendChild(pill);
+
+    // إضافة مرحلة خاصة مُختارة تُلغي خيار "جميع المراحل" إن كان مفعّلاً
+    const allCb = groupEl.querySelector('input[value="all"]');
+    if(allCb && allCb.checked){
+      allCb.checked = false;
+      allCb.closest('.checkbox-pill').classList.remove('checked');
+    }
+    groupEl.classList.remove('invalid');
+    return { ok:true };
+  }
+
+  function wireCustomGradeAdder(groupEl, inputEl, btnEl, onError){
+    function handleAdd(){
+      const res = addCustomGradePill(groupEl, inputEl.value);
+      if(res.ok){
+        inputEl.value = '';
+        inputEl.focus();
+      } else if(typeof onError === 'function'){
+        onError(res.msg);
+      }
+    }
+    btnEl.addEventListener('click', handleAdd);
+    inputEl.addEventListener('keydown', e => {
+      if(e.key === 'Enter'){ e.preventDefault(); handleAdd(); }
+    });
+  }
+
+  wireCustomGradeAdder(
+    gradeGroup,
+    document.getElementById('teacherCustomGradeInput'),
+    document.getElementById('teacherCustomGradeAddBtn'),
+    msg => showMsg(msg, 'error')
+  );
 
   function getCheckedValues(groupEl){
     return Array.from(groupEl.querySelectorAll('input[type="checkbox"]:checked')).map(cb => cb.value);
@@ -1473,6 +1639,149 @@
   }
   function getTeacherSubjects(t){
     return Array.isArray(t.subjects) ? t.subjects : [];
+  }
+
+  // ══════════════════════════════════
+  //  خدمات أخرى: تصدير كشوفات إكسل
+  // ══════════════════════════════════
+
+  // العام الدراسي الحالي بصيغة "2026 - 2027"، يُحسب تلقائياً بحيث يبدأ من شهر أغسطس
+  function getAcademicYearLabel(){
+    const now = new Date();
+    const y = now.getFullYear();
+    const m = now.getMonth(); // 0 = يناير ... 7 = أغسطس
+    return (m >= 7) ? `${y} - ${y + 1}` : `${y - 1} - ${y}`;
+  }
+
+  function showOsMsg(el, text, type){
+    el.textContent = text;
+    el.className = 'msg show ' + type;
+  }
+
+  // ينشئ ملف إكسل من مصفوفة بيانات، مع صف عنوان علوي يحوي سنة الطباعة
+  function buildAndDownloadExcel(rows, headerKeys, sheetTitle, fileName){
+    const aoa = [];
+    aoa.push([sheetTitle]);
+    aoa.push([`العام الدراسي: ${getAcademicYearLabel()}`]);
+    aoa.push([]);
+    aoa.push(headerKeys);
+    rows.forEach(r => aoa.push(headerKeys.map(k => (r[k] !== undefined && r[k] !== null) ? r[k] : '—')));
+
+    const ws = XLSX.utils.aoa_to_sheet(aoa);
+    ws['!merges'] = [
+      { s:{ r:0, c:0 }, e:{ r:0, c:headerKeys.length - 1 } },
+      { s:{ r:1, c:0 }, e:{ r:1, c:headerKeys.length - 1 } }
+    ];
+    ws['!cols'] = headerKeys.map(() => ({ wch: 22 }));
+
+    const wb = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(wb, ws, 'الكشف');
+    XLSX.writeFile(wb, fileName + '.xlsx');
+  }
+
+  // ── طباعة كشف جميع المعلمين ──
+  const printAllTeachersBtn = document.getElementById('printAllTeachersBtn');
+  const osTeachersMsg = document.getElementById('osTeachersMsg');
+  if(printAllTeachersBtn){
+    printAllTeachersBtn.addEventListener('click', async () => {
+      printAllTeachersBtn.disabled = true;
+      showOsMsg(osTeachersMsg, 'جاري تجهيز الكشف...', 'success');
+      try{
+        const snap = await getDocs(collection(db, 'teachers'));
+        if(snap.empty){
+          showOsMsg(osTeachersMsg, 'لا يوجد معلمون مسجلون حالياً', 'error');
+          printAllTeachersBtn.disabled = false;
+          return;
+        }
+        const rows = [];
+        snap.forEach(d => {
+          const t = d.data();
+          const grades = getTeacherGrades(t);
+          const gradeText = grades.includes('all')
+            ? 'جميع المراحل'
+            : (grades.map(g => GRADE_LABELS[g] || g).join('، ') || '—');
+          rows.push({
+            'اسم المعلم كاملاً': t.name || '—',
+            'رقم الهوية': t.idNumber || '—',
+            'رقم الجوال': t.phone || '—',
+            'المرحلة الدراسية': gradeText
+          });
+        });
+        rows.sort((a,b) => (a['اسم المعلم كاملاً']||'').localeCompare(b['اسم المعلم كاملاً']||'', 'ar'));
+        buildAndDownloadExcel(
+          rows,
+          ['اسم المعلم كاملاً', 'رقم الهوية', 'رقم الجوال', 'المرحلة الدراسية'],
+          'كشف جميع المعلمين - مركز منابر الأقصى',
+          'كشف_جميع_المعلمين'
+        );
+        showOsMsg(osTeachersMsg, `تم تصدير الكشف بنجاح (${rows.length} معلم)`, 'success');
+      }catch(err){
+        console.error(err);
+        showOsMsg(osTeachersMsg, 'حدث خطأ أثناء تجهيز الكشف', 'error');
+      }
+      printAllTeachersBtn.disabled = false;
+    });
+  }
+
+  // ── طباعة كشف الطلاب (مرحلة معينة أو جميع المراحل) ──
+  const osGradeSelect = document.getElementById('osGradeSelect');
+  const printStudentsBtn = document.getElementById('printStudentsBtn');
+  const osStudentsMsg = document.getElementById('osStudentsMsg');
+
+  function updatePrintStudentsBtnLabel(){
+    if(!osGradeSelect || !printStudentsBtn) return;
+    const val = osGradeSelect.value;
+    printStudentsBtn.textContent = (val === 'all')
+      ? '🖨️ طباعة كشف جميع طلاب المدرسة'
+      : `🖨️ طباعة كشف ${GRADE_LABELS[val] || ''}`;
+  }
+  if(osGradeSelect){
+    osGradeSelect.addEventListener('change', updatePrintStudentsBtnLabel);
+    updatePrintStudentsBtnLabel();
+  }
+
+  if(printStudentsBtn){
+    printStudentsBtn.addEventListener('click', async () => {
+      printStudentsBtn.disabled = true;
+      showOsMsg(osStudentsMsg, 'جاري تجهيز الكشف...', 'success');
+      try{
+        const gradeVal = osGradeSelect.value;
+        const snap = (gradeVal === 'all')
+          ? await getDocs(collection(db, 'students'))
+          : await getDocs(query(collection(db,'students'), where('grade','==', gradeVal)));
+
+        if(snap.empty){
+          showOsMsg(osStudentsMsg, 'لا يوجد طلاب مطابقون لهذا الاختيار', 'error');
+          printStudentsBtn.disabled = false;
+          return;
+        }
+
+        const rows = [];
+        snap.forEach(d => {
+          const s = d.data();
+          rows.push({
+            'اسم الطالب كاملاً': s.fullName || '—',
+            'رقم الهوية': s.id || d.id || '—',
+            'رقم الجوال': s.phone || '—',
+            'المرحلة الدراسية': GRADE_LABELS[s.grade] || s.grade || '—'
+          });
+        });
+        rows.sort((a,b) => (a['اسم الطالب كاملاً']||'').localeCompare(b['اسم الطالب كاملاً']||'', 'ar'));
+
+        const label = (gradeVal === 'all') ? 'جميع طلاب المدرسة' : (GRADE_LABELS[gradeVal] || gradeVal);
+        buildAndDownloadExcel(
+          rows,
+          ['اسم الطالب كاملاً', 'رقم الهوية', 'رقم الجوال', 'المرحلة الدراسية'],
+          `كشف ${label} - مركز منابر الأقصى`,
+          `كشف_${label.replace(/\s+/g,'_')}`
+        );
+        showOsMsg(osStudentsMsg, `تم تصدير الكشف بنجاح (${rows.length} طالب)`, 'success');
+      }catch(err){
+        console.error(err);
+        showOsMsg(osStudentsMsg, 'حدث خطأ أثناء تجهيز الكشف', 'error');
+      }
+      printStudentsBtn.disabled = false;
+    });
   }
 
   // ══════════════════════════════════
@@ -1786,6 +2095,7 @@
       idNumberInput.value = '';
       phoneInput.value = '';
       passwordInput.value = '';
+      gradeGroup.querySelectorAll('.checkbox-pill.custom-pill').forEach(p => p.remove());
       setCheckedValues(gradeGroup, []);
       setTagsValues(subjectGroup, []);
       showMsg('تمت إضافة المعلم بنجاح ✓', 'success');
@@ -2067,6 +2377,12 @@
 
   wireCheckboxGroup(editGradeGroup, { exclusiveValue: 'all' });
   initTagsInput(editSubjectGroup);
+  wireCustomGradeAdder(
+    editGradeGroup,
+    document.getElementById('editCustomGradeInput'),
+    document.getElementById('editCustomGradeAddBtn'),
+    msg => { editMsg.textContent = msg; editMsg.className = 'modal-msg show error'; }
+  );
 
   function openEditModal(teacher){
     editingTeacher = teacher;
@@ -2077,7 +2393,11 @@
     editPwStrength.style.display = 'none';
     editGradeGroup.classList.remove('invalid');
     editSubjectGroup.classList.remove('invalid');
-    setCheckedValues(editGradeGroup, getTeacherGrades(teacher));
+    // إزالة أي بطاقات مراحل خاصة متبقية من تعديل سابق، ثم إعادة إنشاء بطاقات المراحل الخاصة الفعلية لهذا المعلم
+    editGradeGroup.querySelectorAll('.checkbox-pill.custom-pill').forEach(p => p.remove());
+    const teacherGrades = getTeacherGrades(teacher);
+    teacherGrades.filter(g => !isStandardGradeValue(g)).forEach(g => addCustomGradePill(editGradeGroup, g));
+    setCheckedValues(editGradeGroup, teacherGrades);
     setTagsValues(editSubjectGroup, getTeacherSubjects(teacher));
     editMsg.className   = 'modal-msg';
     editMsg.textContent = '';
@@ -2981,9 +3301,9 @@
       const grades = Array.isArray(instr.grades) ? instr.grades : [];
       let studentsSnap;
       if(grades.includes('all')){
-        studentsSnap = await getDocs(query(collection(db,'students'), where('status','==','approved')));
+        studentsSnap = await getDocs(query(collection(db,'students'), where('status','==','active')));
       }else{
-        studentsSnap = await getDocs(query(collection(db,'students'), where('status','==','approved'), where('grade','in', grades.slice(0,10))));
+        studentsSnap = await getDocs(query(collection(db,'students'), where('status','==','active'), where('grade','in', grades.slice(0,10))));
       }
       const students = [];
       studentsSnap.forEach(d => students.push({ natId:d.id, ...d.data() }));
@@ -3530,7 +3850,7 @@
       <p class="modal-sub" id="editModalSub">تعديل اسم المستخدم أو كلمة المرور</p>
 
       <div class="modal-field">
-        <label>اسم المعلم <span style="font-size:11px;color:#999;font-weight:400;">(بالعربية فقط)</span></label>
+        <label>اسم المعلم <span style="font-size:14.5px;color:#999;font-weight:700;">(بالعربية فقط)</span></label>
         <input type="text" id="editName" placeholder="اسم المعلم الكامل">
       </div>
 
@@ -3569,6 +3889,11 @@
           <label class="checkbox-pill" data-value="12"><input type="checkbox" value="12"> الصف الثاني عشر</label>
           <label class="checkbox-pill all-pill" data-value="all"><input type="checkbox" value="all"> جميع المراحل</label>
         </div>
+        <div class="tags-input-row" style="margin-top:10px;">
+          <input type="text" id="editCustomGradeInput" placeholder="اكتب اسم مرحلة خاصة غير موجودة في القائمة (مثال: دورة تقوية صيفية)">
+          <button type="button" class="tags-add-btn" id="editCustomGradeAddBtn">+ إضافة مرحلة خاصة</button>
+        </div>
+        <p class="field-hint">يمكنك أيضاً كتابة اسم مرحلة خاصة حرة غير موجودة في القائمة وإضافتها</p>
       </div>
 
       <div class="modal-field">
@@ -3598,7 +3923,7 @@
       <p class="modal-sub" id="editStudentModalSub">تعديل بيانات الطالب</p>
 
       <div class="modal-field">
-        <label>اسم الطالب <span style="font-size:11px;color:#999;font-weight:400;">(بالعربية فقط)</span></label>
+        <label>اسم الطالب <span style="font-size:14.5px;color:#999;font-weight:700;">(بالعربية فقط)</span></label>
         <input type="text" id="editStudentName" placeholder="اسم الطالب الكامل">
       </div>
 
@@ -3622,13 +3947,13 @@
       </div>
 
       <div class="modal-field">
-        <label>رقم الهوية الجديد <span style="font-size:11px;color:#999;font-weight:400;">(9 أرقام إنجليزية)</span></label>
+        <label>رقم الهوية الجديد <span style="font-size:14.5px;color:#999;font-weight:700;">(9 أرقام إنجليزية)</span></label>
         <input type="text" id="editStudentNatId" placeholder="مثال: 123456789" maxlength="9" inputmode="numeric">
         <div class="modal-hint">⚠️ تغيير رقم الهوية يُنشئ حساباً جديداً ويحذف القديم</div>
       </div>
 
       <div class="modal-field">
-        <label>اسم المستخدم <span style="font-size:11px;color:#999;font-weight:400;">(اختياري)</span></label>
+        <label>اسم المستخدم <span style="font-size:14.5px;color:#999;font-weight:700;">(اختياري)</span></label>
         <input type="text" id="editStudentUsername" placeholder="اسم المستخدم">
       </div>
 
