@@ -824,6 +824,36 @@
     });
   }
 
+  // ==== رفع الصور إلى Cloudinary بدل تخزينها كنص base64 داخل Firestore ====
+  const CLOUDINARY_CLOUD_NAME = 'twjah7d6';
+  const CLOUDINARY_UPLOAD_PRESET = 'tkckaegm';
+
+  // تحويل Data URL (base64) إلى Blob قابل للرفع
+  function dataUrlToBlob(dataUrl){
+    const parts = dataUrl.split(',');
+    const mime = parts[0].match(/:(.*?);/)[1];
+    const binary = atob(parts[1]);
+    const arr = new Uint8Array(binary.length);
+    for(let i = 0; i < binary.length; i++) arr[i] = binary.charCodeAt(i);
+    return new Blob([arr], { type: mime });
+  }
+
+  // ضغط الصورة ثم رفعها إلى Cloudinary، وإرجاع الرابط النهائي (بدل نص base64 طويل)
+  async function compressAndUploadImage(file, maxDim = 1000, maxDataUrlLen = 700 * 1024){
+    const dataUrl = await compressImageFile(file, maxDim, maxDataUrlLen);
+    const blob = dataUrlToBlob(dataUrl);
+    const formData = new FormData();
+    formData.append('file', blob);
+    formData.append('upload_preset', CLOUDINARY_UPLOAD_PRESET);
+    const res = await fetch(`https://api.cloudinary.com/v1_1/${CLOUDINARY_CLOUD_NAME}/image/upload`, {
+      method: 'POST',
+      body: formData
+    });
+    if(!res.ok) throw new Error('cloudinary-upload-failed');
+    const data = await res.json();
+    return data.secure_url;
+  }
+
   // إرجاع مصفوفة صور التسليم، مع التوافق مع البيانات القديمة (صورة واحدة فقط)
   function getSubmissionImages(sub){
     if(!sub) return [];
@@ -1660,19 +1690,19 @@
           imgStatus.className = 'img-compress-status error';
           return;
         }
-        imgStatus.textContent = `جارِ ضغط ${validFiles.length} صورة...`;
+        imgStatus.textContent = `جارِ رفع ${validFiles.length} صورة...`;
         imgStatus.className = 'img-compress-status';
         try{
           for(const file of validFiles){
-            const dataUrl = await compressImageFile(file);
-            compressedImagesData.push(dataUrl);
+            const url = await compressAndUploadImage(file);
+            compressedImagesData.push(url);
           }
           renderImgPreviews();
-          imgStatus.textContent = `تمت إضافة ${validFiles.length} صورة — الإجمالي الآن: ${compressedImagesData.length} صورة`;
+          imgStatus.textContent = `تم رفع ${validFiles.length} صورة — الإجمالي الآن: ${compressedImagesData.length} صورة`;
           imgStatus.className = 'img-compress-status success';
         }catch(e){
           console.error(e);
-          imgStatus.textContent = 'حدث خطأ أثناء معالجة إحدى الصور، حاول مرة أخرى';
+          imgStatus.textContent = 'حدث خطأ أثناء رفع إحدى الصور، تحقق من الاتصال وحاول مرة أخرى';
           imgStatus.className = 'img-compress-status error';
         }
         imageInput.value = '';
