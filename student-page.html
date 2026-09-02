@@ -59,20 +59,20 @@
     min-height:100vh; padding-bottom:60px;
   }
   .topbar{ background:var(--navy-deep); color:#fff; padding:18px 26px; display:flex; align-items:center; justify-content:space-between; box-shadow:0 4px 20px -8px rgba(15,23,42,0.35); }
-  .topbar .brand{ font-size:16px; font-weight:800; display:flex; align-items:center; gap:8px; }
-  .logout-btn{ background:rgba(255,255,255,0.14); border:none; color:#fff; font-size:16px; font-weight:700; padding:10px 18px; border-radius:12px; cursor:pointer; transition:background .2s; }
+  .topbar .brand{ font-size:14px; font-weight:800; display:flex; align-items:center; gap:8px; }
+  .logout-btn{ background:rgba(255,255,255,0.14); border:none; color:#fff; font-size:14px; font-weight:700; padding:10px 18px; border-radius:12px; cursor:pointer; transition:background .2s; }
   .logout-btn:hover{ background:rgba(255,255,255,0.22); }
   .topbar-actions{ display:flex; align-items:center; gap:10px; }
-  .notif-bell-btn{ background:rgba(255,255,255,0.12); border:none; color:var(--paper); font-size:16px; width:38px; height:38px; border-radius:10px; cursor:pointer; transition:background .2s; display:flex; align-items:center; justify-content:center; }
+  .notif-bell-btn{ background:rgba(255,255,255,0.12); border:none; color:var(--paper); font-size:14px; width:38px; height:38px; border-radius:10px; cursor:pointer; transition:background .2s; display:flex; align-items:center; justify-content:center; }
   .notif-bell-btn:hover{ background:rgba(255,255,255,0.22); }
   .notif-bell-btn.active{ background:var(--gold); color:var(--navy-deep); }
 
   .profile-header{ max-width:760px; margin:30px auto 10px; padding:0 20px; display:flex; align-items:center; gap:20px; animation:rise .5s ease both; }
   @keyframes rise{ from{opacity:0;transform:translateY(10px)} to{opacity:1;transform:translateY(0)} }
-  .avatar{ width:88px; height:88px; border-radius:50%; background:linear-gradient(160deg,var(--blue),var(--navy-deep)); display:flex; align-items:center; justify-content:center; color:#fff; font-size:32px; font-weight:800; flex-shrink:0; box-shadow:0 0 0 4px var(--surface), 0 0 0 7px rgba(37,99,235,0.18), 0 10px 24px -10px rgba(37,99,235,0.35); overflow:hidden; }
+  .avatar{ width:88px; height:88px; border-radius:50%; background:linear-gradient(160deg,var(--blue),var(--navy-deep)); display:flex; align-items:center; justify-content:center; color:#fff; font-size:28px; font-weight:800; flex-shrink:0; box-shadow:0 0 0 4px var(--surface), 0 0 0 7px rgba(37,99,235,0.18), 0 10px 24px -10px rgba(37,99,235,0.35); overflow:hidden; }
   .avatar img{ width:100%; height:100%; object-fit:cover; }
-  .profile-info h1{ font-size:21px; font-weight:800; color:var(--heading); margin-bottom:4px; }
-  .profile-info .meta{ font-size:15.5px; color:var(--blue-soft); display:flex; flex-wrap:wrap; gap:10px; }
+  .profile-info h1{ font-size:18.5px; font-weight:800; color:var(--heading); margin-bottom:4px; }
+  .profile-info .meta{ font-size:13.5px; color:var(--blue-soft); display:flex; flex-wrap:wrap; gap:10px; }
   .profile-info .meta span{ background:var(--surface); padding:4px 10px; border-radius:8px; border:1px solid var(--gold-soft); }
 
   .profile-actions{ margin-right:auto; flex-shrink:0; display:flex; gap:8px; flex-wrap:wrap; justify-content:flex-end; }
@@ -80,7 +80,7 @@
 
   .complaint-btn{
     background:var(--surface); border:1.5px solid var(--gold); color:#a06a10;
-    font-size:15px; font-weight:700; padding:9px 16px; border-radius:11px;
+    font-size:13px; font-weight:700; padding:9px 16px; border-radius:11px;
     cursor:pointer; display:flex; align-items:center; gap:6px; transition:background .2s, transform .15s;
   }
   .complaint-btn:hover{ background:rgba(201,151,63,0.1); }
@@ -94,17 +94,17 @@
   }
   .cmp-card.replied{ border-right-color:var(--success); }
   .cmp-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; margin-bottom:8px; }
-  .cmp-status{ font-size:14.5px; font-weight:700; padding:3px 10px; border-radius:20px; background:var(--gold-soft); color:#a06a10; white-space:nowrap; }
+  .cmp-status{ font-size:13px; font-weight:700; padding:3px 10px; border-radius:20px; background:var(--gold-soft); color:#a06a10; white-space:nowrap; }
   .cmp-status.replied{ background:#e6f4e6; color:var(--success); }
-  .cmp-msg-text{ font-size:16px; color:var(--ink); line-height:1.8; white-space:pre-wrap; margin-bottom:8px; }
-  .cmp-date{ font-size:14.5px; color:#b0a98e; }
+  .cmp-msg-text{ font-size:14px; color:var(--ink); line-height:1.8; white-space:pre-wrap; margin-bottom:8px; }
+  .cmp-date{ font-size:13px; color:#b0a98e; }
   .cmp-reply-box{ margin-top:10px; background:#f4f9f4; border:1.5px solid #c5ddc5; border-radius:10px; padding:12px 14px; }
-  .cmp-reply-label{ font-size:14.5px; font-weight:700; color:var(--blue); margin-bottom:6px; }
-  .cmp-reply-text{ font-size:16px; color:#2e4a34; line-height:1.8; white-space:pre-wrap; }
+  .cmp-reply-label{ font-size:13px; font-weight:700; color:var(--blue); margin-bottom:6px; }
+  .cmp-reply-text{ font-size:14px; color:#2e4a34; line-height:1.8; white-space:pre-wrap; }
   .cmp-footer{ display:flex; justify-content:flex-end; margin-top:10px; }
   .cmp-delete-btn{
     background:none; border:1.5px solid var(--error); color:var(--error);
-    font-size:14.5px; font-weight:700; padding:6px 14px; border-radius:8px; cursor:pointer; transition:background .2s;
+    font-size:13px; font-weight:700; padding:6px 14px; border-radius:8px; cursor:pointer; transition:background .2s;
   }
   .cmp-delete-btn:hover{ background:rgba(168,69,58,0.08); }
   .cmp-delete-btn:disabled{ opacity:.6; cursor:not-allowed; }
@@ -112,62 +112,62 @@
   /* ===== Modal إرسال شكوى ===== */
   .cmpm-textarea{
     width:100%; padding:13px 14px; border-radius:11px; border:1.5px solid var(--border-soft);
-    background:var(--surface-alt); font-size:14px; font-family:inherit; outline:none; resize:vertical; min-height:110px;
+    background:var(--surface-alt); font-size:12.5px; font-family:inherit; outline:none; resize:vertical; min-height:110px;
     transition:border-color .2s ease, box-shadow .2s ease;
   }
   .cmpm-textarea:focus{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,99,235,0.1); background:var(--surface); }
 
   .rs-dismiss-btn{
     margin-top:10px; background:none; border:1.5px solid var(--error); color:var(--error);
-    font-size:14.5px; font-weight:700; padding:6px 14px; border-radius:8px; cursor:pointer; transition:background .2s;
+    font-size:13px; font-weight:700; padding:6px 14px; border-radius:8px; cursor:pointer; transition:background .2s;
   }
   .rs-dismiss-btn:hover{ background:rgba(168,69,58,0.08); }
 
   /* ===== Modal تعديل البيانات ===== */
   .epm-field{ margin-bottom:16px; }
-  .epm-field label{ display:block; font-size:15.5px; font-weight:700; color:var(--blue); margin-bottom:7px; }
+  .epm-field label{ display:block; font-size:13.5px; font-weight:700; color:var(--blue); margin-bottom:7px; }
   .epm-field input, .epm-field select{
     width:100%; padding:12px 14px; border-radius:11px; border:1.5px solid var(--border-soft);
-    background:var(--surface-alt); font-size:14.5px; font-family:inherit; outline:none;
+    background:var(--surface-alt); font-size:13px; font-family:inherit; outline:none;
     transition:border-color .2s ease, box-shadow .2s ease;
   }
   .epm-field input:focus, .epm-field select:focus{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,99,235,0.1); background:var(--surface); }
   .epm-field input.ltr{ direction:ltr; text-align:left; }
-  .epm-field .epm-err{ font-size:14.5px; color:var(--error); margin-top:6px; min-height:14px; display:none; }
+  .epm-field .epm-err{ font-size:13px; color:var(--error); margin-top:6px; min-height:14px; display:none; }
   .epm-field .epm-err.show{ display:block; }
   .epm-field input.invalid{ border-color:var(--error); }
-  .epm-note{ font-size:14.5px; color:var(--muted); line-height:1.7; margin-bottom:18px; background:var(--surface-alt); border:1px dashed var(--gold-soft); border-radius:10px; padding:12px 14px; }
+  .epm-note{ font-size:13px; color:var(--muted); line-height:1.7; margin-bottom:18px; background:var(--surface-alt); border:1px dashed var(--gold-soft); border-radius:10px; padding:12px 14px; }
   .epm-save-btn{
     width:100%; padding:14px; border:none; border-radius:12px; background:var(--navy-deep);
-    color:var(--paper); font-size:15px; font-weight:700; cursor:pointer; margin-top:6px; transition:background .2s;
+    color:var(--paper); font-size:13px; font-weight:700; cursor:pointer; margin-top:6px; transition:background .2s;
   }
   .epm-save-btn:hover{ background:var(--blue); }
   .epm-save-btn:disabled{ background:var(--muted); cursor:not-allowed; }
-  .epm-msg{ text-align:center; font-size:15.5px; font-weight:700; margin-top:12px; min-height:16px; opacity:0; transition:opacity .2s; }
+  .epm-msg{ text-align:center; font-size:13.5px; font-weight:700; margin-top:12px; min-height:16px; opacity:0; transition:opacity .2s; }
   .epm-msg.show{ opacity:1; }
   .epm-msg.error{ color:var(--error); }
   .epm-msg.success{ color:var(--success); }
 
   .section{ max-width:760px; margin:34px auto 0; padding:0 20px; }
-  .section-title{ font-size:15px; font-weight:700; color:var(--blue); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
+  .section-title{ font-size:13px; font-weight:700; color:var(--blue); margin-bottom:16px; display:flex; align-items:center; gap:8px; }
   .section-title::before{ content:''; width:4px; height:16px; background:var(--gold); border-radius:3px; }
 
   /* ===== بطاقات المواد ===== */
   .subjects-grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(200px,1fr)); gap:16px; }
   .subject-card{ background:var(--surface); border-radius:16px; padding:20px 18px; box-shadow:0 8px 22px -10px rgba(15,23,42,0.15); border:1px solid var(--border); transition:transform .2s,box-shadow .2s; cursor:pointer; display:flex; flex-direction:column; gap:8px; }
   .subject-card:hover{ transform:translateY(-3px); box-shadow:0 14px 28px -10px rgba(15,23,42,0.22); }
-  .subject-card .icon{ width:40px; height:40px; border-radius:10px; background:var(--gold-soft); display:flex; align-items:center; justify-content:center; font-size:18px; }
-  .subject-card .name{ font-size:15px; font-weight:700; color:var(--heading); }
-  .subject-card .desc{ font-size:15px; color:#8a8470; line-height:1.5; }
-  .subject-card .links-count{ font-size:14.5px; color:var(--blue-soft); margin-top:4px; }
+  .subject-card .icon{ width:40px; height:40px; border-radius:10px; background:var(--gold-soft); display:flex; align-items:center; justify-content:center; font-size:16px; }
+  .subject-card .name{ font-size:13px; font-weight:700; color:var(--heading); }
+  .subject-card .desc{ font-size:13px; color:#8a8470; line-height:1.5; }
+  .subject-card .links-count{ font-size:13px; color:var(--blue-soft); margin-top:4px; }
   .hw-back-btn{
     background:none; border:none; cursor:pointer;
-    font-family:inherit; font-size:15.5px; font-weight:700;
+    font-family:inherit; font-size:13.5px; font-weight:700;
     color:var(--blue); padding:6px 0; margin-bottom:10px;
   }
   .hw-back-btn:hover{ color:var(--heading); }
   .hw-subject-heading{
-    font-size:15px; font-weight:700; color:var(--heading);
+    font-size:13px; font-weight:700; color:var(--heading);
     margin-bottom:14px;
   }
 
@@ -175,9 +175,9 @@
   .modal-overlay{ position:fixed; inset:0; background:rgba(35,41,31,0.55); z-index:50; display:none; align-items:center; justify-content:center; padding:20px; }
   .modal-overlay.show{ display:flex; }
   .modal-box{ background:var(--surface); border-radius:20px; max-width:520px; width:100%; max-height:82vh; overflow-y:auto; padding:28px; animation:rise .3s ease both; }
-  .modal-box h2{ font-size:18px; color:var(--heading); margin-bottom:6px; }
-  .modal-box .modal-sub{ font-size:15.5px; color:var(--blue-soft); margin-bottom:18px; line-height:1.6; }
-  .modal-close{ margin-top:20px; width:100%; padding:13px; border:none; border-radius:11px; background:var(--navy-deep); color:var(--paper); font-size:14px; font-weight:700; cursor:pointer; }
+  .modal-box h2{ font-size:16px; color:var(--heading); margin-bottom:6px; }
+  .modal-box .modal-sub{ font-size:13.5px; color:var(--blue-soft); margin-bottom:18px; line-height:1.6; }
+  .modal-close{ margin-top:20px; width:100%; padding:13px; border:none; border-radius:11px; background:var(--navy-deep); color:var(--paper); font-size:12.5px; font-weight:700; cursor:pointer; }
 
   /* بطاقة رابط داخل المودال */
   .modal-link-card-wrap{
@@ -190,35 +190,35 @@
     cursor:pointer;
   }
   .modal-link-card:hover{ box-shadow:0 4px 14px -6px rgba(15,23,42,0.18); }
-  .modal-link-card .licon{ font-size:24px; flex-shrink:0; margin-top:2px; }
+  .modal-link-card .licon{ font-size:21px; flex-shrink:0; margin-top:2px; }
   .modal-link-card .lbody{ flex:1; min-width:0; }
-  .modal-link-card .ltitle{ font-size:14px; font-weight:700; color:var(--heading); margin-bottom:3px; }
-  .modal-link-card .ldesc{ font-size:15px; color:#6b6450; line-height:1.6; margin-bottom:6px; }
-  .modal-link-card .lurl{ font-size:14.5px; color:var(--blue-soft); word-break:break-all; }
-  .open-badge{ font-size:14.5px; font-weight:700; background:var(--navy-deep); color:var(--paper); padding:4px 10px; border-radius:8px; flex-shrink:0; margin-top:4px; }
+  .modal-link-card .ltitle{ font-size:12.5px; font-weight:700; color:var(--heading); margin-bottom:3px; }
+  .modal-link-card .ldesc{ font-size:13px; color:#6b6450; line-height:1.6; margin-bottom:6px; }
+  .modal-link-card .lurl{ font-size:13px; color:var(--blue-soft); word-break:break-all; }
+  .open-badge{ font-size:13px; font-weight:700; background:var(--navy-deep); color:var(--paper); padding:4px 10px; border-radius:8px; flex-shrink:0; margin-top:4px; }
   .mark-done-btn{
     margin-top:10px; width:100%; padding:9px; border-radius:9px; border:1.5px solid var(--blue);
-    background:var(--surface); color:var(--blue); font-size:15px; font-weight:700; cursor:pointer; font-family:inherit;
+    background:var(--surface); color:var(--blue); font-size:13px; font-weight:700; cursor:pointer; font-family:inherit;
   }
   .mark-done-btn:hover{ background:var(--blue); color:var(--paper); }
   .mark-done-btn.done{ background:#e6f4e6; border-color:#3f7a52; color:#3f7a52; }
 
   /* ===== الواجبات ===== */
   .hw-card{ background:var(--surface); border-radius:14px; padding:18px 20px; box-shadow:0 6px 18px -8px rgba(15,23,42,0.14); border:1px solid var(--border); margin-bottom:14px; }
-  .hw-card .hw-title{ font-size:15px; font-weight:700; color:var(--heading); margin-bottom:6px; }
-  .hw-card .hw-meta{ display:flex; flex-wrap:wrap; gap:8px; font-size:14.5px; margin-bottom:8px; }
+  .hw-card .hw-title{ font-size:13px; font-weight:700; color:var(--heading); margin-bottom:6px; }
+  .hw-card .hw-meta{ display:flex; flex-wrap:wrap; gap:8px; font-size:13px; margin-bottom:8px; }
   .hw-card .hw-meta span{ background:var(--paper); padding:3px 10px; border-radius:8px; border:1px solid var(--gold-soft); color:var(--blue); }
-  .hw-card .hw-desc{ font-size:15.5px; color:#5a5442; line-height:1.6; margin-bottom:10px; }
-  .due-badge{ font-size:14.5px; font-weight:700; padding:5px 12px; border-radius:9px; background:#fff4e0; color:#a06a10; border:1px solid #e8d4a8; display:inline-block; margin-bottom:12px; }
+  .hw-card .hw-desc{ font-size:13.5px; color:#5a5442; line-height:1.6; margin-bottom:10px; }
+  .due-badge{ font-size:13px; font-weight:700; padding:5px 12px; border-radius:9px; background:#fff4e0; color:#a06a10; border:1px solid #e8d4a8; display:inline-block; margin-bottom:12px; }
 
   /* خانة رابط الإجابة */
   .submission-area{ margin-top:10px; background:#f4f9f4; border:1.5px solid #c5ddc5; border-radius:11px; padding:14px; }
-  .submission-area .sub-label{ font-size:15px; font-weight:700; color:var(--blue); margin-bottom:6px; display:flex; align-items:center; gap:6px; }
+  .submission-area .sub-label{ font-size:13px; font-weight:700; color:var(--blue); margin-bottom:6px; display:flex; align-items:center; gap:6px; }
   .submission-input-row{ display:flex; gap:8px; }
   .submission-input-row input,
   .submission-input-row textarea{
     flex:1; padding:11px 13px; border-radius:9px; border:1.5px solid #c5ddc5;
-    background:var(--surface); font-size:15px; font-weight:700; color:var(--ink); outline:none; font-family:inherit; direction:ltr; text-align:left;
+    background:var(--surface); font-size:13px; font-weight:700; color:var(--ink); outline:none; font-family:inherit; direction:ltr; text-align:left;
   }
   .submission-input-row textarea{ direction:rtl; text-align:right; font-family:inherit; resize:vertical; min-height:70px; }
   .submission-input-row input:focus,
@@ -226,19 +226,19 @@
   .sub-mode-toggle{ display:flex; gap:6px; margin-bottom:8px; }
   .sub-mode-btn{
     flex:1; padding:7px 8px; border-radius:8px; border:1.5px solid #c5ddc5; background:var(--surface);
-    color:var(--blue-soft); font-size:14.5px; font-weight:700; cursor:pointer; font-family:inherit; transition:all .15s;
+    color:var(--blue-soft); font-size:13px; font-weight:700; cursor:pointer; font-family:inherit; transition:all .15s;
   }
   .sub-mode-btn.active{ background:var(--blue); border-color:var(--blue); color:#fff; }
   .submit-link-btn{
     padding:10px 16px; border:none; border-radius:9px; background:var(--blue);
-    color:#fff; font-size:15.5px; font-weight:700; cursor:pointer; white-space:nowrap; transition:background .2s;
+    color:#fff; font-size:13.5px; font-weight:700; cursor:pointer; white-space:nowrap; transition:background .2s;
   }
   .submit-link-btn:hover{ background:var(--navy-deep); }
   .submit-link-btn:disabled{ background:var(--muted); cursor:not-allowed; }
-  .submitted-badge{ display:flex; flex-wrap:wrap; align-items:flex-start; gap:8px; font-size:15.5px; color:var(--success); font-weight:700; margin-top:6px; }
-  .submitted-badge a{ color:var(--blue); font-size:15px; font-weight:700; word-break:break-all; }
-  .submitted-badge .sub-text-preview{ color:var(--ink); font-weight:700; font-size:15px; background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:8px 10px; white-space:pre-wrap; word-break:break-word; }
-  .sub-msg{ font-size:15px; margin-top:6px; font-weight:700; opacity:0; transition:opacity .2s; }
+  .submitted-badge{ display:flex; flex-wrap:wrap; align-items:flex-start; gap:8px; font-size:13.5px; color:var(--success); font-weight:700; margin-top:6px; }
+  .submitted-badge a{ color:var(--blue); font-size:13px; font-weight:700; word-break:break-all; }
+  .submitted-badge .sub-text-preview{ color:var(--ink); font-weight:700; font-size:13px; background:var(--surface); border:1px solid var(--border); border-radius:8px; padding:8px 10px; white-space:pre-wrap; word-break:break-word; }
+  .sub-msg{ font-size:13px; margin-top:6px; font-weight:700; opacity:0; transition:opacity .2s; }
   .sub-msg.show{ opacity:1; }
   .sub-msg.error{ color:var(--error); }
   .sub-msg.success{ color:var(--success); }
@@ -248,12 +248,12 @@
   .img-upload-box{ width:100%; }
   .sub-input-image{
     width:100%; padding:10px 12px; border-radius:9px; border:1.5px dashed #9dbf9d;
-    background:var(--surface); font-size:15.5px; font-weight:700; color:var(--ink); cursor:pointer;
+    background:var(--surface); font-size:13.5px; font-weight:700; color:var(--ink); cursor:pointer;
   }
-  .img-compress-status{ font-size:15px; font-weight:700; margin-top:7px; min-height:15px; color:var(--blue-soft); }
+  .img-compress-status{ font-size:13px; font-weight:700; margin-top:7px; min-height:15px; color:var(--blue-soft); }
   .img-compress-status.success{ color:var(--success); }
   .img-compress-status.error{ color:var(--error); }
-  .img-upload-hint{ font-size:15px; font-weight:700; margin-top:7px; color:var(--blue-soft); }
+  .img-upload-hint{ font-size:13px; font-weight:700; margin-top:7px; color:var(--blue-soft); }
   .img-preview-box{ margin-top:10px; display:flex; flex-wrap:wrap; gap:10px; }
   .img-preview-item{ position:relative; }
   .img-preview-thumb, .submitted-image-thumb{
@@ -263,15 +263,15 @@
   .img-remove-btn{
     position:absolute; top:-8px; left:-8px; width:24px; height:24px; border-radius:50%;
     background:var(--error); color:#fff; border:2px solid var(--surface); cursor:pointer;
-    font-size:15px; font-weight:700; line-height:1; display:flex; align-items:center; justify-content:center;
+    font-size:13px; font-weight:700; line-height:1; display:flex; align-items:center; justify-content:center;
   }
   .sub-image-preview{ flex-basis:100%; margin-top:2px; display:flex; flex-wrap:wrap; gap:10px; }
 
   .empty-state{ background:var(--surface); border:1.5px dashed var(--gold-soft); border-radius:16px; padding:40px 24px; text-align:center; color:var(--blue-soft); }
-  .empty-state .emoji{ font-size:34px; margin-bottom:10px; }
-  .empty-state .title{ font-size:15px; font-weight:700; color:var(--blue); margin-bottom:6px; }
-  .empty-state .desc{ font-size:15.5px; line-height:1.6; max-width:380px; margin:0 auto; }
-  .loading-note{ text-align:center; color:#b0a98e; font-size:15.5px; padding:30px 0; }
+  .empty-state .emoji{ font-size:30px; margin-bottom:10px; }
+  .empty-state .title{ font-size:13px; font-weight:700; color:var(--blue); margin-bottom:6px; }
+  .empty-state .desc{ font-size:13.5px; line-height:1.6; max-width:380px; margin:0 auto; }
+  .loading-note{ text-align:center; color:#b0a98e; font-size:13.5px; padding:30px 0; }
 
   /* ===== بانر الترحيب ===== */
   .welcome-banner{
@@ -284,16 +284,16 @@
     display:flex; align-items:center; gap:16px;
     box-shadow:0 8px 24px -10px rgba(15,23,42,0.35);
   }
-  .welcome-icon{ font-size:34px; flex-shrink:0; }
+  .welcome-icon{ font-size:30px; flex-shrink:0; }
   .welcome-text .greet{
-    font-size:15.5px; color:rgba(255,255,255,0.75); margin-bottom:3px;
+    font-size:13.5px; color:rgba(255,255,255,0.75); margin-bottom:3px;
   }
   .welcome-text .name{
-    font-size:19px; font-weight:700; color:var(--gold-soft);
+    font-size:16.5px; font-weight:700; color:var(--gold-soft);
     letter-spacing:.3px;
   }
   .welcome-text .motto{
-    font-size:14.5px; color:rgba(255,255,255,0.6); margin-top:5px;
+    font-size:13px; color:rgba(255,255,255,0.6); margin-top:5px;
     font-style:italic;
   }
 
@@ -307,19 +307,19 @@
   .ann-card.priority-high{ border-right-color:var(--error); }
   .ann-card.priority-normal{ border-right-color:var(--blue); }
   .ann-header{ display:flex; align-items:flex-start; justify-content:space-between; gap:12px; margin-bottom:10px; }
-  .ann-title{ font-size:15.5px; font-weight:700; color:var(--heading); display:flex; align-items:center; gap:8px; }
+  .ann-title{ font-size:13.5px; font-weight:700; color:var(--heading); display:flex; align-items:center; gap:8px; }
   .ann-type-badge{
-    font-size:14.5px; font-weight:700; padding:3px 9px; border-radius:20px;
+    font-size:13px; font-weight:700; padding:3px 9px; border-radius:20px;
     background:var(--gold-soft); color:var(--heading); white-space:nowrap; flex-shrink:0;
   }
   .ann-type-badge.exam{ background:#fce8e8; color:#a8453a; }
   .ann-type-badge.activity{ background:#e8f0fe; color:#2d5fa6; }
   .ann-type-badge.notice{ background:#e8f5e9; color:#2e7d32; }
-  .ann-body{ font-size:14px; color:var(--ink); line-height:1.85; white-space:pre-wrap; }
+  .ann-body{ font-size:12.5px; color:var(--ink); line-height:1.85; white-space:pre-wrap; }
   .ann-footer{ display:flex; align-items:center; gap:12px; margin-top:12px; flex-wrap:wrap; }
-  .ann-meta{ font-size:14.5px; color:#b0a98e; }
+  .ann-meta{ font-size:13px; color:#b0a98e; }
   .ann-date-badge{
-    font-size:14.5px; font-weight:700; padding:4px 12px; border-radius:9px;
+    font-size:13px; font-weight:700; padding:4px 12px; border-radius:9px;
     background:#fff4e0; color:#a06a10; border:1px solid #e8d4a8;
   }
 
@@ -335,9 +335,9 @@
     box-shadow:0 4px 14px -6px rgba(201,151,63,0.25);
     animation:rise .4s ease .1s both;
   }
-  .teacher-note-inner .tn-icon{ font-size:24px; flex-shrink:0; margin-top:1px; }
-  .teacher-note-inner .tn-body .tn-label{ font-size:14.5px; font-weight:700; color:#a06a10; margin-bottom:5px; }
-  .teacher-note-inner .tn-body .tn-text{ font-size:14px; color:#4a3a1a; line-height:1.8; white-space:pre-wrap; }
+  .teacher-note-inner .tn-icon{ font-size:21px; flex-shrink:0; margin-top:1px; }
+  .teacher-note-inner .tn-body .tn-label{ font-size:13px; font-weight:700; color:#a06a10; margin-bottom:5px; }
+  .teacher-note-inner .tn-body .tn-text{ font-size:12.5px; color:#4a3a1a; line-height:1.8; white-space:pre-wrap; }
   #teacherNoteList .teacher-note-inner{ margin-bottom:10px; }
   #teacherNoteList .teacher-note-inner:last-child{ margin-bottom:0; }
 
@@ -353,9 +353,9 @@
     box-shadow:0 4px 14px -6px rgba(201,151,63,0.25);
     animation:rise .4s ease .1s both;
   }
-  .admin-notice-inner .an-icon{ font-size:24px; flex-shrink:0; margin-top:1px; }
-  .admin-notice-inner .an-body .an-label{ font-size:14.5px; font-weight:700; color:#a06a10; margin-bottom:5px; }
-  .admin-notice-inner .an-body .an-text{ font-size:14px; color:#4a3a1a; line-height:1.8; white-space:pre-wrap; }
+  .admin-notice-inner .an-icon{ font-size:21px; flex-shrink:0; margin-top:1px; }
+  .admin-notice-inner .an-body .an-label{ font-size:13px; font-weight:700; color:#a06a10; margin-bottom:5px; }
+  .admin-notice-inner .an-body .an-text{ font-size:12.5px; color:#4a3a1a; line-height:1.8; white-space:pre-wrap; }
 
   /* ===== أيقونة درجاتي ===== */
   .grades-icon-btn{
@@ -368,38 +368,38 @@
     transition:transform .15s ease, box-shadow .15s ease;
   }
   .grades-icon-btn:hover{ transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(29,63,110,0.45); }
-  .grades-icon-btn .gib-icon{ font-size:32px; }
-  .grades-icon-btn .gib-text .gib-title{ font-size:16px; font-weight:700; }
-  .grades-icon-btn .gib-text .gib-sub{ font-size:14.5px; opacity:.8; margin-top:3px; }
+  .grades-icon-btn .gib-icon{ font-size:28px; }
+  .grades-icon-btn .gib-text .gib-title{ font-size:14px; font-weight:700; }
+  .grades-icon-btn .gib-text .gib-sub{ font-size:13px; opacity:.8; margin-top:3px; }
 
   /* ===== Modal درجاتي ===== */
   .grades-overlay{ position:fixed; inset:0; background:rgba(20,30,15,.6); z-index:300; display:none; align-items:center; justify-content:center; padding:16px; }
   .grades-overlay.show{ display:flex; }
   .grades-box{ background:var(--surface); border-radius:20px; width:100%; max-width:480px; max-height:90vh; overflow-y:auto; box-shadow:0 24px 60px -16px rgba(15,23,42,.4); animation:rise .35s ease; }
   .grades-box-head{ background:linear-gradient(120deg,var(--navy-deep),var(--blue)); color:var(--paper); padding:20px 22px; border-radius:20px 20px 0 0; display:flex; align-items:center; justify-content:space-between; }
-  .grades-box-head h3{ font-size:17px; }
-  .grades-close{ background:rgba(255,255,255,.15); border:none; color:#fff; font-size:18px; width:32px; height:32px; border-radius:8px; cursor:pointer; }
+  .grades-box-head h3{ font-size:15px; }
+  .grades-close{ background:rgba(255,255,255,.15); border:none; color:#fff; font-size:16px; width:32px; height:32px; border-radius:8px; cursor:pointer; }
   .grades-body{ padding:22px; }
   .grades-search-row{ display:flex; flex-direction:column; gap:12px; margin-bottom:18px; }
   .grades-search-row input, .grades-search-row select{
     width:100%; padding:12px 14px; border-radius:10px; border:1.5px solid var(--border-soft);
-    background:var(--surface-alt); font-size:14.5px; font-family:inherit; outline:none;
+    background:var(--surface-alt); font-size:13px; font-family:inherit; outline:none;
   }
   .grades-search-row input:focus, .grades-search-row select:focus{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,99,235,.1); background:var(--surface); }
-  .grades-search-btn{ width:100%; padding:13px; border:none; border-radius:11px; background:var(--navy-deep); color:var(--paper); font-size:15px; font-weight:700; cursor:pointer; transition:background .2s; }
+  .grades-search-btn{ width:100%; padding:13px; border:none; border-radius:11px; background:var(--navy-deep); color:var(--paper); font-size:13px; font-weight:700; cursor:pointer; transition:background .2s; }
   .grades-search-btn:hover{ background:var(--blue); }
   .grades-result{ margin-top:16px; }
   .grade-result-card{ background:var(--surface-alt); border:1px solid var(--border); border-radius:14px; padding:20px; }
-  .grade-result-card .gr-student-name{ font-size:16px; font-weight:700; color:var(--heading); margin-bottom:14px; padding-bottom:12px; border-bottom:1px dashed var(--border-soft); }
-  .grade-result-card .gr-subject{ font-size:15.5px; color:var(--blue-soft); margin-bottom:14px; font-weight:700; }
+  .grade-result-card .gr-student-name{ font-size:14px; font-weight:700; color:var(--heading); margin-bottom:14px; padding-bottom:12px; border-bottom:1px dashed var(--border-soft); }
+  .grade-result-card .gr-subject{ font-size:13.5px; color:var(--blue-soft); margin-bottom:14px; font-weight:700; }
   .scores-grid{ display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; }
   .score-tile{ background:var(--surface); border:1px solid var(--border); border-radius:12px; padding:14px 8px; text-align:center; }
-  .score-tile .sc-label{ font-size:14.5px; color:var(--blue-soft); margin-bottom:6px; font-weight:700; }
-  .score-tile .sc-val{ font-size:24px; font-weight:700; color:var(--heading); }
-  .score-tile .sc-total{ font-size:14.5px; color:#b0a98e; }
+  .score-tile .sc-label{ font-size:13px; color:var(--blue-soft); margin-bottom:6px; font-weight:700; }
+  .score-tile .sc-val{ font-size:21px; font-weight:700; color:var(--heading); }
+  .score-tile .sc-total{ font-size:13px; color:#b0a98e; }
   .score-tile.highlight .sc-val{ color:#c9973f; }
-  .gr-err{ text-align:center; padding:20px; color:var(--error); font-weight:700; font-size:14px; }
-  .gr-loading{ text-align:center; padding:20px; color:#b0a98e; font-size:15.5px; }
+  .gr-err{ text-align:center; padding:20px; color:var(--error); font-weight:700; font-size:12.5px; }
+  .gr-loading{ text-align:center; padding:20px; color:#b0a98e; font-size:13.5px; }
 
   /* ===== تنبيه الرسوم الدراسية ===== */
   .fee-alert-card{
@@ -410,39 +410,39 @@
     box-shadow:0 4px 14px -6px rgba(168,69,58,0.2);
     animation:rise .4s ease both;
   }
-  .fee-alert-card .fa-icon{ font-size:22px; flex-shrink:0; margin-top:1px; }
+  .fee-alert-card .fa-icon{ font-size:19.5px; flex-shrink:0; margin-top:1px; }
   .fee-alert-card .fa-body{ flex:1; min-width:0; }
-  .fee-alert-card .fa-title{ font-size:16px; font-weight:700; color:#7a2a20; margin-bottom:6px; }
-  .fee-alert-card .fa-sub{ font-size:15px; color:#5a3a34; line-height:1.8; margin-bottom:10px; }
+  .fee-alert-card .fa-title{ font-size:14px; font-weight:700; color:#7a2a20; margin-bottom:6px; }
+  .fee-alert-card .fa-sub{ font-size:13px; color:#5a3a34; line-height:1.8; margin-bottom:10px; }
   .fee-alert-details-btn{
-    background:var(--error); border:none; color:#fff; font-size:15px; font-weight:700;
+    background:var(--error); border:none; color:#fff; font-size:13px; font-weight:700;
     padding:8px 16px; border-radius:9px; cursor:pointer; transition:background .2s;
   }
   .fee-alert-details-btn:hover{ background:#8a3a30; }
 
   /* ===== Modal تفاصيل تعليمات الدفع + نموذج تأكيد التحويل ===== */
   .fee-modal-box{ max-width:560px; }
-  .fee-modal-box .fmb-instr-text{ font-size:16px; color:var(--ink); line-height:1.85; background:var(--surface-alt); border:1px dashed var(--border-soft); border-radius:12px; padding:14px 16px; margin-bottom:18px; white-space:pre-wrap; }
+  .fee-modal-box .fmb-instr-text{ font-size:14px; color:var(--ink); line-height:1.85; background:var(--surface-alt); border:1px dashed var(--border-soft); border-radius:12px; padding:14px 16px; margin-bottom:18px; white-space:pre-wrap; }
   .fee-form-field{ margin-bottom:14px; }
-  .fee-form-field label{ display:block; font-size:15px; font-weight:700; color:var(--blue); margin-bottom:6px; }
+  .fee-form-field label{ display:block; font-size:13px; font-weight:700; color:var(--blue); margin-bottom:6px; }
   .fee-form-field input, .fee-form-field textarea{
     width:100%; padding:11px 14px; border-radius:10px; border:1.5px solid var(--border-soft);
-    background:var(--surface-alt); font-size:14px; font-family:inherit; outline:none; transition:border-color .2s;
+    background:var(--surface-alt); font-size:12.5px; font-family:inherit; outline:none; transition:border-color .2s;
   }
   .fee-form-field input:focus, .fee-form-field textarea:focus{ border-color:var(--blue); box-shadow:0 0 0 3px rgba(37,99,235,.1); background:var(--surface); }
   .fee-form-field input.invalid{ border-color:var(--error); }
   .fee-method-group{ display:flex; gap:8px; flex-wrap:wrap; }
-  .fee-method-pill{ flex:1; min-width:100px; text-align:center; padding:10px 8px; border-radius:10px; border:1.5px solid var(--border-soft); background:var(--surface-alt); font-size:15px; font-weight:700; cursor:pointer; transition:all .2s; }
+  .fee-method-pill{ flex:1; min-width:100px; text-align:center; padding:10px 8px; border-radius:10px; border:1.5px solid var(--border-soft); background:var(--surface-alt); font-size:13px; font-weight:700; cursor:pointer; transition:all .2s; }
   .fee-method-pill input{ display:none; }
   .fee-method-pill.checked{ border-color:var(--blue); background:var(--navy-deep); color:var(--paper); }
   .fee-method-group.invalid .fee-method-pill{ border-color:var(--error); }
-  .fee-submit-btn{ width:100%; padding:13px; border:none; border-radius:11px; background:var(--navy-deep); color:var(--paper); font-size:15px; font-weight:700; cursor:pointer; margin-top:6px; transition:background .2s; }
+  .fee-submit-btn{ width:100%; padding:13px; border:none; border-radius:11px; background:var(--navy-deep); color:var(--paper); font-size:13px; font-weight:700; cursor:pointer; margin-top:6px; transition:background .2s; }
   .fee-submit-btn:hover{ background:var(--blue); }
   .fee-submit-btn:disabled{ background:var(--muted); cursor:not-allowed; }
-  .fee-form-msg{ text-align:center; font-size:15.5px; font-weight:700; margin-top:10px; min-height:16px; }
+  .fee-form-msg{ text-align:center; font-size:13.5px; font-weight:700; margin-top:10px; min-height:16px; }
   .fee-form-msg.err{ color:var(--error); }
   .fee-form-msg.ok{ color:#2e7d32; }
-  .fee-pending-note{ text-align:center; padding:16px; font-size:16px; color:#a06a10; background:#fff4e0; border-radius:12px; border:1px dashed #e8d4a8; }
+  .fee-pending-note{ text-align:center; padding:16px; font-size:14px; color:#a06a10; background:#fff4e0; border-radius:12px; border:1px dashed #e8d4a8; }
 
   /* ===== زر ونافذة "رسومي" ===== */
   .myfees-icon-btn{
@@ -455,69 +455,139 @@
     transition:transform .15s ease, box-shadow .15s ease;
   }
   .myfees-icon-btn:hover{ transform:translateY(-2px); box-shadow:0 10px 24px -8px rgba(163,118,43,0.45); }
-  .myfees-icon-btn .mfb-icon{ font-size:32px; }
-  .myfees-icon-btn .mfb-text .mfb-title{ font-size:16px; font-weight:700; }
-  .myfees-icon-btn .mfb-text .mfb-sub{ font-size:14.5px; opacity:.85; margin-top:3px; }
+  .myfees-icon-btn .mfb-icon{ font-size:28px; }
+  .myfees-icon-btn .mfb-text .mfb-title{ font-size:14px; font-weight:700; }
+  .myfees-icon-btn .mfb-text .mfb-sub{ font-size:13px; opacity:.85; margin-top:3px; }
 
   .myfees-overlay{ position:fixed; inset:0; background:rgba(20,30,15,.6); z-index:300; display:none; align-items:center; justify-content:center; padding:16px; }
   .myfees-overlay.show{ display:flex; }
   .myfees-box{ background:var(--surface); border-radius:20px; width:100%; max-width:480px; max-height:90vh; overflow-y:auto; box-shadow:0 24px 60px -16px rgba(15,23,42,.4); animation:rise .35s ease; }
   .myfees-box-head{ background:linear-gradient(120deg,#a3762b,#c9973f); color:#fff; padding:20px 22px; border-radius:20px 20px 0 0; display:flex; align-items:center; justify-content:space-between; }
-  .myfees-box-head h3{ font-size:17px; }
-  .myfees-close{ background:rgba(255,255,255,.2); border:none; color:#fff; font-size:18px; width:32px; height:32px; border-radius:8px; cursor:pointer; }
+  .myfees-box-head h3{ font-size:15px; }
+  .myfees-close{ background:rgba(255,255,255,.2); border:none; color:#fff; font-size:16px; width:32px; height:32px; border-radius:8px; cursor:pointer; }
   .myfees-body{ padding:22px; }
   .myfee-item{ background:var(--surface-alt); border:1px solid var(--border); border-radius:14px; padding:16px 18px; margin-bottom:12px; }
-  .myfee-item .mfi-status{ display:inline-block; font-size:14.5px; font-weight:700; padding:4px 12px; border-radius:20px; margin-bottom:8px; }
+  .myfee-item .mfi-status{ display:inline-block; font-size:13px; font-weight:700; padding:4px 12px; border-radius:20px; margin-bottom:8px; }
   .myfee-item .mfi-status.confirmed{ background:#e8f5e9; color:#2e7d32; }
   .myfee-item .mfi-status.rejected{ background:#fce8e8; color:#a8453a; }
-  .myfee-item .mfi-amount{ font-size:16px; color:var(--ink); margin-bottom:6px; }
-  .myfee-item .mfi-reply{ font-size:15px; color:#5a5442; background:var(--surface); border:1px dashed var(--border-soft); border-radius:8px; padding:8px 10px; margin-top:6px; line-height:1.7; }
-  .myfee-item .mfi-date{ font-size:14.5px; color:var(--blue-soft); margin-top:6px; }
+  .myfee-item .mfi-amount{ font-size:14px; color:var(--ink); margin-bottom:6px; }
+  .myfee-item .mfi-reply{ font-size:13px; color:#5a5442; background:var(--surface); border:1px dashed var(--border-soft); border-radius:8px; padding:8px 10px; margin-top:6px; line-height:1.7; }
+  .myfee-item .mfi-date{ font-size:13px; color:var(--blue-soft); margin-top:6px; }
 
   /* ===== الاختبارات الإلكترونية ===== */
   .exam-card{ background:var(--surface); border:1px solid var(--border); border-radius:14px; padding:16px 18px; margin-bottom:14px; box-shadow:0 8px 20px -14px rgba(15,23,42,0.16); }
   .exam-card-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; flex-wrap:wrap; }
-  .exam-title{ font-size:14.5px; font-weight:700; color:var(--heading); }
-  .exam-meta{ font-size:14.5px; color:var(--muted); margin-top:5px; display:flex; gap:8px; flex-wrap:wrap; }
+  .exam-title{ font-size:13px; font-weight:700; color:var(--heading); }
+  .exam-meta{ font-size:13px; color:var(--muted); margin-top:5px; display:flex; gap:8px; flex-wrap:wrap; }
   .exam-meta span{ background:var(--surface-alt); padding:3px 9px; border-radius:7px; border:1px solid var(--border); }
-  .exam-status{ font-size:14.5px; font-weight:700; padding:4px 11px; border-radius:20px; white-space:nowrap; }
+  .exam-status{ font-size:13px; font-weight:700; padding:4px 11px; border-radius:20px; white-space:nowrap; }
   .exam-status.upcoming{ background:#e8f0fe; color:#2d5fa6; }
   .exam-status.active{ background:#e6f4e6; color:var(--success,#3f7a52); }
   .exam-status.ended{ background:#f1ede0; color:var(--muted); }
-  .exam-note{ font-size:15px; color:var(--muted); margin-top:10px; }
-  .exam-enter-btn{ margin-top:10px; padding:10px 20px; border:none; border-radius:10px; background:var(--navy-deep); color:var(--paper); font-size:16px; font-weight:700; cursor:pointer; }
+  .exam-note{ font-size:13px; color:var(--muted); margin-top:10px; }
+  .exam-enter-btn{ margin-top:10px; padding:10px 20px; border:none; border-radius:10px; background:var(--navy-deep); color:var(--paper); font-size:14px; font-weight:700; cursor:pointer; }
   .exam-enter-btn:hover{ background:var(--blue); }
   .exam-enter-btn:disabled{ background:var(--muted); cursor:not-allowed; }
-  .exam-done-badge{ display:inline-block; margin-top:10px; font-size:15px; font-weight:700; padding:6px 14px; border-radius:20px; background:#e6f4e6; color:var(--success,#3f7a52); }
-  .exam-attempts-note{ font-size:14.5px; color:var(--blue-soft); margin-top:10px; background:var(--surface-alt); border:1px dashed var(--border); border-radius:8px; padding:8px 10px; line-height:1.7; }
-  .exam-score-badge{ display:inline-block; margin-top:10px; font-size:16px; font-weight:700; padding:8px 18px; border-radius:20px; background:#e6f4e6; color:var(--success,#3f7a52); }
-  .exam-pending-badge{ display:inline-block; margin-top:10px; font-size:15px; font-weight:700; padding:6px 14px; border-radius:20px; background:#f1ede0; color:var(--muted); }
+  .exam-done-badge{ display:inline-block; margin-top:10px; font-size:13px; font-weight:700; padding:6px 14px; border-radius:20px; background:#e6f4e6; color:var(--success,#3f7a52); }
+  .exam-attempts-note{ font-size:13px; color:var(--blue-soft); margin-top:10px; background:var(--surface-alt); border:1px dashed var(--border); border-radius:8px; padding:8px 10px; line-height:1.7; }
+  .exam-score-badge{ display:inline-block; margin-top:10px; font-size:14px; font-weight:700; padding:8px 18px; border-radius:20px; background:#e6f4e6; color:var(--success,#3f7a52); }
+  .exam-pending-badge{ display:inline-block; margin-top:10px; font-size:13px; font-weight:700; padding:6px 14px; border-radius:20px; background:#f1ede0; color:var(--muted); }
 
   .exam-modal-ov{ position:fixed; inset:0; background:rgba(20,30,15,.65); z-index:400; display:none; align-items:flex-start; justify-content:center; padding:16px; overflow-y:auto; }
   .exam-modal-ov.show{ display:flex; }
   .exam-modal-bx{ background:var(--surface); border-radius:18px; padding:24px 20px; width:100%; max-width:560px; box-shadow:0 24px 60px -16px rgba(15,23,42,.4); margin:20px 0; position:relative; }
-  .exam-modal-bx h3{ font-size:16.5px; color:var(--heading); margin-bottom:14px; padding-left:30px; }
-  .exam-timer{ position:sticky; top:0; background:var(--navy-deep); color:var(--paper); font-weight:700; font-size:14px; padding:10px 16px; border-radius:10px; text-align:center; margin-bottom:16px; z-index:2; }
+  .exam-modal-bx h3{ font-size:14.5px; color:var(--heading); margin-bottom:14px; padding-left:30px; }
+  .exam-timer{ position:sticky; top:0; background:var(--navy-deep); color:var(--paper); font-weight:700; font-size:12.5px; padding:10px 16px; border-radius:10px; text-align:center; margin-bottom:16px; z-index:2; }
   .exam-timer.low{ background:var(--error,#a8453a); }
   .exam-q{ background:var(--surface-alt); border:1px solid var(--border); border-radius:12px; padding:14px 16px; margin-bottom:12px; }
-  .exam-q .eq-text{ font-size:14px; font-weight:700; color:var(--heading); margin-bottom:10px; }
-  .exam-q .eq-opt{ display:flex; align-items:center; gap:8px; padding:8px 6px; font-size:16px; cursor:pointer; border-radius:8px; }
+  .exam-q .eq-text{ font-size:12.5px; font-weight:700; color:var(--heading); margin-bottom:10px; }
+  .exam-q .eq-opt{ display:flex; align-items:center; gap:8px; padding:8px 6px; font-size:14px; cursor:pointer; border-radius:8px; }
   .exam-q .eq-opt:hover{ background:var(--surface); }
   .exam-q .eq-opt input{ width:17px; height:17px; accent-color:var(--blue); flex-shrink:0; }
-  .exam-submit-btn{ width:100%; padding:13px; border:none; border-radius:11px; background:var(--navy-deep); color:var(--paper); font-size:14.5px; font-weight:700; cursor:pointer; margin-top:8px; }
+  .exam-submit-btn{ width:100%; padding:13px; border:none; border-radius:11px; background:var(--navy-deep); color:var(--paper); font-size:13px; font-weight:700; cursor:pointer; margin-top:8px; }
   .exam-submit-btn:hover{ background:var(--blue); }
-  .exam-close-x{ position:absolute; left:18px; top:16px; background:none; border:none; font-size:20px; cursor:pointer; color:var(--muted); z-index:3; }
-  #examTakeMsg.msg{ font-size:15.5px; font-weight:700; margin-top:10px; min-height:16px; }
+  .exam-close-x{ position:absolute; left:18px; top:16px; background:none; border:none; font-size:17.5px; cursor:pointer; color:var(--muted); z-index:3; }
+  #examTakeMsg.msg{ font-size:13.5px; font-weight:700; margin-top:10px; min-height:16px; }
   #examTakeMsg.msg.error{ color:var(--error,#a8453a); }
+
+  /* ===== زر ولوحة التنقل السريع (الثلاث شحطات) ===== */
+  .hamburger-btn{
+    background:rgba(255,255,255,0.12); border:none; color:#fff;
+    width:38px; height:38px; border-radius:10px; font-size:18px;
+    cursor:pointer; display:flex; align-items:center; justify-content:center;
+    transition:background .2s; flex-shrink:0;
+  }
+  .hamburger-btn:hover{ background:rgba(255,255,255,0.22); }
+  .topbar-left{ display:flex; align-items:center; gap:10px; }
+
+  .side-menu-overlay{
+    position:fixed; inset:0; background:rgba(15,23,42,0.45);
+    z-index:998; opacity:0; visibility:hidden; transition:opacity .25s ease, visibility .25s ease;
+  }
+  .side-menu-overlay.open{ opacity:1; visibility:visible; }
+
+  .side-menu-panel{
+    position:fixed; top:0; right:0; height:100%; width:300px; max-width:84vw;
+    background:var(--surface); z-index:999;
+    box-shadow:-14px 0 40px -12px rgba(15,23,42,0.35);
+    transform:translateX(100%); transition:transform .28s ease;
+    overflow-y:auto; display:flex; flex-direction:column;
+  }
+  .side-menu-panel.open{ transform:translateX(0); }
+  .side-menu-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:20px 20px 14px; border-bottom:1px solid var(--border);
+    position:sticky; top:0; background:var(--surface); z-index:1;
+  }
+  .side-menu-head h3{ font-size:15px; color:var(--heading); }
+  .side-menu-close{
+    background:var(--surface-alt); border:1px solid var(--border); color:var(--blue-soft);
+    width:30px; height:30px; border-radius:9px; font-size:14px; cursor:pointer;
+    display:flex; align-items:center; justify-content:center; transition:all .2s;
+  }
+  .side-menu-close:hover{ color:var(--heading); border-color:var(--blue); }
+  .side-menu-list{ padding:14px; display:flex; flex-direction:column; gap:7px; }
+  .side-menu-item{
+    display:flex; align-items:center; gap:12px; width:100%;
+    padding:13px 14px; border-radius:12px; border:1.5px solid var(--border);
+    background:var(--surface-alt); color:var(--ink); font-family:inherit;
+    font-size:13.5px; font-weight:700; cursor:pointer; transition:all .2s;
+    text-align:right; position:relative;
+  }
+  .side-menu-item .sm-icon{ font-size:17px; flex-shrink:0; }
+  .side-menu-item:hover{ border-color:var(--blue); color:var(--heading); }
+  .side-menu-item .sm-badge{
+    position:absolute; left:12px; background:var(--error,#e2413a); color:#fff; font-size:10.5px;
+    font-weight:800; min-width:18px; height:18px; border-radius:10px; display:flex;
+    align-items:center; justify-content:center; padding:0 4px;
+  }
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <div class="brand">🏫 مركز منابر الأقصى</div>
+  <div class="topbar-left">
+    <button class="hamburger-btn" id="sideMenuBtn" title="التنقل السريع بين الأقسام">☰</button>
+    <div class="brand">🏫 مركز منابر الأقصى</div>
+  </div>
   <div class="topbar-actions">
     <button class="notif-bell-btn" id="notifBellBtn" title="الإشعارات">🔔</button>
     <button class="logout-btn" id="logoutBtn">تسجيل الخروج</button>
+  </div>
+</div>
+
+<div class="side-menu-overlay" id="sideMenuOverlay"></div>
+<div class="side-menu-panel" id="sideMenuPanel">
+  <div class="side-menu-head">
+    <h3>التنقل السريع</h3>
+    <button class="side-menu-close" id="sideMenuCloseBtn">✕</button>
+  </div>
+  <div class="side-menu-list" id="sideMenuList">
+    <button type="button" class="side-menu-item" data-target="secSubjects"><span class="sm-icon">📚</span><span>المواد الدراسية</span></button>
+    <button type="button" class="side-menu-item" data-target="secHomeworks"><span class="sm-icon">📝</span><span>الواجبات المطلوبة</span></button>
+    <button type="button" class="side-menu-item" data-target="secAnnouncements"><span class="sm-icon">📢</span><span>تعليمات مهمة / أنشطة</span></button>
+    <button type="button" class="side-menu-item" data-target="secExams" data-open-exams="1"><span class="sm-icon">🧪</span><span>الاختبارات الإلكترونية</span></button>
+    <button type="button" class="side-menu-item" data-target="complaintsSection"><span class="sm-icon">📢</span><span>شكاويّ وتنبيهاتي</span></button>
   </div>
 </div>
 
@@ -557,30 +627,30 @@
   </div>
 </div>
 
-<div class="section">
+<div class="section" id="secSubjects">
   <div class="section-title">المواد الدراسية</div>
   <div id="subjectsContainer"><p class="loading-note">جاري التحميل...</p></div>
 </div>
 
-<div class="section" style="margin-top:28px;">
+<div class="section" style="margin-top:28px;" id="secHomeworks">
   <div class="section-title">الواجبات المطلوبة</div>
   <div id="hwContainer"><p class="loading-note">جاري التحميل...</p></div>
 </div>
 
-<div class="section" style="margin-top:28px;">
+<div class="section" style="margin-top:28px;" id="secAnnouncements">
   <div class="section-title">📢 تعليمات مهمة / اختبارات / أنشطة</div>
   <div id="annContainer"><p class="loading-note">جاري التحميل...</p></div>
 </div>
 
-<div class="section" style="margin-top:28px;">
+<div class="section" style="margin-top:28px;" id="secExams">
   <div class="section-title" id="examSectionToggle" style="cursor:pointer; display:flex; align-items:center; justify-content:space-between;">
     <span>🧪 الاختبارات الإلكترونية</span>
-    <span style="font-size:14.5px; color:var(--blue-soft); font-weight:700;" id="examToggleHint">اضغط للعرض ▾</span>
+    <span style="font-size:13px; color:var(--blue-soft); font-weight:700;" id="examToggleHint">اضغط للعرض ▾</span>
   </div>
   <div id="examSectionBody" style="display:none; margin-top:14px;">
     <div class="field" style="margin-bottom:14px;">
-      <label style="display:block; font-size:15px; font-weight:700; color:var(--blue); margin-bottom:6px;">اختر المادة</label>
-      <select id="examSubjectSelect" style="width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--border-soft);background:var(--surface-alt);font-size:14.5px;font-family:inherit;outline:none;">
+      <label style="display:block; font-size:13px; font-weight:700; color:var(--blue); margin-bottom:6px;">اختر المادة</label>
+      <select id="examSubjectSelect" style="width:100%;padding:12px 14px;border-radius:10px;border:1.5px solid var(--border-soft);background:var(--surface-alt);font-size:13px;font-family:inherit;outline:none;">
         <option value="">-- اختر مادة --</option>
       </select>
     </div>
@@ -612,7 +682,7 @@
     <div class="gib-title">درجاتي</div>
     <div class="gib-sub">اضغط لعرض نتائجك في الاختبارات</div>
   </div>
-  <span style="margin-right:auto;font-size:20px;opacity:.7;">←</span>
+  <span style="margin-right:auto;font-size:17.5px;opacity:.7;">←</span>
 </button>
 
 <!-- Modal درجاتي -->
@@ -623,7 +693,7 @@
       <button class="grades-close" id="gradesClose">✕</button>
     </div>
     <div class="grades-body">
-      <p style="font-size:15.5px;color:var(--blue-soft);margin-bottom:16px;line-height:1.7;">
+      <p style="font-size:13.5px;color:var(--blue-soft);margin-bottom:16px;line-height:1.7;">
         أدخل رقم هويتك واختر المادة لعرض درجاتك في الاختبار النصفي والنهائي وعلامة النشاط.
       </p>
       <div class="grades-search-row">
@@ -645,7 +715,7 @@
     <div class="mfb-title">رسومي</div>
     <div class="mfb-sub">اضغط لعرض ردود الإدارة على عمليات تحويل الرسوم</div>
   </div>
-  <span style="margin-right:auto;font-size:20px;opacity:.7;">←</span>
+  <span style="margin-right:auto;font-size:17.5px;opacity:.7;">←</span>
 </button>
 
 <!-- Modal رسومي -->
@@ -669,7 +739,7 @@
 
     <div id="feeFormArea">
       <div class="fee-form-field">
-        <label>اسم الحساب الذي تم التحويل منه <span style="font-size:14.5px;color:#999;font-weight:700;">(رباعي، بالعربية فقط)</span></label>
+        <label>اسم الحساب الذي تم التحويل منه <span style="font-size:13px;color:#999;font-weight:700;">(رباعي، بالعربية فقط)</span></label>
         <input type="text" id="feeAccountName" placeholder="مثال: أحمد محمد خليل العلي">
         <p class="epm-err" id="err-feeAccountName"></p>
       </div>
@@ -679,7 +749,7 @@
         <p class="epm-err" id="err-feeAmount"></p>
       </div>
       <div class="fee-form-field">
-        <label>رقم الهوية الذي تم التحويل منه <span style="font-size:14.5px;color:#999;font-weight:700;">(9 أرقام)</span></label>
+        <label>رقم الهوية الذي تم التحويل منه <span style="font-size:13px;color:#999;font-weight:700;">(9 أرقام)</span></label>
         <input type="text" id="feePayerId" placeholder="مثال: 123456789" inputmode="numeric" maxlength="9" style="direction:ltr; text-align:left;">
         <p class="epm-err" id="err-feePayerId"></p>
       </div>
@@ -703,7 +773,7 @@
         <p class="epm-err" id="err-feeMethod"></p>
       </div>
       <div class="fee-form-field">
-        <label>تفاصيل الحوالة <span style="font-size:14.5px;color:#999;font-weight:700;">(اختياري)</span></label>
+        <label>تفاصيل الحوالة <span style="font-size:13px;color:#999;font-weight:700;">(اختياري)</span></label>
         <textarea id="feeDetailsText" rows="3" placeholder="أي تفاصيل إضافية عن عملية التحويل..."></textarea>
       </div>
       <button class="fee-submit-btn" id="submitFeePaymentBtn">إرسال طلب إتمام الدفع</button>
@@ -822,13 +892,6 @@
       };
       reader.readAsDataURL(file);
     });
-  }
-
-  // إضافة تحويل Cloudinary على الرابط (لتصغير الصورة أو تحسين جودتها تلقائياً، لتقليل استهلاك bandwidth)
-  // لا يؤثر على روابط base64 القديمة أو أي رابط غير Cloudinary — تُرجع كما هي
-  function cloudinaryUrl(url, transform){
-    if(!url || typeof url !== 'string' || !url.includes('/upload/')) return url;
-    return url.replace('/upload/', `/upload/${transform}/`);
   }
 
   // ==== رفع الصور إلى Cloudinary بدل تخزينها كنص base64 داخل Firestore ====
@@ -1602,7 +1665,7 @@
     const submittedPreview = !hasSubmission ? '' : (subType === 'text'
       ? `<div class="submitted-badge">✅ تم الإرسال (نص)<div class="sub-text-preview">${escapeHtml(mySubmission.submissionText)}</div></div>`
       : subType === 'image'
-      ? `<div class="submitted-badge">✅ تم الإرسال (${existingImages.length} صورة)<div class="sub-image-preview">${existingImages.map((src,i)=>`<img src="${cloudinaryUrl(src,'w_150,h_150,c_fill,f_auto,q_auto')}" alt="صورة إجابة الطالب ${i+1}" class="submitted-image-thumb" onclick="window.open('${cloudinaryUrl(src,'f_auto,q_auto')}','_blank')">`).join('')}</div></div>`
+      ? `<div class="submitted-badge">✅ تم الإرسال (${existingImages.length} صورة)<div class="sub-image-preview">${existingImages.map((src,i)=>`<img src="${src}" alt="صورة إجابة الطالب ${i+1}" class="submitted-image-thumb" onclick="window.open(this.src,'_blank')">`).join('')}</div></div>`
       : `<div class="submitted-badge">✅ تم الإرسال — <a href="${escapeHtml(mySubmission.submissionLink)}" target="_blank" rel="noopener">${escapeHtml(mySubmission.submissionLink)}</a></div>`);
 
     const btnLabel = hasSubmission ? 'تحديث' : 'إرسال';
@@ -1674,7 +1737,7 @@
       if(!imgPreviewBox) return;
       imgPreviewBox.innerHTML = compressedImagesData.map((src,i) => `
         <div class="img-preview-item" data-idx="${i}">
-          <img class="img-preview-thumb" src="${cloudinaryUrl(src,'w_150,h_150,c_fill,f_auto,q_auto')}" alt="معاينة الصورة ${i+1}" onclick="window.open(this.src,'_blank')">
+          <img class="img-preview-thumb" src="${src}" alt="معاينة الصورة ${i+1}" onclick="window.open(this.src,'_blank')">
           <button type="button" class="img-remove-btn" data-idx="${i}" title="إزالة الصورة">×</button>
         </div>`).join('');
       imgPreviewBox.querySelectorAll('.img-remove-btn').forEach(rb => {
@@ -1918,7 +1981,7 @@
                 <div class="sc-total">من 100</div>
               </div>
             </div>
-            ${total !== '—' ? `<div style="margin-top:12px;text-align:center;font-size:15.5px;color:var(--blue-soft);">المجموع: <strong style="color:var(--heading);font-size:16px;">${total}</strong> من ${totalOutOf}</div>` : ''}
+            ${total !== '—' ? `<div style="margin-top:12px;text-align:center;font-size:13.5px;color:var(--blue-soft);">المجموع: <strong style="color:var(--heading);font-size:14px;">${total}</strong> من ${totalOutOf}</div>` : ''}
           </div>`;
       });
       result.innerHTML = html;
@@ -2021,7 +2084,7 @@
             <span class="cmp-status ${cm.status === 'replied' ? 'replied' : ''}">${cmpStatusLabel(cm)}</span>
             <span class="cmp-date">${cm.createdAt ? new Date(cm.createdAt).toLocaleDateString('ar-SA') : ''}</span>
           </div>
-          ${cm.subject ? `<div style="font-size:14.5px;color:var(--blue-soft);font-weight:700;margin-bottom:4px;">${cm.subject === 'all' ? '🧑‍🏫 جميع المعلمين' : cm.subject === 'admin' ? '🛠️ المسؤول' : '📚 ' + escapeHtml(cm.subject)}</div>` : ''}
+          ${cm.subject ? `<div style="font-size:13px;color:var(--blue-soft);font-weight:700;margin-bottom:4px;">${cm.subject === 'all' ? '🧑‍🏫 جميع المعلمين' : cm.subject === 'admin' ? '🛠️ المسؤول' : '📚 ' + escapeHtml(cm.subject)}</div>` : ''}
           <div class="cmp-msg-text">${escapeHtml(cm.message)}</div>
           ${cm.status === 'replied' && cm.reply ? `
             <div class="cmp-reply-box">
@@ -2481,7 +2544,7 @@
     btn.type = 'button';
     btn.setAttribute('aria-label','إظهار/إخفاء كلمة السر');
     btn.textContent = '👁';
-    btn.style.cssText = 'position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; font-size:16px; padding:4px 4px; line-height:1; opacity:.6; z-index:2;';
+    btn.style.cssText = 'position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; cursor:pointer; font-size:14px; padding:4px 4px; line-height:1; opacity:.6; z-index:2;';
     btn.addEventListener('click', function(){
       var showing = inp.type === 'text';
       inp.type = showing ? 'password' : 'text';
@@ -2505,6 +2568,55 @@
     pwMoTimer = setTimeout(initAll, 150);
   });
   mo.observe(document.documentElement, { childList:true, subtree:true });
+})();
+
+// ===== قائمة التنقل الجانبي (الثلاث شحطات) =====
+(function(){
+  var menuBtn  = document.getElementById('sideMenuBtn');
+  var overlay  = document.getElementById('sideMenuOverlay');
+  var panel    = document.getElementById('sideMenuPanel');
+  var closeBtn = document.getElementById('sideMenuCloseBtn');
+  if(!menuBtn || !overlay || !panel || !closeBtn) return;
+
+  function openMenu(){
+    overlay.classList.add('open');
+    panel.classList.add('open');
+  }
+  function closeMenu(){
+    overlay.classList.remove('open');
+    panel.classList.remove('open');
+  }
+
+  menuBtn.addEventListener('click', openMenu);
+  closeBtn.addEventListener('click', closeMenu);
+  overlay.addEventListener('click', closeMenu);
+  document.addEventListener('keydown', function(e){
+    if(e.key === 'Escape') closeMenu();
+  });
+
+  document.querySelectorAll('#sideMenuList .side-menu-item').forEach(function(item){
+    item.addEventListener('click', function(){
+      var targetId = item.dataset.target;
+      var target = document.getElementById(targetId);
+
+      // إن كان القسم المستهدف هو الاختبارات وكان مطويّاً، افتحه أولاً
+      if(item.dataset.openExams === '1'){
+        var body = document.getElementById('examSectionBody');
+        var toggleHint = document.getElementById('examToggleHint');
+        if(body && body.style.display === 'none'){
+          var toggleBtn = document.getElementById('examSectionToggle');
+          if(toggleBtn) toggleBtn.click();
+        }
+      }
+
+      closeMenu();
+      if(target){
+        setTimeout(function(){
+          target.scrollIntoView({ behavior:'smooth', block:'start' });
+        }, 180);
+      }
+    });
+  });
 })();
 </script>
 
