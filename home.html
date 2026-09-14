@@ -1,0 +1,585 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>مركز منابر الأقصى التعليمي - شمال غزة</title>
+<script>
+  // تطبيق الوضع الليلي/النهاري فوراً قبل ظهور الصفحة لمنع أي "ومضة" غير مرغوبة
+  (function(){
+    try{
+      var saved = localStorage.getItem('siteTheme');
+      if(saved === 'dark') document.documentElement.setAttribute('data-theme','dark');
+    }catch(e){}
+  })();
+</script>
+<style>
+  :root{
+    --navy-deep:#0f172a;
+    --blue:#2563eb;
+    --blue-dark:#1d4ed8;
+    --blue-soft:#64748b;
+    --paper:#ffffff;
+    --gold:#c9973f;
+    --gold-soft:#e8d4a8;
+    --ink:#1e293b;
+    --surface:#fff;
+    --surface-alt:#f3f7fb;
+    --border:#e2e8f0;
+    --border-soft:#dbe4ee;
+    --muted:#94a3b8;
+    --heading:var(--navy-deep);
+  }
+
+  html[data-theme="dark"]{
+    --paper:#0b1220;
+    --ink:#e2e8f0;
+    --blue-soft:#7f8ea3;
+    --surface:#141e30;
+    --surface-alt:#111a24;
+    --border:#22303f;
+    --border-soft:#22303f;
+    --muted:#64748b;
+    --heading:#f1f5f9;
+  }
+  html[data-theme="dark"] body{ transition:background .3s ease, color .3s ease; }
+
+  *{margin:0;padding:0;box-sizing:border-box;}
+  input,button,textarea,select{ font-family:inherit; font-weight:inherit; }
+  html,body{
+    min-height:100%;
+    font-family:'Cairo','Segoe UI',sans-serif; font-weight:600;
+    background:var(--paper);
+    color:var(--ink);
+    scroll-behavior:smooth;
+  }
+  body{
+    background:
+      radial-gradient(circle at 10% 0%, rgba(201,151,63,0.08), transparent 40%),
+      radial-gradient(circle at 90% 100%, rgba(37,99,235,0.10), transparent 45%),
+      var(--paper);
+  }
+  a{ color:inherit; text-decoration:none; }
+  img{ display:block; max-width:100%; }
+  .container{ max-width:1120px; margin:0 auto; padding:0 20px; }
+
+  /* ================= HEADER ================= */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--paper);
+    border-bottom:1px solid var(--border);
+    backdrop-filter:blur(6px);
+  }
+  .nav-wrap{
+    display:flex; align-items:center; justify-content:space-between;
+    height:92px;
+  }
+  .brand{ display:flex; align-items:center; gap:12px; }
+  .brand .logo{
+    width:64px; height:64px; border-radius:50%; overflow:hidden;
+    box-shadow:0 8px 18px -8px rgba(37,99,235,0.4);
+    flex-shrink:0;
+  }
+  .brand .logo img{ width:100%; height:100%; object-fit:cover; }
+  .brand .name{ font-size:14.5px; color:var(--heading); line-height:1.3; }
+  .brand .name small{ display:block; font-size:10.5px; color:var(--blue-soft); font-weight:600; }
+
+  nav.links{ display:flex; align-items:center; gap:30px; }
+  nav.links a{
+    font-size:13px; color:var(--ink); position:relative; padding:6px 0;
+    transition:color .2s ease;
+  }
+  nav.links a::after{
+    content:''; position:absolute; right:0; bottom:0; width:0; height:2px;
+    background:var(--gold); transition:width .25s ease;
+  }
+  nav.links a:hover{ color:var(--blue); }
+  nav.links a:hover::after{ width:100%; }
+
+  .nav-actions{ display:flex; align-items:center; gap:10px; }
+  .icon-btn{
+    width:38px; height:38px; border-radius:50%;
+    border:1px solid var(--border); background:var(--surface-alt);
+    display:flex; align-items:center; justify-content:center;
+    font-size:14px; cursor:pointer; color:var(--ink);
+    transition:transform .18s ease, background .2s ease;
+  }
+  .icon-btn:hover{ transform:translateY(-2px); }
+
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    padding:12px 24px; border-radius:14px; font-size:13.5px; font-weight:800;
+    cursor:pointer; border:none; transition:background .2s ease, transform .18s ease, box-shadow .2s ease;
+  }
+  .btn-primary{
+    background:var(--blue); color:#fff;
+    box-shadow:0 10px 24px -8px rgba(37,99,235,0.45);
+  }
+  .btn-primary:hover{ background:var(--navy-deep); transform:translateY(-2px); }
+  .btn-outline{
+    background:transparent; color:var(--heading); border:1.5px solid var(--border-soft);
+  }
+  .btn-outline:hover{ border-color:var(--gold); color:var(--gold); }
+
+  .burger{ display:none; }
+
+  /* ================= HERO ================= */
+  .hero{
+    padding:80px 0 60px;
+    position:relative;
+    overflow:hidden;
+  }
+  .hero-grid{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:center;
+  }
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    background:var(--surface-alt); border:1px solid var(--border);
+    padding:7px 16px; border-radius:100px; font-size:11.5px; color:var(--blue);
+    margin-bottom:22px;
+  }
+  .eyebrow::before{ content:'●'; color:var(--gold); font-size:8px; }
+  .hero h1{
+    font-size:36px; line-height:1.35; color:var(--heading); margin-bottom:18px;
+  }
+  .hero h1 span{ color:var(--blue); }
+  .hero p.lead{
+    font-size:14.5px; line-height:2; color:var(--blue-soft); margin-bottom:30px; max-width:520px;
+  }
+  .hero-cta{ display:flex; gap:14px; flex-wrap:wrap; }
+
+  .hero-visual{
+    position:relative; display:flex; align-items:center; justify-content:center;
+  }
+  .hero-badge-wrap{
+    width:280px; height:280px; border-radius:50%;
+    background:linear-gradient(160deg, var(--blue), var(--navy-deep));
+    display:flex; align-items:center; justify-content:center;
+    box-shadow:0 40px 70px -25px rgba(37,99,235,0.45);
+    position:relative;
+  }
+  .hero-badge-wrap img{
+    width:86%; height:86%; object-fit:cover; border-radius:50%;
+    border:6px solid rgba(255,255,255,0.15);
+  }
+  .float-chip{
+    position:absolute; background:var(--surface); border:1px solid var(--border);
+    border-radius:16px; padding:12px 16px; box-shadow:0 20px 40px -18px rgba(15,23,42,0.25);
+    font-size:11.5px; display:flex; align-items:center; gap:10px;
+    animation:floaty 4s ease-in-out infinite;
+  }
+  .float-chip .n{ font-size:16px; font-weight:800; color:var(--heading); }
+  .float-chip.c1{ top:-6px; left:-10px; }
+  .float-chip.c2{ bottom:6px; right:-18px; animation-delay:1.2s; }
+  @keyframes floaty{ 0%,100%{transform:translateY(0);} 50%{transform:translateY(-10px);} }
+
+  /* ================= STATS ================= */
+  .stats-bar{
+    background:var(--navy-deep); border-radius:28px;
+    padding:34px 30px; margin:10px 0 90px;
+    display:grid; grid-template-columns:repeat(4,1fr); gap:20px;
+  }
+  .stats-bar .stat{ text-align:center; color:#fff; }
+  .stats-bar .stat .num{ font-size:26px; font-weight:800; color:var(--gold-soft); }
+  .stats-bar .stat .label{ font-size:11.5px; opacity:.75; margin-top:6px; }
+
+  /* ================= SECTION HEADERS ================= */
+  .section{ padding:70px 0; }
+  .section-head{ text-align:center; max-width:640px; margin:0 auto 46px; }
+  .section-head .tag{
+    font-size:11.5px; color:var(--blue); font-weight:800; letter-spacing:.5px;
+    display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:12px;
+  }
+  .section-head .tag::before, .section-head .tag::after{ content:''; width:22px; height:2px; background:var(--gold); }
+  .section-head h2{ font-size:26px; color:var(--heading); margin-bottom:12px; }
+  .section-head p{ font-size:13.5px; color:var(--blue-soft); line-height:1.9; }
+
+  /* ================= ABOUT PREVIEW ================= */
+  .about-grid{
+    display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;
+  }
+  .about-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:24px;
+    padding:34px; box-shadow:0 20px 45px -22px rgba(15,23,42,0.15);
+  }
+  .about-card h3{ font-size:18px; color:var(--heading); margin-bottom:14px; }
+  .about-card p{ font-size:13px; line-height:2; color:var(--ink); margin-bottom:16px; }
+  .about-card .link{ font-size:12.5px; color:var(--blue); font-weight:800; display:inline-flex; align-items:center; gap:6px; }
+
+  .pillars{ display:grid; gap:16px; }
+  .pillar{
+    display:flex; gap:14px; align-items:flex-start; background:var(--surface-alt);
+    border:1px solid var(--border); border-radius:16px; padding:16px 18px;
+  }
+  .pillar .ic{
+    width:38px; height:38px; border-radius:10px; background:var(--gold-soft);
+    display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;
+  }
+  .pillar .t{ font-size:13px; color:var(--heading); font-weight:800; margin-bottom:3px; }
+  .pillar .d{ font-size:11.5px; color:var(--blue-soft); line-height:1.7; }
+
+  /* ================= WHY CHOOSE ================= */
+  .why-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:22px; }
+  .why-card{
+    background:var(--surface); border:1px solid var(--border); border-radius:22px;
+    padding:30px 26px; text-align:center; transition:transform .25s ease, box-shadow .25s ease;
+  }
+  .why-card:hover{ transform:translateY(-6px); box-shadow:0 24px 50px -20px rgba(15,23,42,0.18); }
+  .why-card .badge-sm{
+    width:56px; height:56px; border-radius:16px; margin:0 auto 18px;
+    background:linear-gradient(160deg, var(--blue), var(--navy-deep));
+    display:flex; align-items:center; justify-content:center; font-size:22px; color:#fff;
+  }
+  .why-card h4{ font-size:15px; color:var(--heading); margin-bottom:10px; }
+  .why-card p{ font-size:12.5px; color:var(--blue-soft); line-height:1.9; }
+
+  /* ================= LOGIN CTA ================= */
+  .login-cta{
+    background:linear-gradient(135deg, var(--navy-deep), var(--blue-dark));
+    border-radius:28px; padding:54px 40px; text-align:center; color:#fff;
+    position:relative; overflow:hidden;
+  }
+  .login-cta::before{
+    content:''; position:absolute; inset:0;
+    background:radial-gradient(circle at 20% 20%, rgba(201,151,63,0.25), transparent 45%);
+  }
+  .login-cta h2{ font-size:24px; margin-bottom:12px; position:relative; }
+  .login-cta p{ font-size:13px; opacity:.85; margin-bottom:28px; position:relative; max-width:520px; margin-inline:auto; line-height:1.9; }
+  .login-cta .buttons{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; position:relative; }
+  .login-cta .btn-outline{ border-color:rgba(255,255,255,0.35); color:#fff; }
+  .login-cta .btn-outline:hover{ border-color:var(--gold-soft); color:var(--gold-soft); }
+
+  /* ================= CONTACT PREVIEW ================= */
+  .contact-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+  .contact-mini{
+    background:var(--surface-alt); border:1px solid var(--border); border-radius:16px;
+    padding:20px; display:flex; gap:14px; align-items:center;
+  }
+  .contact-mini .icon{
+    width:42px; height:42px; border-radius:10px; background:var(--gold-soft);
+    display:flex; align-items:center; justify-content:center; font-size:16px; flex-shrink:0;
+  }
+  .contact-mini .label{ font-size:11px; color:var(--blue-soft); margin-bottom:2px; }
+  .contact-mini .value{ font-size:12.5px; color:var(--heading); font-weight:800; }
+
+  /* ================= FOOTER ================= */
+  footer{
+    background:var(--navy-deep); color:#fff; padding:54px 0 26px; margin-top:40px;
+  }
+  .foot-grid{
+    display:grid; grid-template-columns:1.4fr 1fr 1fr; gap:40px; padding-bottom:34px;
+    border-bottom:1px solid rgba(255,255,255,0.1);
+  }
+  .foot-brand{ display:flex; gap:12px; align-items:center; margin-bottom:14px; }
+  .foot-brand .logo{ width:56px; height:56px; border-radius:50%; overflow:hidden; }
+  .foot-brand .name{ font-size:14px; }
+  footer p.desc{ font-size:12px; opacity:.7; line-height:1.9; max-width:320px; }
+  footer h5{ font-size:13px; margin-bottom:16px; color:var(--gold-soft); }
+  footer ul{ list-style:none; display:flex; flex-direction:column; gap:10px; }
+  footer ul li a{ font-size:12.5px; opacity:.8; transition:opacity .2s ease; }
+  footer ul li a:hover{ opacity:1; color:var(--gold-soft); }
+  .foot-bottom{
+    display:flex; justify-content:space-between; align-items:center; padding-top:22px;
+    font-size:11.5px; opacity:.6; flex-wrap:wrap; gap:10px;
+  }
+
+  /* ================= RESPONSIVE ================= */
+  @media (max-width:900px){
+    nav.links{ display:none; }
+    .hero-grid{ grid-template-columns:1fr; }
+    .hero-visual{ order:-1; margin-bottom:20px; }
+    .hero-badge-wrap{ width:200px; height:200px; }
+    .about-grid{ grid-template-columns:1fr; }
+    .why-grid{ grid-template-columns:1fr; }
+    .contact-grid{ grid-template-columns:1fr; }
+    .stats-bar{ grid-template-columns:repeat(2,1fr); }
+    .foot-grid{ grid-template-columns:1fr; gap:26px; }
+  }
+  @media (max-width:480px){
+    .hero h1{ font-size:27px; }
+    .section-head h2{ font-size:21px; }
+    .login-cta{ padding:38px 20px; }
+    .login-cta h2{ font-size:19px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav-wrap">
+    <div class="brand">
+      <div class="logo"><img src="53EE.jpg" alt="شعار المدرسة"></div>
+      <div class="name">مركز منابر الأقصى <small>التعليمي - شمال غزة</small></div>
+    </div>
+
+    <nav class="links">
+      <a href="home.html">الرئيسية</a>
+      <a href="about.html">من نحن</a>
+      <a href="#why">لماذا نحن</a>
+      <a href="contact.html">اتصل بنا</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeToggle" title="الوضع الليلي">🌙</button>
+      <a href="index.html" class="btn btn-primary">تسجيل الدخول</a>
+    </div>
+  </div>
+</header>
+
+<main class="container">
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid">
+      <div>
+        <span class="eyebrow">معتمدون رسميًا من مديرية التربية والتعليم - شمال غزة</span>
+        <h1>التميّز الأكاديمي <span>ركيزة</span><br>النهوض التعليمي في شمال غزة</h1>
+        <p class="lead">
+          مركز منابر الأقصى التعليمي مؤسسة أكاديمية معتمدة تقدّم برنامجاً تعليمياً متكاملاً
+          لطلابنا من الصف الأول وحتى الصف الثاني عشر، مع تركيز خاص على طلبة التوجيهي (الثانوية العامة)،
+          بما يضمن استمرارية العملية التعليمية وارتقاء مستواها الأكاديمي.
+        </p>
+        <div class="hero-cta">
+          <a href="index.html" class="btn btn-primary">دخول الطلاب والمعلمين ⟵</a>
+          <a href="about.html" class="btn btn-outline">تعرف على المركز</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-badge-wrap">
+          <img src="53EE.jpg" alt="شعار مركز منابر الأقصى">
+        </div>
+        <div class="float-chip c1"><span class="n">✔</span> اعتماد رسمي كامل</div>
+        <div class="float-chip c2"><span class="n">12</span> صفاً دراسياً</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- STATS -->
+  <div class="stats-bar">
+    <div class="stat"><div class="num">12</div><div class="label">مرحلة دراسية</div></div>
+    <div class="stat"><div class="num">100%</div><div class="label">وصول للمواد</div></div>
+    <div class="stat"><div class="num">99%</div><div class="label">رقمي ومجاني</div></div>
+    <div class="stat"><div class="num">1-12</div><div class="label">الصفوف الدراسية</div></div>
+  </div>
+
+  <!-- ABOUT PREVIEW -->
+  <section class="section" id="about">
+    <div class="section-head">
+      <div class="tag">من نحن</div>
+      <h2>تأسس المركز استجابةً لضرورة تعليمية استثنائية</h2>
+      <p>في ظل الظروف الاستثنائية التي تمر بها منطقة شمال غزة، تأسس المركز ليكون امتداداً أكاديمياً منظماً يضمن استمرارية العملية التعليمية لطلابه.</p>
+    </div>
+
+    <div class="about-grid">
+      <div class="about-card">
+        <h3>رسالتنا التعليمية</h3>
+        <p>
+          تلتزم رسالتنا التعليمية بضمان استمرارية التحصيل الأكاديمي لطلابنا رغم الظروف الاستثنائية،
+          انطلاقاً من إيماننا بأن التعليم يمثل ركيزةً أساسية لبناء الهوية والمستقبل، مع اهتمام خاص بتأهيل طلبة التوجيهي (الثانوية العامة).
+        </p>
+        <a href="about.html" class="link">اقرأ قصتنا كاملة ⟵</a>
+      </div>
+
+      <div class="pillars">
+        <div class="pillar">
+          <div class="ic">🎯</div>
+          <div>
+            <div class="t">ضمان الاستمرارية</div>
+            <div class="d">سد الفجوات التعليمية الناتجة عن الحرب دون انقطاع، أياً كانت ظروف النزوح.</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="ic">📘</div>
+          <div>
+            <div class="t">الجودة الأكاديمية</div>
+            <div class="d">مناهج متطورة تتماشى مع معايير وزارة التربية والتعليم الفلسطينية.</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="ic">🤝</div>
+          <div>
+            <div class="t">الدعم الشامل</div>
+            <div class="d">اهتمام بالبناء النفسي والتربوي لتحويل أثر الأزمات لدافعٍ حقيقي للتفوق.</div>
+          </div>
+        </div>
+        <div class="pillar">
+          <div class="ic">🎓</div>
+          <div>
+            <div class="t">تركيز خاص على طلبة التوجيهي</div>
+            <div class="d">يولي المركز اهتماماً استثنائياً لطلاب الثانوية العامة (التوجيهي)، عبر برامج تأهيل ومتابعة أكاديمية مكثفة تلبي متطلبات هذه المرحلة المصيرية.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY CHOOSE US -->
+  <section class="section" id="why">
+    <div class="section-head">
+      <div class="tag">لماذا نختلف</div>
+      <h2>لماذا تختار مركز منابر الأقصى؟</h2>
+      <p>ثلاثة أسباب رئيسية تجعل من مركزنا الخيار الأنسب لطلابنا وأسرهم في شمال غزة.</p>
+    </div>
+
+    <div class="why-grid">
+      <div class="why-card">
+        <div class="badge-sm">🏛️</div>
+        <h4>غطاء رسمي معتمد</h4>
+        <p>اعتماد كامل من مديرية التربية والتعليم - شمال غزة، يضمن دقة المسار التعليمي وسلامة الشهادات.</p>
+      </div>
+      <div class="why-card">
+        <div class="badge-sm">💙</div>
+        <h4>بيئة تعليمية متفهمة</h4>
+        <p>إدراك عميق للظروف الصعبة المحيطة بطلابنا، وكادر تعليمي مؤهل لهذه المرحلة الاستثنائية.</p>
+      </div>
+      <div class="why-card">
+        <div class="badge-sm">📐</div>
+        <h4>نهج تعليمي نموذجي</h4>
+        <p>تركيز دقيق على المهارات الأساسية (القراءة، الكتابة، الحساب) لتأسيس أكاديمي متين.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGIN CTA -->
+  <section class="section">
+    <div class="login-cta">
+      <h2>هل أنت طالب أو معلم في المركز؟</h2>
+      <p>سجّل الدخول للوصول إلى درجاتك، حضورك، وموادك الدراسية، أو لمتابعة صفوفك كمعلم من أي مكان.</p>
+      <div class="buttons">
+        <a href="index.html" class="btn btn-primary">تسجيل دخول الطلاب ⟵</a>
+        <a href="index.html" class="btn btn-outline">تسجيل دخول المعلمين</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT PREVIEW -->
+  <section class="section" id="contact">
+    <div class="section-head">
+      <div class="tag">تواصل معنا</div>
+      <h2>نسعد بتواصلكم معنا</h2>
+      <p>فريقنا جاهز للإجابة على استفساراتكم في أي وقت.</p>
+    </div>
+    <div class="contact-grid">
+      <div class="contact-mini">
+        <div class="icon">📞</div>
+        <div><div class="label">رقم الهاتف</div><div class="value" id="miniPhone">جاري التحميل...</div></div>
+      </div>
+      <div class="contact-mini">
+        <div class="icon">💬</div>
+        <div><div class="label">واتساب</div><div class="value" id="miniWhatsapp">جاري التحميل...</div></div>
+      </div>
+      <div class="contact-mini">
+        <div class="icon">📍</div>
+        <div><div class="label">الموقع</div><div class="value" id="miniLocation">جاري التحميل...</div></div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-brand">
+          <div class="logo"><img src="53EE.jpg" alt="شعار المدرسة"></div>
+          <div class="name">مركز منابر الأقصى التعليمي</div>
+        </div>
+        <p class="desc">مؤسسة تعليمية معتمدة رسميًا تخدم طلاب الصفوف من الأول وحتى الثاني عشر في شمال غزة، مع اهتمام خاص بطلبة التوجيهي (الثانوية العامة).</p>
+      </div>
+      <div>
+        <h5>روابط سريعة</h5>
+        <ul>
+          <li><a href="home.html">الرئيسية</a></li>
+          <li><a href="about.html">من نحن</a></li>
+          <li><a href="contact.html">اتصل بنا</a></li>
+          <li><a href="index.html">تسجيل الدخول</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>الدخول للمنصة</h5>
+        <ul>
+          <li><a href="index.html">دخول الطلاب</a></li>
+          <li><a href="index.html">دخول المعلمين</a></li>
+          <li><a href="reset-password.html">استعادة كلمة السر</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 مركز منابر الأقصى التعليمي - جميع الحقوق محفوظة</span>
+      <span>العلم نور.. والأقصى هوية</span>
+    </div>
+  </div>
+</footer>
+
+<script type="module">
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+  import { getFirestore, doc, getDoc } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+  const firebaseConfig = {
+    apiKey: "AIzaSyB0xc27Y_eVcV96Lwm1yj6geQpOtn0dL5M",
+    authDomain: "israa-school.firebaseapp.com",
+    projectId: "israa-school",
+    storageBucket: "israa-school.firebasestorage.app",
+    messagingSenderId: "1059398708855",
+    appId: "1:1059398708855:web:605a2f3bb74f47e6b9a072"
+  };
+
+  const app = initializeApp(firebaseConfig);
+  const db  = getFirestore(app);
+
+  const DEFAULTS = {
+    phone: '0598377899',
+    whatsapp: '+972598377899',
+    location: 'غزة - المخابرات - بجوار صالة قصر الورود'
+  };
+
+  async function loadContactInfo(){
+    let data = DEFAULTS;
+    try{
+      const snap = await getDoc(doc(db,'settings','contactInfo'));
+      if(snap.exists()){
+        const d = snap.data();
+        data = {
+          phone: d.phone || DEFAULTS.phone,
+          whatsapp: d.whatsapp || DEFAULTS.whatsapp,
+          location: d.location || DEFAULTS.location
+        };
+      }
+    }catch(e){ console.error(e); }
+    document.getElementById('miniPhone').textContent = data.phone;
+    document.getElementById('miniWhatsapp').textContent = data.whatsapp;
+    document.getElementById('miniLocation').textContent = data.location;
+  }
+  loadContactInfo();
+</script>
+
+<script>
+  // زر الوضع الليلي/النهاري
+  const themeBtn = document.getElementById('themeToggle');
+  function applyIcon(){
+    const isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    themeBtn.textContent = isDark ? '☀️' : '🌙';
+  }
+  applyIcon();
+  themeBtn.addEventListener('click', function(){
+    const html = document.documentElement;
+    const isDark = html.getAttribute('data-theme') === 'dark';
+    if(isDark){
+      html.removeAttribute('data-theme');
+      localStorage.setItem('siteTheme','light');
+    }else{
+      html.setAttribute('data-theme','dark');
+      localStorage.setItem('siteTheme','dark');
+    }
+    applyIcon();
+  });
+</script>
+
+</body>
+</html>
