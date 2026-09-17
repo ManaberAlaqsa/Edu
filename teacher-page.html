@@ -198,79 +198,6 @@
   .sub-image-file:hover{ background:var(--surface-alt); border-color:var(--blue); }
   .sub-image-file .file-ic{ font-size:15px; }
 
-  /* زر (رؤية) المُصغّر بدل عرض الصور مباشرة */
-  .view-submission-btn{
-    display:inline-flex; align-items:center; gap:6px;
-    background:var(--navy-deep); color:var(--paper); border:none;
-    border-radius:8px; padding:7px 14px; font-family:inherit;
-    font-size:12.5px; font-weight:700; cursor:pointer; transition:background .15s ease;
-  }
-  .view-submission-btn:hover{ background:var(--blue); }
-
-  /* مربع البحث عن طالب داخل قسم الواجبات */
-  .hw-search-box{
-    display:flex; align-items:center; gap:8px; margin-bottom:16px;
-    background:var(--surface-alt); border:1.5px solid var(--border-soft);
-    border-radius:12px; padding:10px 14px;
-  }
-  .hw-search-box input{
-    flex:1; border:none; background:transparent; outline:none;
-    font-family:inherit; font-size:13px; font-weight:600; color:var(--ink);
-  }
-  .hw-search-box .hw-search-ic{ font-size:14px; color:var(--blue-soft); flex-shrink:0; }
-  .hw-search-clear{
-    background:none; border:none; color:var(--muted); font-size:13px; cursor:pointer;
-    display:none; padding:2px 4px;
-  }
-  .hw-search-clear.show{ display:inline-block; }
-  .hw-no-search-match{ margin-top:8px; }
-
-  /* ===== مودال عرض صورة إجابة الطالب ===== */
-  .img-view-overlay{
-    position:fixed; inset:0; background:rgba(15,23,42,0.72); z-index:900;
-    display:none; align-items:center; justify-content:center; padding:20px;
-  }
-  .img-view-overlay.show{ display:flex; }
-  .img-view-box{
-    background:var(--surface); border-radius:20px; max-width:640px; width:100%;
-    max-height:90vh; display:flex; flex-direction:column; overflow:hidden;
-    animation:rise .25s ease both;
-  }
-  .img-view-head{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:16px 20px; border-bottom:1px solid var(--border); flex-shrink:0;
-  }
-  .img-view-head .ivh-title{ font-size:13.5px; font-weight:700; color:var(--heading); }
-  .img-view-close{
-    background:var(--surface-alt); border:1px solid var(--border); color:var(--blue-soft);
-    width:30px; height:30px; border-radius:9px; font-size:14px; cursor:pointer;
-    display:flex; align-items:center; justify-content:center; flex-shrink:0;
-  }
-  .img-view-close:hover{ color:var(--heading); border-color:var(--blue); }
-  .img-view-body{
-    flex:1; overflow:auto; display:flex; align-items:center; justify-content:center;
-    background:var(--surface-alt); min-height:220px;
-  }
-  .img-view-body img{ max-width:100%; max-height:66vh; display:block; }
-  .img-view-footer{
-    display:flex; align-items:center; justify-content:space-between; gap:10px;
-    padding:14px 20px; border-top:1px solid var(--border); flex-wrap:wrap; flex-shrink:0;
-  }
-  .img-view-nav{ display:flex; gap:8px; }
-  .img-view-nav button{
-    padding:8px 14px; border-radius:9px; border:1.5px solid var(--border);
-    background:var(--surface-alt); color:var(--ink); font-family:inherit;
-    font-size:12.5px; font-weight:700; cursor:pointer; transition:all .15s ease;
-  }
-  .img-view-nav button:hover:not(:disabled){ border-color:var(--blue); }
-  .img-view-nav button:disabled{ opacity:.4; cursor:not-allowed; }
-  .img-view-counter{ font-size:12.5px; color:var(--blue-soft); font-weight:700; }
-  .img-view-download{
-    padding:9px 16px; border-radius:9px; background:var(--navy-deep); color:var(--paper);
-    font-size:12.5px; font-weight:700; text-decoration:none; flex-shrink:0;
-  }
-  .img-view-download:hover{ background:var(--blue); }
-
   /* ===== الإعلانات (لوحة المعلم) ===== */
   .ann-block{ background:var(--surface-alt); border-radius:14px; padding:16px 18px; border:1px solid var(--border); margin-bottom:14px; border-right:4px solid var(--gold); }
   .ann-block-head{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; }
@@ -313,59 +240,6 @@
   /* ===== لوحات الوحدات ===== */
   .mod-panel{ display:none; }
   .mod-panel.active{ display:block; }
-
-  /* ===== زر ولوحة التنقل السريع (الثلاث شحطات) ===== */
-  .hamburger-btn{
-    background:rgba(255,255,255,0.12); border:none; color:#fff;
-    width:38px; height:38px; border-radius:10px; font-size:18px;
-    cursor:pointer; display:flex; align-items:center; justify-content:center;
-    transition:background .2s; flex-shrink:0;
-  }
-  .hamburger-btn:hover{ background:rgba(255,255,255,0.22); }
-  .topbar-left{ display:flex; align-items:center; gap:10px; }
-
-  .side-menu-overlay{
-    position:fixed; inset:0; background:rgba(15,23,42,0.45);
-    z-index:998; opacity:0; visibility:hidden; transition:opacity .25s ease, visibility .25s ease;
-  }
-  .side-menu-overlay.open{ opacity:1; visibility:visible; }
-
-  .side-menu-panel{
-    position:fixed; top:0; right:0; height:100%; width:300px; max-width:84vw;
-    background:var(--surface); z-index:999;
-    box-shadow:-14px 0 40px -12px rgba(15,23,42,0.35);
-    transform:translateX(100%); transition:transform .28s ease;
-    overflow-y:auto; display:flex; flex-direction:column;
-  }
-  .side-menu-panel.open{ transform:translateX(0); }
-  .side-menu-head{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:20px 20px 14px; border-bottom:1px solid var(--border);
-    position:sticky; top:0; background:var(--surface); z-index:1;
-  }
-  .side-menu-head h3{ font-size:15px; color:var(--heading); }
-  .side-menu-close{
-    background:var(--surface-alt); border:1px solid var(--border); color:var(--blue-soft);
-    width:30px; height:30px; border-radius:9px; font-size:14px; cursor:pointer;
-    display:flex; align-items:center; justify-content:center; transition:all .2s;
-  }
-  .side-menu-close:hover{ color:var(--heading); border-color:var(--blue); }
-  .side-menu-list{ padding:14px; display:flex; flex-direction:column; gap:7px; }
-  .side-menu-item{
-    display:flex; align-items:center; gap:12px; width:100%;
-    padding:13px 14px; border-radius:12px; border:1.5px solid var(--border);
-    background:var(--surface-alt); color:var(--ink); font-family:inherit;
-    font-size:13.5px; font-weight:700; cursor:pointer; transition:all .2s;
-    text-align:right; position:relative;
-  }
-  .side-menu-item .sm-icon{ font-size:17px; flex-shrink:0; }
-  .side-menu-item:hover{ border-color:var(--blue); color:var(--heading); }
-  .side-menu-item.active{ background:var(--navy-deep); color:var(--paper); border-color:var(--navy-deep); }
-  .side-menu-item .sm-badge{
-    position:absolute; left:12px; background:var(--error,#e2413a); color:#fff; font-size:10.5px;
-    font-weight:800; min-width:18px; height:18px; border-radius:10px; display:flex;
-    align-items:center; justify-content:center; padding:0 4px;
-  }
 
   /* ===== بيانات الطلاب ===== */
   .students-count-banner{
@@ -537,41 +411,8 @@
 <body>
 
 <div class="topbar">
-  <div class="topbar-left">
-    <button class="hamburger-btn" id="sideMenuBtn" title="التنقل السريع بين الأقسام">☰</button>
-    <div class="brand">🧑‍🏫 لوحة المعلم — <span id="teacherNameLabel"></span></div>
-  </div>
+  <div class="brand">🧑‍🏫 لوحة المعلم — <span id="teacherNameLabel"></span></div>
   <button class="logout-btn" id="logoutBtn">تسجيل الخروج</button>
-</div>
-
-<div class="side-menu-overlay" id="sideMenuOverlay"></div>
-<div class="side-menu-panel" id="sideMenuPanel">
-  <div class="side-menu-head">
-    <h3>التنقل السريع</h3>
-    <button class="side-menu-close" id="sideMenuCloseBtn">✕</button>
-  </div>
-  <div class="side-menu-list" id="sideMenuList"></div>
-</div>
-
-<!-- مودال عرض صورة إجابة الطالب (زر رؤية) -->
-<div class="img-view-overlay" id="imgViewOverlay">
-  <div class="img-view-box">
-    <div class="img-view-head">
-      <span class="ivh-title" id="imgViewTitle">صورة إجابة الطالب</span>
-      <button class="img-view-close" id="imgViewCloseBtn">✕</button>
-    </div>
-    <div class="img-view-body">
-      <img id="imgViewImg" src="" alt="صورة إجابة الطالب">
-    </div>
-    <div class="img-view-footer">
-      <div class="img-view-nav">
-        <button type="button" id="imgViewPrevBtn">‹ السابقة</button>
-        <button type="button" id="imgViewNextBtn">التالية ›</button>
-      </div>
-      <span class="img-view-counter" id="imgViewCounter"></span>
-      <a class="img-view-download" id="imgViewDownloadBtn" href="#" download="صورة-إجابة.jpg">⬇️ تحميل</a>
-    </div>
-  </div>
 </div>
 
 <div class="wrap">
@@ -640,11 +481,6 @@
     </div>
     <div class="card">
       <h2>الواجبات الحالية لهذا الصف</h2>
-      <div class="hw-search-box">
-        <span class="hw-search-ic">🔍</span>
-        <input type="text" id="hwStudentSearch" placeholder="ابحث عن طالب بالاسم أو رقم الهوية...">
-        <button type="button" class="hw-search-clear" id="hwStudentSearchClear">✕</button>
-      </div>
       <div id="hwList"><p class="loading-note">جاري التحميل...</p></div>
     </div>
   </div>
@@ -827,15 +663,6 @@
   let allowedGrades = [];
   let teacherSubjects = []; // المواد المخصصة لهذا المعلم من قبل المسؤول (لا يمكن للمعلم تعديلها)
 
-  // ── حالة البحث عن طالب داخل قسم الواجبات ──
-  let hwSearchQuery = '';
-
-  // ── حالة مودال عرض صور الإجابة (زر رؤية) ──
-  let submissionImagesStore = [];
-  let imgViewList = [];
-  let imgViewIndex = 0;
-  let imgViewFileBaseName = 'صورة-إجابة';
-
   // إرجاع مصفوفة صور التسليم، مع التوافق مع البيانات القديمة (صورة واحدة فقط)
   function getSubmissionImages(sub){
     if(!sub) return [];
@@ -843,99 +670,6 @@
     if(sub.submissionImage) return [sub.submissionImage];
     return [];
   }
-
-  // ── مودال عرض صورة إجابة الطالب (زر رؤية) ──
-  function openImageViewModal(imgs, studentName){
-    imgViewList = Array.isArray(imgs) ? imgs : [];
-    imgViewIndex = 0;
-    imgViewFileBaseName = 'صورة-إجابة' + (studentName ? ('-' + studentName) : '');
-    document.getElementById('imgViewTitle').textContent = studentName ? `صورة إجابة: ${studentName}` : 'صورة إجابة الطالب';
-    renderImgView();
-    document.getElementById('imgViewOverlay').classList.add('show');
-  }
-  function renderImgView(){
-    const total = imgViewList.length;
-    const img = document.getElementById('imgViewImg');
-    img.src = imgViewList[imgViewIndex] || '';
-    document.getElementById('imgViewCounter').textContent = total ? `${imgViewIndex + 1} / ${total}` : '';
-    const dlBtn = document.getElementById('imgViewDownloadBtn');
-    dlBtn.href = imgViewList[imgViewIndex] || '#';
-    dlBtn.setAttribute('download', `${imgViewFileBaseName}-${imgViewIndex + 1}.jpg`);
-    document.getElementById('imgViewPrevBtn').disabled = imgViewIndex <= 0;
-    document.getElementById('imgViewNextBtn').disabled = imgViewIndex >= total - 1;
-  }
-  function closeImageViewModal(){
-    document.getElementById('imgViewOverlay').classList.remove('show');
-    document.getElementById('imgViewImg').src = '';
-  }
-  (function initImageViewModal(){
-    const overlay  = document.getElementById('imgViewOverlay');
-    const closeBtn = document.getElementById('imgViewCloseBtn');
-    const prevBtn  = document.getElementById('imgViewPrevBtn');
-    const nextBtn  = document.getElementById('imgViewNextBtn');
-    if(!overlay || !closeBtn || !prevBtn || !nextBtn) return;
-    closeBtn.addEventListener('click', closeImageViewModal);
-    overlay.addEventListener('click', (e) => { if(e.target === overlay) closeImageViewModal(); });
-    prevBtn.addEventListener('click', () => { if(imgViewIndex > 0){ imgViewIndex--; renderImgView(); } });
-    nextBtn.addEventListener('click', () => { if(imgViewIndex < imgViewList.length - 1){ imgViewIndex++; renderImgView(); } });
-    document.addEventListener('keydown', (e) => {
-      if(!overlay.classList.contains('show')) return;
-      if(e.key === 'Escape') closeImageViewModal();
-      if(e.key === 'ArrowLeft' && imgViewIndex < imgViewList.length - 1){ imgViewIndex++; renderImgView(); }
-      if(e.key === 'ArrowRight' && imgViewIndex > 0){ imgViewIndex--; renderImgView(); }
-    });
-  })();
-
-  // ── البحث عن طالب داخل قسم الواجبات ──
-  function applyHwSearchFilter(){
-    const list = document.getElementById('hwList');
-    if(!list) return;
-    const q = hwSearchQuery.trim().toLowerCase();
-    list.querySelectorAll('.hw-block').forEach(block => {
-      const wrap = block.querySelector('[data-subs-wrap]');
-      if(!wrap) return;
-      const subs = wrap.querySelectorAll('.submission-link');
-      let anyVisible = false;
-      subs.forEach(sub => {
-        if(!q){ sub.style.display = ''; anyVisible = true; return; }
-        const name = (sub.dataset.studentName || '').toLowerCase();
-        const id   = (sub.dataset.studentId || '').toLowerCase();
-        const match = name.includes(q) || id.includes(q);
-        sub.style.display = match ? '' : 'none';
-        if(match) anyVisible = true;
-      });
-      let noMatchMsg = wrap.querySelector('.hw-no-search-match');
-      if(q && subs.length && !anyVisible){
-        if(!noMatchMsg){
-          noMatchMsg = document.createElement('div');
-          noMatchMsg.className = 'hw-desc hw-no-search-match';
-          noMatchMsg.style.opacity = '.7';
-          noMatchMsg.textContent = 'لا يوجد تسليم مطابق لهذا الطالب في هذا الواجب';
-          wrap.appendChild(noMatchMsg);
-        }
-        noMatchMsg.style.display = '';
-      }else if(noMatchMsg){
-        noMatchMsg.style.display = 'none';
-      }
-    });
-  }
-  (function initHwSearchBox(){
-    const input = document.getElementById('hwStudentSearch');
-    const clearBtn = document.getElementById('hwStudentSearchClear');
-    if(!input || !clearBtn) return;
-    input.addEventListener('input', () => {
-      hwSearchQuery = input.value;
-      clearBtn.classList.toggle('show', !!input.value.trim());
-      applyHwSearchFilter();
-    });
-    clearBtn.addEventListener('click', () => {
-      input.value = '';
-      hwSearchQuery = '';
-      clearBtn.classList.remove('show');
-      applyHwSearchFilter();
-      input.focus();
-    });
-  })();
 
   function escapeHtml(str){
     const d = document.createElement('div');
@@ -1226,7 +960,6 @@
 
   async function renderHomeworks(){
     const list = document.getElementById('hwList');
-    submissionImagesStore = [];
     list.innerHTML = '<p class="loading-note">جاري التحميل...</p>';
     try{
       const snap = await getDocs(query(collection(db,'homeworks'), where('grade','==',activeGrade)));
@@ -1259,25 +992,25 @@
           ? subs.map(s => {
               const studentTag = `📎 <span class="sub-student-tag">${escapeHtml(s.submitterName || '')}</span>` +
                 (s.studentId ? ` <span class="sub-student-id">(${escapeHtml(s.studentId)})</span>` : '');
-              const studentAttrs = `data-student-name="${escapeHtml(s.submitterName || '')}" data-student-id="${escapeHtml(s.studentId || '')}"`;
               if(s.submissionType === 'text'){
                 return `
-                <div class="submission-link" ${studentAttrs}>
+                <div class="submission-link">
                   ${studentTag} —
                   <span style="display:block; margin-top:4px; white-space:pre-wrap; word-break:break-word;">📝 ${escapeHtml(s.submissionText || '')}</span>
                 </div>`;
               }
               if(s.submissionType === 'image'){
                 const imgs = getSubmissionImages(s);
-                const storeIdx = submissionImagesStore.push(imgs) - 1;
                 return `
-                <div class="submission-link" ${studentAttrs}>
+                <div class="submission-link">
                   ${studentTag} — 🖼️ ${imgs.length} صورة إجابة
-                  <button type="button" class="view-submission-btn" data-imgset="${storeIdx}" data-student="${escapeHtml(s.submitterName || '')}">👁️ رؤية</button>
+                  <div class="sub-image-preview">
+                    ${imgs.map((src,i) => `<a class="sub-image-file" href="${src}" target="_blank" rel="noopener" download="صورة-إجابة-${i+1}.jpg"><span class="file-ic">📄</span> صورة ${i+1}</a>`).join('')}
+                  </div>
                 </div>`;
               }
               return `
-              <div class="submission-link" ${studentAttrs}>
+              <div class="submission-link">
                 ${studentTag} —
                 <a href="${escapeHtml(s.submissionLink)}" target="_blank" rel="noopener">${escapeHtml(s.submissionLink)}</a>
               </div>`;
@@ -1293,7 +1026,7 @@
                 <span>${escapeHtml(GRADE_NAMES[hw.grade] || hw.grade || '')}</span>
               </div>
               ${hw.description ? `<div class="hw-desc">${escapeHtml(hw.description)}</div>` : ''}
-              <div style="margin-top:8px;" data-subs-wrap>
+              <div style="margin-top:8px;">
                 <div style="font-size:13px;font-weight:700;color:var(--blue-soft);margin-bottom:4px;">📥 التسليمات (${subs.length})</div>
                 ${submissionsHtml}
               </div>
@@ -1315,13 +1048,6 @@
       list.querySelectorAll('.edit-hw-btn').forEach(btn =>
         btn.addEventListener('click', () => startEditHomework(hws.find(h => h.id === btn.dataset.hwid)))
       );
-      list.querySelectorAll('.view-submission-btn').forEach(btn =>
-        btn.addEventListener('click', () => {
-          const idx = parseInt(btn.dataset.imgset, 10);
-          openImageViewModal(submissionImagesStore[idx] || [], btn.dataset.student || '');
-        })
-      );
-      applyHwSearchFilter();
     }catch(e){ console.error(e); list.innerHTML='<p class="empty-note">خطأ في تحميل الواجبات</p>'; }
   }
 
@@ -2263,60 +1989,6 @@
     pwMoTimer = setTimeout(initAll, 150);
   });
   mo.observe(document.documentElement, { childList:true, subtree:true });
-})();
-
-// ===== قائمة التنقل الجانبي (الثلاث شحطات) =====
-(function(){
-  var menuBtn   = document.getElementById('sideMenuBtn');
-  var overlay   = document.getElementById('sideMenuOverlay');
-  var panel     = document.getElementById('sideMenuPanel');
-  var closeBtn  = document.getElementById('sideMenuCloseBtn');
-  var list      = document.getElementById('sideMenuList');
-  if(!menuBtn || !overlay || !panel || !closeBtn || !list) return;
-
-  function buildList(){
-    list.innerHTML = '';
-    document.querySelectorAll('.module-nav .mod-btn').forEach(function(btn){
-      var item = document.createElement('button');
-      item.type = 'button';
-      item.className = 'side-menu-item' + (btn.classList.contains('active') ? ' active' : '');
-
-      var iconEl  = btn.querySelector('.mod-icon');
-      var badgeEl = btn.querySelector('.mod-badge');
-      var icon    = iconEl ? iconEl.textContent : '';
-      var label   = btn.textContent.replace(icon, '').trim();
-
-      var html = '<span class="sm-icon">' + icon + '</span><span>' + label + '</span>';
-      if(badgeEl && badgeEl.classList.contains('show')){
-        html += '<span class="sm-badge">' + badgeEl.textContent + '</span>';
-      }
-      item.innerHTML = html;
-
-      item.addEventListener('click', function(){
-        btn.click();
-        closeMenu();
-        window.scrollTo({ top:0, behavior:'smooth' });
-      });
-      list.appendChild(item);
-    });
-  }
-
-  function openMenu(){
-    buildList();
-    overlay.classList.add('open');
-    panel.classList.add('open');
-  }
-  function closeMenu(){
-    overlay.classList.remove('open');
-    panel.classList.remove('open');
-  }
-
-  menuBtn.addEventListener('click', openMenu);
-  closeBtn.addEventListener('click', closeMenu);
-  overlay.addEventListener('click', closeMenu);
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') closeMenu();
-  });
 })();
 </script>
 

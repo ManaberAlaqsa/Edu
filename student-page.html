@@ -509,85 +509,15 @@
   .exam-close-x{ position:absolute; left:18px; top:16px; background:none; border:none; font-size:17.5px; cursor:pointer; color:var(--muted); z-index:3; }
   #examTakeMsg.msg{ font-size:13.5px; font-weight:700; margin-top:10px; min-height:16px; }
   #examTakeMsg.msg.error{ color:var(--error,#a8453a); }
-
-  /* ===== زر ولوحة التنقل السريع (الثلاث شحطات) ===== */
-  .hamburger-btn{
-    background:rgba(255,255,255,0.12); border:none; color:#fff;
-    width:38px; height:38px; border-radius:10px; font-size:18px;
-    cursor:pointer; display:flex; align-items:center; justify-content:center;
-    transition:background .2s; flex-shrink:0;
-  }
-  .hamburger-btn:hover{ background:rgba(255,255,255,0.22); }
-  .topbar-left{ display:flex; align-items:center; gap:10px; }
-
-  .side-menu-overlay{
-    position:fixed; inset:0; background:rgba(15,23,42,0.45);
-    z-index:998; opacity:0; visibility:hidden; transition:opacity .25s ease, visibility .25s ease;
-  }
-  .side-menu-overlay.open{ opacity:1; visibility:visible; }
-
-  .side-menu-panel{
-    position:fixed; top:0; right:0; height:100%; width:300px; max-width:84vw;
-    background:var(--surface); z-index:999;
-    box-shadow:-14px 0 40px -12px rgba(15,23,42,0.35);
-    transform:translateX(100%); transition:transform .28s ease;
-    overflow-y:auto; display:flex; flex-direction:column;
-  }
-  .side-menu-panel.open{ transform:translateX(0); }
-  .side-menu-head{
-    display:flex; align-items:center; justify-content:space-between;
-    padding:20px 20px 14px; border-bottom:1px solid var(--border);
-    position:sticky; top:0; background:var(--surface); z-index:1;
-  }
-  .side-menu-head h3{ font-size:15px; color:var(--heading); }
-  .side-menu-close{
-    background:var(--surface-alt); border:1px solid var(--border); color:var(--blue-soft);
-    width:30px; height:30px; border-radius:9px; font-size:14px; cursor:pointer;
-    display:flex; align-items:center; justify-content:center; transition:all .2s;
-  }
-  .side-menu-close:hover{ color:var(--heading); border-color:var(--blue); }
-  .side-menu-list{ padding:14px; display:flex; flex-direction:column; gap:7px; }
-  .side-menu-item{
-    display:flex; align-items:center; gap:12px; width:100%;
-    padding:13px 14px; border-radius:12px; border:1.5px solid var(--border);
-    background:var(--surface-alt); color:var(--ink); font-family:inherit;
-    font-size:13.5px; font-weight:700; cursor:pointer; transition:all .2s;
-    text-align:right; position:relative;
-  }
-  .side-menu-item .sm-icon{ font-size:17px; flex-shrink:0; }
-  .side-menu-item:hover{ border-color:var(--blue); color:var(--heading); }
-  .side-menu-item .sm-badge{
-    position:absolute; left:12px; background:var(--error,#e2413a); color:#fff; font-size:10.5px;
-    font-weight:800; min-width:18px; height:18px; border-radius:10px; display:flex;
-    align-items:center; justify-content:center; padding:0 4px;
-  }
 </style>
 </head>
 <body>
 
 <div class="topbar">
-  <div class="topbar-left">
-    <button class="hamburger-btn" id="sideMenuBtn" title="التنقل السريع بين الأقسام">☰</button>
-    <div class="brand">🏫 مركز منابر الأقصى</div>
-  </div>
+  <div class="brand">🏫 مركز منابر الأقصى</div>
   <div class="topbar-actions">
     <button class="notif-bell-btn" id="notifBellBtn" title="الإشعارات">🔔</button>
     <button class="logout-btn" id="logoutBtn">تسجيل الخروج</button>
-  </div>
-</div>
-
-<div class="side-menu-overlay" id="sideMenuOverlay"></div>
-<div class="side-menu-panel" id="sideMenuPanel">
-  <div class="side-menu-head">
-    <h3>التنقل السريع</h3>
-    <button class="side-menu-close" id="sideMenuCloseBtn">✕</button>
-  </div>
-  <div class="side-menu-list" id="sideMenuList">
-    <button type="button" class="side-menu-item" data-target="secSubjects"><span class="sm-icon">📚</span><span>المواد الدراسية</span></button>
-    <button type="button" class="side-menu-item" data-target="secHomeworks"><span class="sm-icon">📝</span><span>الواجبات المطلوبة</span></button>
-    <button type="button" class="side-menu-item" data-target="secAnnouncements"><span class="sm-icon">📢</span><span>تعليمات مهمة / أنشطة</span></button>
-    <button type="button" class="side-menu-item" data-target="secExams" data-open-exams="1"><span class="sm-icon">🧪</span><span>الاختبارات الإلكترونية</span></button>
-    <button type="button" class="side-menu-item" data-target="complaintsSection"><span class="sm-icon">📢</span><span>شكاويّ وتنبيهاتي</span></button>
   </div>
 </div>
 
@@ -627,22 +557,22 @@
   </div>
 </div>
 
-<div class="section" id="secSubjects">
+<div class="section">
   <div class="section-title">المواد الدراسية</div>
   <div id="subjectsContainer"><p class="loading-note">جاري التحميل...</p></div>
 </div>
 
-<div class="section" style="margin-top:28px;" id="secHomeworks">
+<div class="section" style="margin-top:28px;">
   <div class="section-title">الواجبات المطلوبة</div>
   <div id="hwContainer"><p class="loading-note">جاري التحميل...</p></div>
 </div>
 
-<div class="section" style="margin-top:28px;" id="secAnnouncements">
+<div class="section" style="margin-top:28px;">
   <div class="section-title">📢 تعليمات مهمة / اختبارات / أنشطة</div>
   <div id="annContainer"><p class="loading-note">جاري التحميل...</p></div>
 </div>
 
-<div class="section" style="margin-top:28px;" id="secExams">
+<div class="section" style="margin-top:28px;">
   <div class="section-title" id="examSectionToggle" style="cursor:pointer; display:flex; align-items:center; justify-content:space-between;">
     <span>🧪 الاختبارات الإلكترونية</span>
     <span style="font-size:13px; color:var(--blue-soft); font-weight:700;" id="examToggleHint">اضغط للعرض ▾</span>
@@ -950,7 +880,7 @@
   if(!currentId || studentSessionExpired){
     localStorage.removeItem('currentStudentId');
     localStorage.removeItem('studentLoginTime');
-    window.location.href = 'index.html';
+    window.location.href = 'login.html';
   }
 
   let currentSubjects = [];
@@ -1305,13 +1235,13 @@
   async function loadStudent(id){
     try{
       const snap = await getDoc(doc(db,'students',id));
-      if(!snap.exists()){ localStorage.removeItem('currentStudentId'); localStorage.removeItem('studentLoginTime'); window.location.href='index.html'; return; }
+      if(!snap.exists()){ localStorage.removeItem('currentStudentId'); localStorage.removeItem('studentLoginTime'); window.location.href='login.html'; return; }
       const s = snap.data();
       if(s.frozen === true){
         localStorage.removeItem('currentStudentId');
         localStorage.removeItem('studentLoginTime');
         alert('تم تجميد حسابك من قبل إدارة المدرسة، يرجى التواصل مع الإدارة لفك التجميد');
-        window.location.href = 'index.html';
+        window.location.href = 'login.html';
         return;
       }
       studentData = s;
@@ -2568,55 +2498,6 @@
     pwMoTimer = setTimeout(initAll, 150);
   });
   mo.observe(document.documentElement, { childList:true, subtree:true });
-})();
-
-// ===== قائمة التنقل الجانبي (الثلاث شحطات) =====
-(function(){
-  var menuBtn  = document.getElementById('sideMenuBtn');
-  var overlay  = document.getElementById('sideMenuOverlay');
-  var panel    = document.getElementById('sideMenuPanel');
-  var closeBtn = document.getElementById('sideMenuCloseBtn');
-  if(!menuBtn || !overlay || !panel || !closeBtn) return;
-
-  function openMenu(){
-    overlay.classList.add('open');
-    panel.classList.add('open');
-  }
-  function closeMenu(){
-    overlay.classList.remove('open');
-    panel.classList.remove('open');
-  }
-
-  menuBtn.addEventListener('click', openMenu);
-  closeBtn.addEventListener('click', closeMenu);
-  overlay.addEventListener('click', closeMenu);
-  document.addEventListener('keydown', function(e){
-    if(e.key === 'Escape') closeMenu();
-  });
-
-  document.querySelectorAll('#sideMenuList .side-menu-item').forEach(function(item){
-    item.addEventListener('click', function(){
-      var targetId = item.dataset.target;
-      var target = document.getElementById(targetId);
-
-      // إن كان القسم المستهدف هو الاختبارات وكان مطويّاً، افتحه أولاً
-      if(item.dataset.openExams === '1'){
-        var body = document.getElementById('examSectionBody');
-        var toggleHint = document.getElementById('examToggleHint');
-        if(body && body.style.display === 'none'){
-          var toggleBtn = document.getElementById('examSectionToggle');
-          if(toggleBtn) toggleBtn.click();
-        }
-      }
-
-      closeMenu();
-      if(target){
-        setTimeout(function(){
-          target.scrollIntoView({ behavior:'smooth', block:'start' });
-        }, 180);
-      }
-    });
-  });
 })();
 </script>
 

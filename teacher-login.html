@@ -180,6 +180,18 @@
     color:var(--error);
   }
   .global-msg.show{ opacity:1; }
+
+  .cross-links{
+    margin-top:22px; display:flex; align-items:center; justify-content:center;
+    gap:10px; flex-wrap:wrap; font-size:12px;
+  }
+  .cross-links a{
+    color:var(--blue, #2554eb); font-weight:700; text-decoration:none;
+  }
+  .cross-links a:hover{ text-decoration:underline; }
+  .cross-links .dot{
+    width:4px; height:4px; border-radius:50%; background:#94a3b8; display:inline-block;
+  }
 </style>
 </head>
 <body>
@@ -205,6 +217,12 @@
       <button type="submit" class="submit-btn" id="loginBtn">تسجيل الدخول</button>
       <p class="global-msg" id="globalMsg"></p>
     </form>
+
+    <div class="cross-links">
+      <a href="login.html">نظام دخول الطلبة</a>
+      <span class="dot"></span>
+      <a href="contact.html">إتصل بالإدارة</a>
+    </div>
   </div>
 
 <script type="module">
