@@ -1251,7 +1251,7 @@
       // اسم الطالب الأول فقط للترحيب
       const firstName = (s.fullName||'').trim().split(/\s+/)[0] || s.fullName;
       document.getElementById('welcomeName').textContent = 'مرحباً بك يا ' + firstName + ' 🎉';
-      document.getElementById('studentGrade').textContent = GRADE_NAMES[s.grade]||'غير محدد';
+      document.getElementById('studentGrade').textContent = GRADE_NAMES[s.grade] || s.grade || 'غير محدد';
       document.getElementById('studentPhone').textContent = s.phone;
 
       const avatarEl = document.getElementById('avatar');

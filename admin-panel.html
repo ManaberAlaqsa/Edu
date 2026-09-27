@@ -1641,6 +1641,45 @@
     return Array.isArray(t.subjects) ? t.subjects : [];
   }
 
+  // ── مزامنة المراحل الخاصة الحرة (مثل "بستان 1") مع كل قوائم اختيار الصف في الموقع ──
+  // نجمع المراحل الخاصة من صفوف المعلمين الحاليين، ونضيفها كخيارات إضافية في قوائم:
+  // تسجيل طالب جديد، فلترة عرض الطلاب، وتعديل بيانات طالب. تُحدَّث تلقائياً عند إضافة/تعديل معلم.
+  function applyCustomGradeOptionsTo(selectEl, customGrades){
+    if(!selectEl) return;
+    const currentValue = selectEl.value;
+    // إزالة الخيارات الخاصة القديمة أولاً كي لا تتكرر أو تبقى مرحلة لم تعد مستخدمة من أي معلم
+    Array.from(selectEl.querySelectorAll('option[data-custom-grade="1"]')).forEach(opt => opt.remove());
+    customGrades.forEach(g => {
+      const opt = document.createElement('option');
+      opt.value = g;
+      opt.textContent = g;
+      opt.dataset.customGrade = '1';
+      selectEl.appendChild(opt);
+    });
+    if(Array.from(selectEl.options).some(o => o.value === currentValue)){
+      selectEl.value = currentValue;
+    }
+  }
+
+  async function refreshCustomGradeOptions(){
+    try{
+      const snap = await getDocs(collection(db, 'teachers'));
+      const customGrades = new Set();
+      snap.forEach(docSnap => {
+        getTeacherGrades(docSnap.data()).forEach(g => {
+          if(!isStandardGradeValue(g)) customGrades.add(g);
+        });
+      });
+      const sorted = Array.from(customGrades).sort((a,b) => a.localeCompare(b, 'ar'));
+      applyCustomGradeOptionsTo(document.getElementById('regStudentGrade'), sorted);
+      applyCustomGradeOptionsTo(document.getElementById('allStudentsGradeFilter'), sorted);
+      applyCustomGradeOptionsTo(document.getElementById('editStudentGrade'), sorted);
+    }catch(err){
+      console.error('تعذّر تحديث قائمة المراحل الخاصة', err);
+    }
+  }
+  refreshCustomGradeOptions();
+
   // ══════════════════════════════════
   //  خدمات أخرى: تصدير كشوفات إكسل
   // ══════════════════════════════════
@@ -1850,7 +1889,7 @@
       groupEl.className = 'grade-group';
       groupEl.innerHTML = `
         <div class="grade-group-title">
-          📚 ${escapeHtml(GRADE_LABELS[g] || 'غير محدد')}
+          📚 ${escapeHtml(GRADE_LABELS[g] || (g === '0' ? 'غير محدد' : g))}
           <span class="cnt">${groupStudents.length} طالب</span>
         </div>
         <div class="grade-group-body"></div>
@@ -2100,6 +2139,7 @@
       setTagsValues(subjectGroup, []);
       showMsg('تمت إضافة المعلم بنجاح ✓', 'success');
       renderTeachers();
+      refreshCustomGradeOptions();
     }catch(err){
       console.error(err);
       showMsg('خطأ في الحفظ، تحقق من الإنترنت', 'error');
@@ -2126,6 +2166,7 @@
       await deleteDoc(doc(db, 'teachers', username));
 
       renderTeachers();
+      refreshCustomGradeOptions();
       refreshTrashBadge();
     }catch(err){
       console.error(err);
@@ -2572,6 +2613,7 @@
       editMsg.textContent = 'تم حفظ التعديلات بنجاح ✓';
       editMsg.className   = 'modal-msg show success';
       renderTeachers();
+      refreshCustomGradeOptions();
       setTimeout(closeEditModal, 1200);
 
     }catch(err){
