@@ -2334,7 +2334,7 @@
       if(typeof loadAllStudents === 'function') loadAllStudents();
     }catch(err){
       console.error(err);
-      showAddStudentMsg('خطأ في الحفظ، تحقق من الإنترنت', 'error');
+      showAddStudentMsg('خطأ في الحفظ: ' + (err && err.message ? err.message : 'تحقق من الإنترنت'), 'error');
     }
 
     addStudentBtn.disabled = false;
